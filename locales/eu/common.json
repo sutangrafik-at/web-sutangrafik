@@ -1,0 +1,79 @@
+{
+  "nav": {
+    "grafik": "GRAFIK",
+    "bio": "BIO",
+    "kontaktua": "kontaktuA"
+  },
+  "home": {
+    "contactPhone": "688 84 03 08",
+    "contactEmail": "sutangrafik@gmail.com"
+  },
+  "grafik": {
+    "title": "GRAFIK",
+    "subtitle": "BEHARRIZANEN ARABERAKO SOLUZIO GRAFIKOAK",
+    "subtitle2": "GURE ESPERIENTZIAN OINARRITURIKO AHOLKULARITZA, SORKUNTZA PROZESU GUZTIAZ ARDURATZEN GARA",
+    "services": {
+      "diseniu": {
+        "title": "DISEINU GRAFIKOA",
+        "items": [
+          "Logotipoak / Irudi korporatiboa",
+          "Kartelak / Flyerrak / Merchandising",
+          "Kamixetak / Diskak / Pegatinak",
+          "Euskarri digitalak / Argazki-muntaiak"
+        ]
+      },
+      "editoriala": {
+        "title": "EDITORIALA IRUDIA",
+        "items": [
+          "Liburuxkak / Aldizkariak",
+          "Produkzio editoriala",
+          "Ilustrazio digitala / Logotipoak",
+          "Eskuorriak / Material grafikoa"
+        ]
+      }
+    },
+    "galleryTitle": "ARGALDIK",
+    "cta1": "ZER DA SUTAN GRAFIK?",
+    "cta2": "aurrekontua eskatu"
+  },
+  "bio": {
+    "label": "bio",
+    "title": "SUTAN GRAFIK",
+    "paragraphs": [
+      "Hainbat urtez freelance moduan zein diseinu agentzietan lanean ibili ondoren sorturiko proiektua.",
+      "Enpresa, kolektibo, musika talde, kultur elkarte eta bestelako eragileentzako diseinu lanak burutzen dira, bakoitzaren errealitatearen perspektibatik, zure beharrizanen araberako soluzio grafikoak sortuz.",
+      "Zerbitzu integrala eskaintzen dugu. Behar dituzun produktu grafikoen ideazio, sorkuntza eta gestio prozesu guztiaz arduratzen gara, gure esperientzian oinarritutako aholkularitza pertsonalizatua eskainiz."
+    ],
+    "name": "ALEX TURRILLAS",
+    "nameParagraphs": [
+      "Deban (Gipuzkoa) jaio nintzen 1992ko irailaren 23an. Politika Zientzia eta Administrazio Publikoaren Kudeaketa (UPV/EHU Leioa) ikasi eta gero nire bokazioa zen diseinu grafikoan murgiltzea erabaki nuen.",
+      "Historian, musikan eta arteetan zaletua."
+    ],
+    "cta1": "EGINDAKO LANAK IKUSI",
+    "cta2": "aurrekontua eskatu"
+  },
+  "kontaktua": {
+    "label": "kontaktua",
+    "email": "sutangrafik@gmail.com",
+    "description": "ZURE PROIEKTUETARAKO AURREKONTU BAT BEHAR DUZU? JARRI ZAITEZ GUREKIN HARREMANETAN ETA ZURE ZALANTZAK ARGITUKO DITUGU",
+    "form": {
+      "name": "Izena",
+      "namePlaceholder": "Zure izena",
+      "email": "Emaila",
+      "emailPlaceholder": "zure@email.eus",
+      "message": "Mezua",
+      "messagePlaceholder": "Idatzi zure mezua...",
+      "submit": "Bidali",
+      "success": "Eskerrik asko! Mezua ondo bidali da."
+    },
+    "cta1": "ZER DA SUTAN GRAFIK?",
+    "cta2": "EGINDAKO LANAK IKUSI"
+  },
+  "footer": {
+    "copyright": "© {year} Sutan Grafik. Eskubide guztiak erreserbatuta."
+  },
+  "lang": {
+    "eus": "EUS",
+    "cas": "CAS"
+  }
+}
