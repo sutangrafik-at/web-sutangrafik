@@ -8,29 +8,28 @@
 
 ## Última tarea completada
 
-- Descargados los recursos oficiales de `static.wixstatic.com` a `public/images/` (logo 800×600, background 4961×3508, 4 iconos 225×225 en `icons/`, bio-logo 473×558, bio-image 407×390) — originales sin transformar. ARCHITECTURE.md §13 corregido con dimensiones reales.
-- Anteriormente: extracción de las 35 JPGs de portfolio a `public/images/portfolio/`; análisis completo de la web de referencia; decisiones del usuario (galería 35 JPGs, formulario modo prueba, footer no); documentos en `.ia/`.
+- Añadidas las fuentes locales a `public/fonts/`: BigNoodleTitling (woff2/woff/ttf, del historial Git) y Third Rail (woff2/woff/ttf, descargada de `static.wixstatic.com/ufonts/ef03a3_004476c206e5480fafac36a3a1851d13/`). Verificado: los `.woff2` originales son bytes idénticos a los `.woff` (nota documentada en ARCHITECTURE.md §13 para el `@font-face`).
+- Anteriormente: descarga de recursos oficiales a `public/images/`; extracción de las 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Siguiente: añadir fuentes locales (BigNoodleTitling woff2/woff/ttf y Third Rail) a `public/fonts`.
+Ninguna en progreso. Siguiente: configurar `layout.tsx` global (fuentes, fondo común, metadata base, skip-link).
 
 ---
 
 ## Próximo paso
 
-1. Tarea "Recursos y base" siguiente: añadir fuentes locales (BigNoodleTitling, Third Rail) desde el historial Git / wixstatic a `public/fonts`.
-2. Luego: configurar `layout.tsx` global (fuentes, fondo común, metadata base, skip-link).
-3. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
-4. Extraer textos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (antes de implementarlas).
+1. Tarea "Recursos y base" siguiente: configurar `layout.tsx` global — fuentes (`@font-face` woff2→woff→ttf, nota de ARCHITECTURE.md §13), fondo común (imagen 40% fija + blanco), metadata base, skip-link.
+2. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
+3. Extraer textos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (antes de implementarlas).
 
 ---
 
 ## Último commit
 
-Pendiente (se realizará tras el commit de recursos oficiales)
+Pendiente (se realizará tras el commit de fuentes locales)
 
 ---
 

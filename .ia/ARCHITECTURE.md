@@ -207,6 +207,8 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 | worksans-extralight | Google Fonts (Work Sans ExtraLight 200) | Párrafos, listas de servicios |
 | helvetica-w01-roman | Sistema | Mensaje de éxito del formulario |
 
+Nota (verificado 31/07/2026): en la web original, los ficheros `.woff2` de BigNoodleTitling y Third Rail son **bytes idénticos a los `.woff`** (el CDN de Wix sirve WOFF para ambas rutas). Conservados tal cual en `public/fonts/` (bignoodletitling.{woff2,woff,ttf}, thirdrail.{woff2,woff,ttf}). En el `@font-face` declarar woff2→woff→ttf para que el navegador haga fallback correctamente.
+
 ### Galería
 35 JPGs en `images/Portfoliokoak/` del historial Git — **DECIDIDO**: usar estas 35 imágenes (ver §9).
 
