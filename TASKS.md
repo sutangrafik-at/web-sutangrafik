@@ -1,8 +1,19 @@
 # TASKS
 
-Estado inicial del proyecto.
+## Infraestructura del proyecto
 
-Las tareas deberán generarse automáticamente tras analizar la web de referencia.
+- [x] Commit de limpieza: eliminar copia estática del working tree (recursos originales conservados en el historial de Git)
+- [x] Scaffold de Next.js 15 (TypeScript, Tailwind CSS, ESLint, App Router, `src/`)
+- [x] Configurar Prettier (`eslint-config-prettier`, `prettier-plugin-tailwindcss`)
+- [x] Instalar Framer Motion (stack definido en SPEC.md)
+- [x] Estructura base: `src/components`, `src/lib`, `src/types`
+- [x] Metadata base del layout (`lang="eu"`, título y descripción verificados de la copia original)
+- [x] Validación: ESLint, TypeScript y build sin errores
+
+## Pendiente
+
+- [ ] Analizar la web de referencia (https://sutangrafik.wixsite.com/website) y generar tareas por página
+- [ ] Implementar cada página (las tareas se generarán tras el análisis)
 
 Formato esperado:
 
@@ -19,5 +30,3 @@ Reglas:
   - ESLint
   - Funcionamiento
   - Responsive
-
-El agente deberá actualizar este archivo después de completar cada tarea.
