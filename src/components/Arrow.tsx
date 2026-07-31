@@ -1,0 +1,23 @@
+type ArrowProps = {
+  width?: number;
+  height?: number;
+  className?: string;
+};
+
+export default function Arrow({ width = 47, height = 160, className = '' }: ArrowProps) {
+  return (
+    <svg
+      preserveAspectRatio="xMidYMid meet"
+      viewBox="62.414 7.193 56.117 189.118"
+      role="presentation"
+      aria-hidden="true"
+      width={width}
+      height={height}
+      className={`fill-accent rotate-180 ${className}`}
+    >
+      <g>
+        <path d="M115.413 196.311a3.118 3.118 0 0 1-2.742-1.627l-49.875-91.441a3.11 3.11 0 0 1 0-2.986L112.67 8.819a3.122 3.122 0 0 1 4.232-1.246 3.118 3.118 0 0 1 1.246 4.232L69.087 101.75l49.062 89.948a3.118 3.118 0 0 1-2.736 4.613z" />
+      </g>
+    </svg>
+  );
+}
