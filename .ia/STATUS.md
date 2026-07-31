@@ -2,33 +2,38 @@
 
 ## Fecha
 
-31/07/2026
+01/08/2026
 
 ---
 
 ## Última tarea completada
 
-- **Página `/kontaktua` (eu)** (`src/app/kontaktua/page.tsx` + `src/components/ContactForm.tsx`, commit `b4bfd6b`): HeaderNav (kontaktua activo), título `NBSP kontaktua NBSP ` 53px/1.5em blanco sobre `#DD0018` (ls 0.05em) en left 23 (310px) margin-bottom 18, enlazado a mailto:sutangrafik@gmail.com; descripción 622px left 83 (mb -15): 29px/1.15em (33px) + 18px/1.15em (21px) + NBSP 18px ls 0.35em (21px) + NBSP 16px bold centrado (18px) = 93px, BigNoodle #DD0018 ls 0.1em; formulario 781px left 83 (mb 25): grid 391/386 gap-x 3 con filas 43/43/43/50 (179px total), email (pattern `^.+@.+\.[a-zA-Z]{2,63}$`, maxLength 250) / nombre (maxLength 100) / asunto, textarea 386×124, botón Bidali 52×42 self-start (bg accent, sombra), éxito 686×16 "Eskerrik asko! Mezua ondo bidali da."; inputs bg rgba(255,255,255,0.3), sombra 0 1px 4px rgba(0,0,0,0.6), 20px/1.4em #DD0018, error borde #C71212 + texto #FF4040; validación cliente modo prueba ("Campo obligatorio" / "Correo electrónico no válido", éxito simulado sin email); CTA (ZER DA SUTAN GRAFIK? → /bio, EGINDAKO LANAK IKUSI → /grafik, mb 5px); móvil apilado (título 36px). Geometría verificada vs original con Edge headless + CDP: título 310×80 @156, desc @254 (33/21/21/18), form 179 @332, botón @461, CTA @536 — idénticos. El mismo commit incluye el fix de HeaderNav (chips top-[90px], contenedor h-[156px] — antes 139px/202px) y el refactor de CtaRow (contenedor h-[32px] + prop `className`; antes 79px fijo; mb resultantes: grafik 46, bio 41, kontaktua 5).
-- Anteriormente: `/bio` (`1675c04`); `/grafik` completo (`f9c86ba`/`b31682e`/`a3ad3b6`); Home cas `/cas` (`559d4e9`); Home eu `/` (`6a150a7`); LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- **Página `/cas-grafik` (es)** (`src/app/cas-grafik/page.tsx`): HeaderNav (cas activo, chips `ContaCtO` left 756/837/889), título GRAFIK 53px, eslogan SOLUCIONES GRÁFICAS ADAPTADAS A TUS NECESIDADES (23px/0.5em ls 0.45em), línea roja, intro (15px/0.5em ls 0.2em), flechas decorativas, columnas de servicios (DISEÑO GRÁFICO / EDITORIAL IMAGEN con textos es), galería `md:ml-[201px] md:mb-[52px]` (left 201 del grid orig cas), fila CTA (¿QUÉ ES SUTAN GRAFIK? → /cas-bio, PEDIR PRESUPUESTO → /cas-contacto, mb-52), responsive móvil. Mismo commit de medición: corrección global de geometría tras re-medir el original con CDP — contenedor de página `ml-[130px]` (grid real del original, no centrado), HeaderNav re-medido (logo top 100, EUS/CAS top 107 26px, chips top 140, h-172px), servicios (items worksans-extralight 16px lh 1.14em, título lh 1.15em, guards a 6 líneas, fila 160px), márgenes exactos de fila 2-5 en grafik/cas-grafik (título mt-33 mb-11, eslogan mb-13, línea mb-16, intro mt-8 mb-40, flechas mt-8 mb-44/69 — el lh de bignoodle es 1.14em real; los "2.25em" de las mediciones headless eran artefacto Arial por parastorage bloqueado). Cadena vertical local (CDP): logo 100, eslogan 314, intro 359, flechas 415, galería 611, CTA 3120 ≈ original real (612.5/3120.5).
+- Anteriormente: `/kontaktua` (`b4bfd6b`); `/bio` (`1675c04`); `/grafik` completo (`f9c86ba`/`b31682e`/`a3ad3b6`); Home cas `/cas` (`559d4e9`); Home eu `/` (`6a150a7`); LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Siguiente: implementar `/kontaktua` (eu) — HeaderNav, título kontaktua 53px (mailto), descripción, formulario modo prueba (3 inputs + textarea + botón Bidali + mensaje éxito) y fila CTA.
+Ninguna en progreso. Siguiente: extraer textos de `/cas-bio` y `/cas-contacto` de la web publicada e implementarlas.
 
 ---
 
 ## Próximo paso
 
-1. Implementar `/kontaktua` (eu): título kontaktua 53px enlazado a mailto, descripción 29px/18px, componente Formulario con validación cliente (estados error/success del original) en modo prueba y fila CTA (ZER DA SUTAN GRAFIK? / EGINDAKO LANAK IKUSI).
-2. Extraer textos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (antes de implementarlas).
-3. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
+1. Extraer textos exactos de `/cas-bio` y `/cas-contacto` de la web publicada (SSR).
+2. Implementar `/cas-bio` (es) con HeaderNav cas, título bio, textos es, imágenes y fila CTA.
+3. Implementar `/cas-contacto` (es) con el formulario (modo prueba).
+4. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
+5. Cierre: SEO completo por página (metadata, OG, canonical `sutangrafik.com`, sitemap, robots), validación final global y commit final.
 
 ---
 
 ## Último commit
 
+- `8ee2dba` — docs: update status with kontaktua page completion
+- `b4bfd6b` — feat: implement kontaktua page with test-mode contact form
+- `f0518a6` — docs: update bio details and status after page implementation
 - `1675c04` — feat: replicate bio page with header, paragraphs and images
 - `f9c86ba` — chore: mark grafik page tasks as complete
 - `b31682e` — feat: add portfolio masonry gallery with lightbox and CTA row
@@ -49,7 +54,8 @@ Ninguna en progreso. Siguiente: implementar `/kontaktua` (eu) — HeaderNav, tí
 
 - URLs de la galería Masonry de `/grafik` inaccesibles (iframe santa-galleries protegido, AccessDenied) → resuelto con decisión de usar las 35 JPGs del historial Git.
 - Destino del envío del formulario: en modo prueba, sin email (decisión del usuario).
-- Textos de las 3 páginas cas internas pendientes de extracción de la web publicada.
+- Mediciones headless del original: con parastorage bloqueado, bignoodle/worksans se caen a Arial → filas infladas por wraps (el "2.25em" era artefacto); la fuente de verdad son el CSS del SSR + las métricas reales de las fuentes locales.
+- Textos de `/cas-bio` y `/cas-contacto` pendientes de extracción de la web publicada.
 - Favicon y CrossFade pendientes de confirmar (hay valor por defecto definido).
 - Documentos en `.ia/` (fuera de la raíz); actualizar referencias de AGENTS.md (RECUPERACIÓN DE LA SESIÓN) si se mantiene la ubicación.
 
@@ -59,4 +65,5 @@ Ninguna en progreso. Siguiente: implementar `/kontaktua` (eu) — HeaderNav, tí
 
 - Fuente de verdad: web publicada (revisión 211, SSR capturado) + recursos del historial Git (commit 7a03e51).
 - Navegación no es layout global: cada página es una landing con logo + chips + EUS/CAS como contenido propio.
+- El grid del original no está centrado: contenedor de página con `margin-left: 130px` (verificado por CDP: galería l=331 = 130+201).
 - Wix clásico no responsive (980px fijo); la réplica añade responsive manteniendo fidelidad (prioridad 3 de AGENTS.md).

@@ -8,7 +8,7 @@
 
 - [x] Confirmar con el usuario los puntos de ARCHITECTURE.md §16: galería (35 JPGs del historial Git), formulario (modo prueba, sin email), footer (NO añadir)
 - [ ] Pendiente de confirmar: favicon y CrossFade (por defecto: favicon del logo, navegación normal)
-- [ ] Extraer textos exactos de las páginas `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (los locales `es` de la copia anterior no son fuente de verdad)
+- [x] Extraer textos exactos de la página `/cas-grafik` de la web publicada (SSR + textos; pendiente `/cas-bio` y `/cas-contacto`, los locales `es` de la copia anterior no son fuente de verdad)
 
 ## Recursos y base
 
@@ -20,9 +20,9 @@
 
 ## Componentes compartidos
 
-- [x] Componente HeaderNav (logo 119×90 + chips + selector EUS/CAS, estado activo por prop) con estilos exactos (chip 28px blanco sobre #DD0018, activo #A82020, selectores #DD0018/#8B0000; posiciones verificadas del SSR: chips top 139 left 745/826/878, EUS/CAS top 57 left 929/955)
+- [x] Componente HeaderNav (logo 119×90 + chips + selector EUS/CAS, estado activo por prop) — geometría re-medida del original (CDP + SSR): contenedor h-172px, logo top 100 left 0, EUS/CAS top 107 left 929/955 (26px, lh 1.15em), chips top 140 (eu: left 745/826/878; cas: left 756/837/889, chip 28px #DD0018, activo #A82020, selectores #DD0018/#8B0000); páginas con contenedor `ml-[130px]` (grid real del original, no centrado)
 - [x] Componentes Fila CTA y flechas SVG (47×160 decorativa y 9×32 en CTA, rotada 180°), colores #DD0018 — path exacto del SSR; fila CTA con posiciones verificadas en las 3 páginas (flechas left 250/518 top 1, chips left 269/537, alto 79px)
-- [x] Componente Columnas de servicios (título 34px + lista bold 16px worksans-extralight) — detalles del SSR: título BigNoodle 34px 0.35em rojo #DD0018 (p, no h1), espaciador 16px/0.5em, 4 líneas bold #DD0018 con letter-spacing 0, 2 párrafos vacíos finales; columnas 310px en left 140/631, fila 237px
+- [x] Componente Columnas de servicios — detalles del SSR: título BigNoodle 34px 0.35em rojo #DD0018 (lh 1.15em), espaciador 16px/0.5em, 4 líneas worksans-extralight 16px lh 1.14em #DD0018 + guards (hasta 6 líneas), columnas 310px en left 140/631, fila 160px
 - [x] Componente LinkBar de iconos (PNG 18×18, 2 o 4 iconos según idioma) — SSR verificado: `ul` aria-label "Barra de redes sociales", 18×18 object-fit cover, gap 5px (41px total eu); eu: Tel/Email; cas: + Facebook/Instagram con target _blank; hover: ninguno
 - [ ] Validar: TypeScript, ESLint, build
 
@@ -34,10 +34,10 @@
 
 ## Página `/grafik` (eu)
 
-- [x] Implementar `/grafik`: HeaderNav, título GRAFIK 53px, eslogan, línea roja, intro, flechas decorativas, columnas de servicios (con textos oficiales de ARCHITECTURE.md §11) — SSR: título NBSP(ls 0.05em)+GRAFIK(ls 0.25em) 53px/1.5em blanco sobre #DD0018 en left 17 (310px), eslogan 26px/0.5em ls 0.45em, línea 979×5 (border-top 4px #DD0018), intro 17px/0.5em ls 0.23em, flechas 47×160 left 88/589 top 8, fila servicios 237px; metadata por página
+- [x] Implementar `/grafik`: HeaderNav, título GRAFIK 53px, eslogan, línea roja, intro, flechas decorativas, columnas de servicios (con textos oficiales de ARCHITECTURE.md §11) — SSR: título NBSP(ls 0.05em)+GRAFIK(ls 0.25em) 53px/1.5em blanco sobre #DD0018 en left 17 (310px), eslogan 26px/0.5em ls 0.45em, línea 979×5 (border-top 4px #DD0018), intro 17px/0.5em ls 0.23em, flechas 47×160 left 88/589 top 8, fila servicios 160px; márgenes exactos del grid original: título mt-33 mb-11, eslogan mb-13, línea mb-16, intro mt-8 mb-40, flechas mt-8 mb-69, galería ml-205 mb-30; metadata por página
 - [x] Galería Masonry 576px con lightbox y las 35 imágenes de portfolio + fila CTA (ZER DA SUTAN GRAFIK? / aurrekontua eskatu) — `PortfolioGallery` (client): masonry CSS columns (2 móvil/3 escritorio, gap 5px) con las 35 imágenes (dimensiones reales en `src/data/portfolio.ts`) + lightbox (overlay, cerrar, anterior/siguiente, teclado Esc/←/→); CTA con hrefs bio/kontaktua; contenedor left 205, 576px, margin-bottom 30
 - [x] Responsive y accesibilidad de `/grafik` — móvil: título 36px, eslogan/intro con wrap, línea full-width, columnas apiladas, galería a 2 columnas, CTA centrada; lightbox accesible (role dialog, aria-modal, teclado)
-- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive — cadena vertical verificada con CDP (fonts reales bignoodle/worksans locales): logo 100, título 205, eslogan 314, intro 359, flechas 415, galería 611 (original real ≈612.5; el original headless mide 700 por artefacto Arial/parastorage bloqueado — las mediciones headless del original son inestables e inflan filas por wraps Arial; los valores de referencia fiables son el CSS del SSR + métricas reales de las fuentes)
 
 ## Página `/bio` (eu)
 
@@ -60,8 +60,8 @@
 
 ## Página `/cas-grafik` (es)
 
-- [ ] Implementar `/cas-grafik` con los textos extraídos de la web publicada
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar `/cas-grafik` con los textos extraídos de la web publicada — HeaderNav (cas activo, chips ContaCtO left 756/837/889), título GRAFIK, eslogan 23px/0.45em, línea, intro 15px/0.2em, flechas mb-44, servicios (DISEÑO GRÁFICO / EDITORIAL IMAGEN con textos es), galería `md:ml-[201px] md:mb-[52px]` (left 201 del grid orig cas vs 205 eu), CTA (¿QUÉ ES SUTAN GRAFIK? / PEDIR PRESUPUESTO, mb-52); cadena vertical medida con CDP: logo 100, galería 611, CTA 3120 (orig real ≈612.5/3120.5)
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 
 ## Página `/cas-bio` (es)
 
