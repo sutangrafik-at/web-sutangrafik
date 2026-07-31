@@ -22,7 +22,7 @@
 
 - [x] Componente HeaderNav (logo 119×90 + chips + selector EUS/CAS, estado activo por prop) con estilos exactos (chip 28px blanco sobre #DD0018, activo #A82020, selectores #DD0018/#8B0000; posiciones verificadas del SSR: chips top 139 left 745/826/878, EUS/CAS top 57 left 929/955)
 - [x] Componentes Fila CTA y flechas SVG (47×160 decorativa y 9×32 en CTA, rotada 180°), colores #DD0018 — path exacto del SSR; fila CTA con posiciones verificadas en las 3 páginas (flechas left 250/518 top 1, chips left 269/537, alto 79px)
-- [ ] Componente Columnas de servicios (título 34px + lista bold 16px worksans-extralight)
+- [x] Componente Columnas de servicios (título 34px + lista bold 16px worksans-extralight) — detalles del SSR: título BigNoodle 34px 0.35em rojo #DD0018 (p, no h1), espaciador 16px/0.5em, 4 líneas bold #DD0018 con letter-spacing 0, 2 párrafos vacíos finales; columnas 310px en left 140/631, fila 237px
 - [ ] Componente LinkBar de iconos (PNG 18×18, 2 o 4 iconos según idioma)
 - [ ] Validar: TypeScript, ESLint, build
 
