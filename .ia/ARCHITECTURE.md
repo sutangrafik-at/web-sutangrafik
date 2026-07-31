@@ -129,7 +129,7 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 - Sin labels visibles (solo placeholders en BigNoodle 20px `#DD0018`; placeholder negro; fondo blanco 30%; borde 0; focus con borde negro)
 - Botón `Bidali`: rojo `#DD0018`, blanco, BigNoodle 23px, sin radio, sombra `0 1px 4px rgba(0,0,0,0.6)`
 - Mensaje éxito (oculto por defecto): `Eskerrik asko! Mezua ondo bidali da.` en `#67BD31` (helvetica 14px)
-- **Destino del envío**: no expuesto (Wix Forms). ⚠️ Requiere decisión del usuario (API propia, servicio de email…).
+- **Destino del envío**: **DECIDIDO — modo prueba**: el formulario NO enviará email por ahora; al enviar se simula el éxito (mensaje verde `Eskerrik asko!...`). El envío real se implementará más adelante si el usuario lo solicita.
 
 ---
 
@@ -139,8 +139,16 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 
 ## 9. Galerías
 
-**Una**: galería Masonry (TPA santa-galleries) en `/grafik`, `576×2459px`, centrada (left 205px en el grid de 980px), margin-bottom 30px.
-- ⚠️ **Las URLs de las imágenes no están expuestas en el SSR** (componente iframe). La copia estática previa (historial Git `7a03e51`) contiene **35 JPGs de portfolio** (`images/Portfoliokoak/1.jpg…35.jpg`, formatos variados: A4 verticales 3508×4961, cuadrados, horizontales) que probablemente proceden de la galería real, pero **debe confirmarse** (captura DevTools de la web publicada o confirmación del usuario) antes de usarlas.
+**Una**: galería Masonry (santa-galleries v0.105.40, componente `comp-ju15vg0f`) en `/grafik`, `576×2459px`, centrada (left 205px en el grid de 980px), margin-bottom 30px.
+
+### Investigación técnica (31/07/2026)
+
+- La galería es un iframe de Wix: `https://static.parastorage.com/services/santa/1.13152.0/node_modules/@wix/santa-galleries/target/Masonry/Masonry.html?compId=comp-ju15vg0f&deviceType=desktop&locale=es&viewMode=site`.
+- Los datos (URLs de las imágenes) **no están en el SSR** y los bundles JS del iframe devuelven `AccessDenied` sin sesión de Wix → las URLs reales no son accesibles de forma anónima.
+
+### Decisión (usuario)
+
+- Usar las **35 JPGs de portfolio del historial de Git** (`images/Portfoliokoak/1.jpg…35.jpg`, commit `7a03e51`): formatos variados (A4 verticales 3508×4961, cuadrados, horizontales). Se extraerán a `public/images/portfolio/` en la tarea de recursos.
 - Comportamiento esperado: mosaico con apertura de lightbox al hacer click.
 
 ---
@@ -200,7 +208,7 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 | helvetica-w01-roman | Sistema | Mensaje de éxito del formulario |
 
 ### Galería
-35 JPGs en `images/Portfoliokoak/` del historial Git — **pendiente de confirmación** (ver §9).
+35 JPGs en `images/Portfoliokoak/` del historial Git — **DECIDIDO**: usar estas 35 imágenes (ver §9).
 
 ---
 
@@ -221,10 +229,16 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 
 ---
 
-## 16. Decisiones pendientes de confirmación
+## 16. Decisiones
 
-1. **Galería**: URLs reales de las imágenes (captura DevTools) o validar las 35 JPGs locales.
-2. **Formulario**: destino real del envío (API route + servicio de email, mailto, formspree…).
-3. **Footer**: la web real no tiene ninguno. El usuario pidió en una iteración anterior un footer con logo centrado (sin iconos) → ¿se añade a la réplica?
-4. **Favicon**: la web real no tiene; ¿usar el logo como favicon?
-5. **CrossFade** entre páginas: ¿replicarlo (CSS view-transition) o navegación normal?
+### Confirmadas (31/07/2026)
+
+1. **Galería**: usar las 35 JPGs de portfolio del historial Git (las URLs reales de la web no son accesibles — iframe protegido, ver §9).
+2. **Formulario**: modo prueba — NO enviar email; al enviar se muestra el mensaje de éxito simulado.
+3. **Footer**: NO añadir footer (la web real no tiene ninguno).
+
+### Pendientes
+
+4. **Favicon**: la web real no tiene; ¿usar el logo como favicon? (por defecto: sí, generar uno del logo)
+5. **CrossFade** entre páginas: ¿replicarlo (CSS view-transition) o navegación normal? (por defecto: navegación normal)
+6. **Textos de las 3 páginas cas internas** (`/cas-grafik`, `/cas-bio`, `/cas-contacto`): extraer de la web publicada antes de implementarlas.

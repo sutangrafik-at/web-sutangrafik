@@ -6,11 +6,13 @@
 
 ## Confirmaciones previas a la implementación
 
-- [ ] Confirmar con el usuario los 5 puntos pendientes de ARCHITECTURE.md §16 (galería, formulario, footer, favicon, CrossFade)
+- [x] Confirmar con el usuario los puntos de ARCHITECTURE.md §16: galería (35 JPGs del historial Git), formulario (modo prueba, sin email), footer (NO añadir)
+- [ ] Pendiente de confirmar: favicon y CrossFade (por defecto: favicon del logo, navegación normal)
 - [ ] Extraer textos exactos de las páginas `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (los locales `es` de la copia anterior no son fuente de verdad)
 
 ## Recursos y base
 
+- [ ] Extraer las 35 JPGs de portfolio del historial Git (commit `7a03e51`, `images/Portfoliokoak/`) a `public/images/portfolio`
 - [ ] Descargar al proyecto los recursos oficiales de `static.wixstatic.com` (logo, fondo, 4 iconos, imágenes de bio) a `public/images`
 - [ ] Añadir fuentes locales: BigNoodleTitling (woff2/woff/ttf) y Third Rail desde el historial Git / wixstatic a `public/fonts`
 - [ ] Configurar `layout.tsx` global: fuentes, fondo común (imagen 40% fija + blanco), metadata base, skip-link
@@ -33,7 +35,7 @@
 ## Página `/grafik` (eu)
 
 - [ ] Implementar `/grafik`: HeaderNav, título GRAFIK 53px, eslogan, línea roja, intro, flechas decorativas, columnas de servicios (con textos oficiales de ARCHITECTURE.md §11)
-- [ ] Galería Masonry 576px con lightbox y 35 imágenes de portfolio (según decisión §16.1) + fila CTA (ZER DA SUTAN GRAFIK? / aurrekontua eskatu)
+- [ ] Galería Masonry 576px con lightbox y las 35 imágenes de portfolio + fila CTA (ZER DA SUTAN GRAFIK? / aurrekontua eskatu)
 - [ ] Responsive y accesibilidad de `/grafik`
 - [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 
@@ -46,7 +48,7 @@
 ## Página `/kontaktua` (eu)
 
 - [ ] Implementar `/kontaktua`: HeaderNav, título kontaktua 53px (mailto), descripción, y componente Formulario (3 inputs + textarea + botón Bidali + mensaje éxito)
-- [ ] Handler de envío del formulario según decisión §16.2 (validación cliente con estados error/success como el original)
+- [ ] Handler de envío del formulario en **modo prueba**: validación cliente con estados error/success como el original, SIN envío de email (éxito simulado)
 - [ ] Fila CTA + responsive y accesibilidad de `/kontaktua`
 - [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 

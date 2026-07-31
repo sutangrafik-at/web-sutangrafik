@@ -54,7 +54,13 @@ Antes de escribir código:
 - identifica comportamiento responsive
 - planifica la implementación
 
-Nunca implementes una página mientras aún la estás analizando.
+Nunca implementes una página hasta haber identificado completamente:
+
+- estructura
+- componentes
+- comportamiento
+- responsive
+- recursos necesarios
 
 Antes de modificar archivos:
 
@@ -153,6 +159,24 @@ Antes de crear un componente:
 
 ---
 
+# VALIDACIÓN
+
+Antes de cerrar cualquier tarea comprobar:
+
+✓ Compila
+
+✓ Sin errores TypeScript
+
+✓ Sin errores ESLint
+
+✓ Responsive correcto
+
+✓ No rompe otras páginas
+
+✓ Mantiene la apariencia de la web original
+
+---
+
 # GIT
 
 Trabajar mediante tareas pequeñas.
@@ -169,23 +193,32 @@ No avanzar a la siguiente tarea mientras existan errores.
 
 ---
 
-# VALIDACIÓN
+# COMMITS
 
-Antes de cerrar cualquier tarea comprobar:
+Cada tarea completada debe finalizar con un commit.
 
-✓ Compila
+Los commits deben ser pequeños y representar un único cambio lógico.
 
-✓ Sin errores TypeScript
+Utiliza Conventional Commits siempre que sea posible.
 
-✓ Sin errores ESLint
+Ejemplos:
 
-✓ Responsive correcto
+- feat: replicate navigation
+- feat: implement gallery carousel
+- fix: correct mobile layout
+- refactor: extract reusable section
+- chore: update configuration
 
-✓ Accesibilidad correcta
+Después de cada commit:
 
-✓ No rompe otras páginas
+- Obtén el hash corto del commit.
+- Actualiza STATUS.md con:
+  - Hash.
+  - Mensaje.
+  - Resumen de los cambios.
 
-✓ Mantiene la apariencia de la web original
+Nunca acumules varias tareas diferentes en un único commit.
+
 
 ---
 
@@ -218,15 +251,18 @@ Nunca finalices una sesión dejando información desactualizada.
 
 # RECUPERACIÓN DE LA SESIÓN
 
+Los documentos del proyecto viven en la carpeta `.ia/` (AGENTS.md, SPEC.md, CONSTRAINTS.md, TASKS.md, STATUS.md, ARCHITECTURE.md, README_AI.md).
+
 Cuando comience una nueva sesión debes:
 
-1. Leer AGENTS.md.
-2. Leer SPEC.md.
-3. Leer CONSTRAINTS.md.
-4. Leer TASKS.md.
-5. Leer STATUS.md.
-6. Revisar los últimos commits del repositorio.
-7. Comparar el estado del código con TASKS.md y STATUS.md.
+1. Leer `.ia/AGENTS.md`.
+2. Leer `.ia/SPEC.md`.
+3. Leer `.ia/CONSTRAINTS.md`.
+4. Leer `.ia/TASKS.md`.
+5. Leer `.ia/STATUS.md`.
+6. Leer `.ia/ARCHITECTURE.md` (análisis de la web de referencia).
+7. Revisar los últimos commits del repositorio.
+8. Comparar el estado del código con TASKS.md y STATUS.md.
 
 Si existe alguna discrepancia:
 
@@ -236,3 +272,46 @@ Si existe alguna discrepancia:
 Nunca repitas trabajo ya realizado.
 
 Nunca elimines trabajo completado salvo que exista un error.
+
+# TOMA DE DECISIONES
+
+Cuando existan varias formas válidas de implementar una funcionalidad:
+
+1. Elige la que mantenga una mayor fidelidad con la web original.
+2. Si siguen existiendo varias opciones, elige la solución más simple.
+3. Si ninguna opción es claramente correcta, detén la implementación y solicita confirmación.
+
+Nunca tomes decisiones de diseño por iniciativa propia.
+
+# DEPENDENCIAS
+
+Antes de instalar una nueva dependencia:
+
+- Comprueba si ya existe una solución dentro del proyecto.
+- Justifica por qué es necesaria.
+- Elige librerías maduras y ampliamente mantenidas.
+- Evita añadir dependencias para resolver problemas simples.
+
+# RECURSOS
+
+Siempre que sea posible:
+
+- reutiliza las imágenes originales
+- conserva la resolución original
+- conserva la relación de aspecto
+- optimiza únicamente el formato o el peso
+
+Nunca sustituyas imágenes por otras similares.
+
+# MODO REFLEXIVO
+
+Antes de comenzar cualquier tarea:
+
+1. Comprende completamente el objetivo.
+2. Explica brevemente el plan.
+3. Identifica posibles riesgos.
+4. Solo entonces comienza la implementación.
+
+No modifiques archivos inmediatamente después de recibir una instrucción.
+
+Dedica primero tiempo a analizar la mejor estrategia.
