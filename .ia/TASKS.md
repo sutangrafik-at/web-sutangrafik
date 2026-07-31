@@ -54,9 +54,9 @@
 
 ## Home cas `/cas`
 
-- [ ] Implementar `/cas` (idéntica a la home eu pero chips ContaCtO, selector CAS activo y LinkBar de 4 iconos: tel, email, Facebook, Instagram con URLs reales)
-- [ ] Responsive y accesibilidad de `/cas`
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar `/cas` (idéntica a la home eu pero chips ContaCtO, selector CAS activo y LinkBar de 4 iconos: tel, email, Facebook, Instagram con URLs reales) — posiciones SSR cas: chips left 377/458/510 (ContaCtO 92px) top 358, LinkBar left 446 top 421; ambas homes comparten `HomeContent`; metadata oficial cas (title, description, og)
+- [x] Responsive y accesibilidad de `/cas`
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 
 ## Página `/cas-grafik` (es)
 

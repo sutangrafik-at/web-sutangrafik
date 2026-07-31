@@ -8,8 +8,8 @@
 
 ## Última tarea completada
 
-- Componente **LinkBar de iconos** (`src/components/LinkBar.tsx`, commit `46fc74d`): réplica del SSR de las homes — `ul` con `aria-label="Barra de redes sociales"`, iconos PNG 18×18 `object-fit:cover` con `gap-[5px]` (ancho medido original 41px para 2 iconos), prop `items` con label tipado (`Tel`/`Email`/`Facebook`/`Instagram`) mapeado a `public/images/icons/*.png`; externos con `target="_blank"` + `rel="noopener noreferrer"`. Sin hover propio (verificado en CSS). Validado (tsc, ESLint 0 warnings, build OK).
-- Anteriormente: Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- **Home eu `/`** (`src/app/page.tsx`, commit `6a150a7`): logo 354×266 (left 313, top 71, sin enlace — como el original), EUS/CAS 16px (left 830/856, EUS activo `#8B0000`, CAS `#DD0018`), 3 chips (left 370/451/503, top 10), LinkBar 2 iconos (left 469, top 65) — posiciones exactas del SSR; móvil apilado centrado. Extraído `src/components/Chip.tsx` (h1 28px/24px BigNoodle, bg `#DD0018`/activo `#A82020`, `&nbsp;`+espacio, props label/href/active/size/className/style) y refactorizados HeaderNav y CtaRow para usarlo (sin cambios visuales); LinkBar con prop `className`. Validado (tsc, ESLint 0 warnings, build OK).
+- Anteriormente: LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 

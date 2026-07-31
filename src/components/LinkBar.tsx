@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react';
 import Image from 'next/image';
 
 export type LinkBarItem = {
@@ -22,11 +23,12 @@ const EXTERNAL: Record<LinkBarItem['label'], boolean> = {
 type LinkBarProps = {
   items: LinkBarItem[];
   className?: string;
+  style?: CSSProperties;
 };
 
-export default function LinkBar({ items, className = '' }: LinkBarProps) {
+export default function LinkBar({ items, className = '', style }: LinkBarProps) {
   return (
-    <ul aria-label="Barra de redes sociales" className={`flex w-fit items-center gap-[5px] ${className}`}>
+    <ul aria-label="Barra de redes sociales" className={`flex w-fit items-center gap-[5px] ${className}`} style={style}>
       {items.map((item) => (
         <li key={item.label}>
           <a
