@@ -8,8 +8,8 @@
 
 ## Última tarea completada
 
-- **Home eu `/`** (`src/app/page.tsx`, commit `6a150a7`): logo 354×266 (left 313, top 71, sin enlace — como el original), EUS/CAS 16px (left 830/856, EUS activo `#8B0000`, CAS `#DD0018`), 3 chips (left 370/451/503, top 10), LinkBar 2 iconos (left 469, top 65) — posiciones exactas del SSR; móvil apilado centrado. Extraído `src/components/Chip.tsx` (h1 28px/24px BigNoodle, bg `#DD0018`/activo `#A82020`, `&nbsp;`+espacio, props label/href/active/size/className/style) y refactorizados HeaderNav y CtaRow para usarlo (sin cambios visuales); LinkBar con prop `className`. Validado (tsc, ESLint 0 warnings, build OK).
-- Anteriormente: LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- **Home cas `/cas`** (`src/app/cas/page.tsx`, commit `559d4e9`): misma estructura que la home eu con datos SSR cas — chips GRAFIK/BIO/ContaCtO (left 377/458/510, ContaCtO 92px, top 358), CAS activo `#8B0000`, LinkBar 4 iconos (tel, email, Facebook, Instagram) left 446 top 421; metadata oficial cas (title "Sutan Grafik | Diseño gráfico", description y og:title del SSR). Ambas homes comparten `src/components/HomeContent.tsx` (prop `lang`, tabla HOME_DATA con posiciones exactas por idioma; logo 354×266 sin enlace, EUS/CAS left 830/856 top 71). LinkBar gana prop `style`. Validado (tsc, ESLint 0 warnings, build OK, 6 rutas estáticas).
+- Anteriormente: Home eu `/` (`6a150a7`); LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 

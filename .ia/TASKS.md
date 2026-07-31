@@ -34,7 +34,7 @@
 
 ## Página `/grafik` (eu)
 
-- [ ] Implementar `/grafik`: HeaderNav, título GRAFIK 53px, eslogan, línea roja, intro, flechas decorativas, columnas de servicios (con textos oficiales de ARCHITECTURE.md §11)
+- [x] Implementar `/grafik`: HeaderNav, título GRAFIK 53px, eslogan, línea roja, intro, flechas decorativas, columnas de servicios (con textos oficiales de ARCHITECTURE.md §11) — SSR: título NBSP(ls 0.05em)+GRAFIK(ls 0.25em) 53px/1.5em blanco sobre #DD0018 en left 17 (310px), eslogan 26px/0.5em ls 0.45em, línea 979×5 (border-top 4px #DD0018), intro 17px/0.5em ls 0.23em, flechas 47×160 left 88/589 top 8, fila servicios 237px; metadata por página
 - [ ] Galería Masonry 576px con lightbox y las 35 imágenes de portfolio + fila CTA (ZER DA SUTAN GRAFIK? / aurrekontua eskatu)
 - [ ] Responsive y accesibilidad de `/grafik`
 - [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
