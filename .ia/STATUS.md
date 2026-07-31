@@ -8,42 +8,37 @@
 
 ## Última tarea completada
 
-- Análisis completo de la web de referencia (https://sutangrafik.wixsite.com/website): 8 páginas (4 eu + 4 cas), estructura, orden de secciones, textos oficiales, tipografías (BigNoodleTitling, Third Rail, worksans-extralight), colores, iconografía, enlaces, SEO y recursos multimedia (URLs wixstatic).
-- Documentación: ARCHITECTURE.md con el informe completo de arquitectura; TASKS.md con tareas pequeñas por página en orden real (home → grafik → bio → kontaktua → cas).
-- Decisiones del usuario registradas en ARCHITECTURE.md §16:
-  - **Galería**: usar las 35 JPGs de portfolio del historial Git (las URLs reales no son accesibles: iframe protegido con AccessDenied).
-  - **Formulario**: modo prueba, sin envío de email (éxito simulado).
-  - **Footer**: no añadir (la web real no tiene).
-- Investigación técnica de la galería documentada en ARCHITECTURE.md §9 (iframe santa-galleries `comp-ju15vg0f`, bundles protegidos).
-- Documentos del proyecto trasladados a la carpeta `.ia/` (convención del usuario; los procesos deben leerlos desde ahí).
+- Extraer las 35 JPGs de portfolio del historial Git (`7a03e51`, `images/Portfoliokoak/`) a `public/images/portfolio/` (162.7 MB, resoluciones originales conservadas, sin modificar).
+- Anteriormente: análisis completo de la web de referencia; ARCHITECTURE.md; TASKS.md por página; decisiones del usuario registradas en ARCHITECTURE.md §16 (galería 35 JPGs, formulario modo prueba sin email, footer no); investigación técnica de la galería (iframe santa-galleries protegido) en §9; documentos trasladados a `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Esperando instrucciones del usuario para comenzar la implementación.
+Ninguna en progreso. Siguiente: descargar los recursos oficiales de `static.wixstatic.com` (logo, fondo, 4 iconos, imágenes de bio) a `public/images`.
 
 ---
 
 ## Próximo paso
 
-1. Tarea "Recursos y base" (TASKS.md): extraer las 35 JPGs de portfolio del historial Git a `public/images/portfolio`, descargar recursos oficiales de `static.wixstatic.com`, añadir fuentes locales y configurar `layout.tsx`.
-2. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
-3. Extraer textos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (antes de implementarlas).
+1. Tarea "Recursos y base" siguiente: descargar recursos oficiales de `static.wixstatic.com` (logo, fondo, 4 iconos, imágenes de bio) a `public/images`.
+2. Luego: fuentes locales (BigNoodleTitling, Third Rail) y `layout.tsx` global.
+3. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
+4. Extraer textos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (antes de implementarlas).
 
 ---
 
 ## Último commit
 
-Pendiente (se realizará tras esta actualización de documentación)
+Pendiente (se realizará tras el commit de la extracción de portfolio)
 
 ---
 
 ## Estado
 
-- Build: no ejecutado en este turno (no se modificó código de la app)
-- TypeScript: no ejecutado en este turno
-- ESLint: no ejecutado en este turno
+- Build: OK (next build --turbopack, sin errores)
+- TypeScript: OK (tsc --noEmit, sin errores)
+- ESLint: OK (sin errores)
 
 ---
 
