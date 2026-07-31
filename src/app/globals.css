@@ -1,1 +1,70 @@
 @import "tailwindcss";
+
+@theme {
+  --color-accent: #dd0018;
+  --color-accent-active: #a82020;
+  --color-accent-hover: #8b0000;
+  --color-success: #67bd31;
+  --color-error: #c71212;
+  --color-error-text: #ff4040;
+}
+
+@font-face {
+  font-family: "BigNoodleTitling";
+  src:
+    url("/fonts/bignoodletitling.woff2") format("woff2"),
+    url("/fonts/bignoodletitling.woff") format("woff"),
+    url("/fonts/bignoodletitling.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Third Rail";
+  src:
+    url("/fonts/thirdrail.woff2") format("woff2"),
+    url("/fonts/thirdrail.woff") format("woff"),
+    url("/fonts/thirdrail.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #ffffff;
+  font-family: var(--font-worksans), Helvetica, Arial, sans-serif;
+}
+
+.site-background {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image: url("/images/background.jpg");
+  background-size: 4961px 3508px;
+  background-repeat: repeat;
+  background-position: center center;
+  opacity: 0.4;
+}
+
+.skip-link {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  z-index: 9999;
+  padding: 0 24px;
+  background: #ffffff;
+  color: #116dff;
+  border-radius: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+
+.skip-link:focus {
+  opacity: 1;
+  pointer-events: auto;
+  border: 2px solid;
+}

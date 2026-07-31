@@ -8,20 +8,20 @@
 
 ## Última tarea completada
 
-- Añadidas las fuentes locales a `public/fonts/`: BigNoodleTitling (woff2/woff/ttf, del historial Git) y Third Rail (woff2/woff/ttf, descargada de `static.wixstatic.com/ufonts/ef03a3_004476c206e5480fafac36a3a1851d13/`). Verificado: los `.woff2` originales son bytes idénticos a los `.woff` (nota documentada en ARCHITECTURE.md §13 para el `@font-face`).
-- Anteriormente: descarga de recursos oficiales a `public/images/`; extracción de las 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- Configurado `layout.tsx` global: `@font-face` BigNoodleTitling + Third Rail (woff2→woff→ttf) y Work Sans 200 (worksans-extralight) vía `next/font/google`; fondo común replicando el original (blanco + `background.jpg` repeat 4961×3508 centrado, opacidad 0.4, fijo); metadata base exacta del SSR (title, description multilínea oficial, og:site_name SUTAN GRAFIK, og:type website, og:image logo 800×600, twitter summary_large_image, metadataBase `https://www.sutangrafik.com`); skip-link estilo Wix (BqYkvS) y `<main id="main-content">`. Colores oficiales como `@theme` en globals.css (accent, accent-active, accent-hover, success, error).
+- Anteriormente: fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Siguiente: configurar `layout.tsx` global (fuentes, fondo común, metadata base, skip-link).
+Ninguna en progreso. Siguiente: componente HeaderNav (logo 119×90 + chips + selector EUS/CAS).
 
 ---
 
 ## Próximo paso
 
-1. Tarea "Recursos y base" siguiente: configurar `layout.tsx` global — fuentes (`@font-face` woff2→woff→ttf, nota de ARCHITECTURE.md §13), fondo común (imagen 40% fija + blanco), metadata base, skip-link.
+1. Sección "Componentes compartidos": HeaderNav, Fila CTA y flechas SVG, Columnas de servicios, LinkBar de iconos (cada una con su validación).
 2. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
 3. Extraer textos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (antes de implementarlas).
 
@@ -29,7 +29,7 @@ Ninguna en progreso. Siguiente: configurar `layout.tsx` global (fuentes, fondo c
 
 ## Último commit
 
-Pendiente (se realizará tras el commit de fuentes locales)
+Pendiente (se realizará tras el commit del layout global)
 
 ---
 
