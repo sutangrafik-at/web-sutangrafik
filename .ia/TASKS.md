@@ -41,9 +41,9 @@
 
 ## Página `/bio` (eu)
 
-- [ ] Implementar `/bio`: HeaderNav, título bio 53px, encabezado SUTAN GRAFIK (Third Rail + BigNoodle), 5 párrafos + separador ALEX TURRILLAS, logo pequeño 41×48 e imágenes (204×153 y 213×204)
-- [ ] Fila CTA (EGINDAKO LANAK IKUSI / aurrekontua eskatu) + responsive y accesibilidad de `/bio`
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar `/bio`: HeaderNav, título bio 53px, encabezado SUTAN GRAFIK (Third Rail + BigNoodle), 5 párrafos + separador ALEX TURRILLAS, logo pequeño 41×48 e imágenes (204×153 y 213×204) — SSR/mediciones del navegador: título `NBSP bio NBSP ` (ls 0.05em uniforme) 53px/1.5em blanco sobre #DD0018 en left -43 (310px) con margin-bottom -6; bloque de texto 622px en left 78 (margin 11/20) con encabezado SUTAN (Third Rail 30px ls 0.2em + 3 NBSP + espacio) + GRAFIK (BigNoodle 29px ls 0.35em), espaciadores (16px/0.5em y 14px/1.3em), 3 párrafos + ALEX TURRILLAS (18px ls 0.35em) + 2 párrafos, 2 espaciadores finales (21px y 16px centrado); imágenes absolutas: logo pequeño 41×48 left 197 (fila 5, encima del texto en el original), logo 204×153 left 738 (fila 6, mb 6), ilustración 213×204 left 733 (fila 7, mb 54); filas 5-8 = 465px
+- [x] Fila CTA (EGINDAKO LANAK IKUSI / aurrekontua eskatu) + responsive y accesibilidad de `/bio` — móvil: título 36px, textos apilados, imágenes centradas; alt descriptivos en las 3 imágenes
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive — verificado que el offset superior de 50px en el original es la barra de Wix (chrome a eliminar) y que el logo pequeño solapa el encabezado también en el original (elementFromPoint)
 
 ## Página `/kontaktua` (eu)
 
