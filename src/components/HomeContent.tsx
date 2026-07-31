@@ -58,7 +58,7 @@ const HOME_DATA: Record<
 export default function HomeContent({ lang }: { lang: Lang }) {
   const data = HOME_DATA[lang];
   return (
-    <div className="mx-auto w-full max-w-[980px]">
+    <div className="w-full max-w-[980px] md:ml-[130px]">
       <div className="relative hidden h-[498px] md:block">
         <Image
           src="/images/logo.png"

@@ -32,30 +32,30 @@ export const metadata: Metadata = {
 
 export default function GrafikPage() {
   return (
-    <div className="mx-auto w-full max-w-[980px]">
+    <div className="w-full max-w-[980px] md:ml-[130px]">
       <HeaderNav active="grafik" lang="eu" />
       <div className="hidden md:block">
-        <div className="ml-[17px] w-[310px]">
+        <div className="mt-[33px] mb-[11px] ml-[17px] w-[310px]">
           <p className="text-center font-bignoodle text-[53px] leading-[1.5em] text-white">
             <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>{'\u00A0'}</span>
             <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.25em' }}>GRAFIK</span>
           </p>
-          <p className="text-center text-[16px] font-bold leading-[1.5em] text-accent">&nbsp;</p>
+          <p className="text-center text-[16px] font-bold leading-[1.14em] text-accent">&nbsp;</p>
         </div>
         <p
-          className="mt-[11px] text-center font-bignoodle text-[26px] leading-[0.5em] text-accent"
+          className="mb-[13px] text-center font-bignoodle text-[26px] leading-[0.5em] text-accent"
           style={{ letterSpacing: '0.45em' }}
         >
           BEHARRIZANEN ARABERAKO SOLUZIO GRAFIKOAK
         </p>
-        <div className="mt-[13px] h-[5px] w-[979px] border-t-[4px] border-accent" />
+        <div className="mb-[16px] h-[5px] w-[979px] border-t-[4px] border-accent" />
         <p
-          className="mt-[8px] text-center font-bignoodle text-[17px] leading-[0.5em] text-accent"
+          className="mt-[8px] mb-[40px] text-center font-bignoodle text-[17px] leading-[0.5em] text-accent"
           style={{ letterSpacing: '0.23em' }}
         >
           GURE ESPERIENTZIAN OINARRITURIKO AHOLKULARITZA, SORKUNTZA PROZESU GUZTIAZ ARDURATZEN GARA
         </p>
-        <div className="relative mt-[32px] h-[237px]">
+        <div className="relative mb-[69px] mt-[8px] h-[160px]">
           <Arrow width={47} height={160} className="absolute left-[88px] top-[8px]" />
           <Arrow width={47} height={160} className="absolute left-[589px] top-[8px]" />
           <ServicesColumns columns={SERVICES} />

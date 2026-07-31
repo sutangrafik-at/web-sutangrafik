@@ -8,14 +8,14 @@ export const metadata: Metadata = {
 };
 
 const PARAGRAPH_CLASSES =
-  'text-justify font-[var(--font-worksans)] text-[14px] font-bold leading-[1.3em] text-accent';
+  'text-justify font-[var(--font-worksans)] text-[14px] font-bold leading-[1.14em] text-accent';
 
 export default function BioPage() {
   return (
-    <div className="mx-auto w-full max-w-[980px]">
+    <div className="w-full max-w-[980px] md:ml-[130px]">
       <HeaderNav active="bio" lang="eu" />
       <div className="hidden md:block">
-        <div className="mb-[-6px] ml-[-43px] w-[310px]">
+        <div className="mb-[-6px] mt-[29px] ml-[-43px] w-[310px]">
           <p className="text-center font-bignoodle text-[53px] leading-[1.5em] text-white">
             <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>
               {'\u00A0'}bio{'\u00A0'} {' '}
@@ -24,7 +24,7 @@ export default function BioPage() {
         </div>
         <div className="relative ml-[78px] min-h-[465px] w-[622px]">
           <div className="pb-[20px] pt-[11px]">
-            <p className="text-[30px] leading-[1.3em] text-accent">
+            <p className="text-[30px] leading-[1.14em] text-accent">
               <span className="font-thirdrail" style={{ letterSpacing: '0.2em' }}>
                 SUTAN{'\u00A0'}{'\u00A0'}{'\u00A0'} {' '}
               </span>
@@ -52,7 +52,7 @@ export default function BioPage() {
             </p>
             <p className={PARAGRAPH_CLASSES}>&nbsp;</p>
             <p className={PARAGRAPH_CLASSES}>&nbsp;</p>
-            <p className="font-bignoodle text-[18px] leading-[1.3em] text-accent" style={{ letterSpacing: '0.35em' }}>
+            <p className="font-bignoodle text-[18px] leading-[1.14em] text-accent" style={{ letterSpacing: '0.35em' }}>
               ALEX TURRILLAS
             </p>
             <p className="text-[16px] leading-[0.5em]">&nbsp;</p>
@@ -64,10 +64,10 @@ export default function BioPage() {
             </p>
             <p className={PARAGRAPH_CLASSES}>&nbsp;</p>
             <p className={PARAGRAPH_CLASSES}>Historian, musikan eta arteetan zaletua.</p>
-            <p className="font-bignoodle text-[21px] leading-[1.3em] text-accent" style={{ letterSpacing: '0.35em' }}>
+            <p className="font-bignoodle text-[21px] leading-[1.14em] text-accent" style={{ letterSpacing: '0.35em' }}>
               &nbsp;
             </p>
-            <p className="text-center text-[16px] font-bold leading-[1.3em] text-accent">&nbsp;</p>
+            <p className="text-center text-[16px] font-bold leading-[1.14em] text-accent">&nbsp;</p>
           </div>
           <Image
             src="/images/bio-logo.png"
@@ -105,7 +105,7 @@ export default function BioPage() {
             {'\u00A0'}bio{'\u00A0'} {' '}
           </span>
         </p>
-        <p className="text-center text-[24px] leading-[1.3em] text-accent">
+        <p className="text-center text-[24px] leading-normal text-accent">
           <span className="font-thirdrail" style={{ letterSpacing: '0.2em' }}>
             SUTAN{'\u00A0'}{'\u00A0'}{'\u00A0'} {' '}
           </span>
@@ -128,7 +128,7 @@ export default function BioPage() {
           pertsonalizatua eskainiz. Hau da, eskatutako produktu grafikoak zure etxera iritsi bitarteko
           lan guztiak gure gain hartuko ditugu.
         </p>
-        <p className="font-bignoodle text-[18px] leading-[1.3em] text-accent" style={{ letterSpacing: '0.35em' }}>
+        <p className="font-bignoodle text-[18px] leading-normal text-accent" style={{ letterSpacing: '0.35em' }}>
           ALEX TURRILLAS
         </p>
         <p className={PARAGRAPH_CLASSES}>

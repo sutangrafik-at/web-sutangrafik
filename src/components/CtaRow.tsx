@@ -16,7 +16,7 @@ export default function CtaRow({ items, className = '' }: CtaRowProps) {
   const [first, second] = items;
   return (
     <>
-      <div className={`relative mx-auto hidden h-[32px] w-full max-w-[980px] md:block ${className}`}>
+      <div className={`relative hidden h-[32px] w-full max-w-[980px] md:block ${className}`}>
         <Link href={first.href} aria-label={first.label} className="absolute left-[250px] top-[1px] block">
           <Arrow width={9} height={32} />
         </Link>

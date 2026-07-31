@@ -10,11 +10,26 @@ const NAV_ITEMS: {
   key: NavKey;
   label: Record<Lang, string>;
   href: Record<Lang, string>;
-  left: number;
+  left: Record<Lang, number>;
 }[] = [
-  { key: 'grafik', label: { eu: 'GRAFIK', es: 'GRAFIK' }, href: { eu: '/grafik', es: '/cas-grafik' }, left: 745 },
-  { key: 'bio', label: { eu: 'BIO', es: 'BIO' }, href: { eu: '/bio', es: '/cas-bio' }, left: 826 },
-  { key: 'kontaktua', label: { eu: 'kontaktuA', es: 'ContaCtO' }, href: { eu: '/kontaktua', es: '/cas-contacto' }, left: 878 },
+  {
+    key: 'grafik',
+    label: { eu: 'GRAFIK', es: 'GRAFIK' },
+    href: { eu: '/grafik', es: '/cas-grafik' },
+    left: { eu: 745, es: 756 },
+  },
+  {
+    key: 'bio',
+    label: { eu: 'BIO', es: 'BIO' },
+    href: { eu: '/bio', es: '/cas-bio' },
+    left: { eu: 826, es: 837 },
+  },
+  {
+    key: 'kontaktua',
+    label: { eu: 'kontaktuA', es: 'ContaCtO' },
+    href: { eu: '/kontaktua', es: '/cas-contacto' },
+    left: { eu: 878, es: 889 },
+  },
 ];
 
 const LOGO_ALT = 'Sutan Grafik Diseño Grafico Diseinu grafikoa';
@@ -24,14 +39,14 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
   const homeHref = lang === 'eu' ? '/' : '/cas';
 
   return (
-    <nav className="mx-auto w-full max-w-[980px]">
-      <div className="relative hidden h-[156px] md:block">
-        <Link href={homeHref} className="absolute left-0 top-[50px] block">
+    <nav className="w-full max-w-[980px]">
+      <div className="relative hidden h-[172px] md:block">
+        <Link href={homeHref} className="absolute left-0 top-[100px] block">
           <Image src="/images/logo.png" alt={LOGO_ALT} width={119} height={90} className="h-[90px] w-[119px]" />
         </Link>
         <Link
           href={activeItem.href.eu}
-          className={`absolute left-[929px] top-[57px] font-bignoodle text-[16px] leading-none ${
+          className={`absolute left-[929px] top-[107px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.15em] ${
             lang === 'eu' ? 'text-accent-hover' : 'text-accent'
           }`}
         >
@@ -39,7 +54,7 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
         </Link>
         <Link
           href={activeItem.href.es}
-          className={`absolute left-[955px] top-[57px] font-bignoodle text-[16px] leading-none ${
+          className={`absolute left-[955px] top-[107px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.15em] ${
             lang === 'es' ? 'text-accent-hover' : 'text-accent'
           }`}
         >
@@ -51,8 +66,8 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
             label={item.label[lang]}
             href={item.href[lang]}
             active={item.key === active}
-            className="absolute top-[90px]"
-            style={{ left: item.left }}
+            className="absolute top-[140px]"
+            style={{ left: item.left[lang] }}
           />
         ))}
       </div>

@@ -9,10 +9,10 @@ export const metadata: Metadata = {
 
 export default function KontaktuaPage() {
   return (
-    <div className="mx-auto w-full max-w-[980px]">
+    <div className="w-full max-w-[980px] md:ml-[130px]">
       <HeaderNav active="kontaktua" lang="eu" />
       <div className="hidden md:block">
-        <div className="mb-[18px] ml-[23px] w-[310px]">
+        <div className="mb-[18px] mt-[34px] ml-[23px] w-[310px]">
           <p className="text-center font-bignoodle text-[53px] leading-[1.5em] text-white">
             <a href="mailto:sutangrafik@gmail.com">
               <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>

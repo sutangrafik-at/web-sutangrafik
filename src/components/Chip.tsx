@@ -20,7 +20,7 @@ export default function Chip({
 }: ChipProps) {
   return (
     <h1
-      className={`font-bignoodle leading-[1.1em] text-white ${
+      className={`font-bignoodle leading-[1.15em] text-white ${
         size === 'lg' ? 'text-[28px]' : 'text-[24px]'
       } ${className}`}
       style={style}
