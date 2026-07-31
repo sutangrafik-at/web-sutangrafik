@@ -25,7 +25,7 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
 
   return (
     <nav className="mx-auto w-full max-w-[980px]">
-      <div className="relative hidden h-[202px] md:block">
+      <div className="relative hidden h-[156px] md:block">
         <Link href={homeHref} className="absolute left-0 top-[50px] block">
           <Image src="/images/logo.png" alt={LOGO_ALT} width={119} height={90} className="h-[90px] w-[119px]" />
         </Link>
@@ -51,7 +51,7 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
             label={item.label[lang]}
             href={item.href[lang]}
             active={item.key === active}
-            className="absolute top-[139px]"
+            className="absolute top-[90px]"
             style={{ left: item.left }}
           />
         ))}

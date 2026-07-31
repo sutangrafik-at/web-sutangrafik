@@ -47,10 +47,10 @@
 
 ## Página `/kontaktua` (eu)
 
-- [ ] Implementar `/kontaktua`: HeaderNav, título kontaktua 53px (mailto), descripción, y componente Formulario (3 inputs + textarea + botón Bidali + mensaje éxito)
-- [ ] Handler de envío del formulario en **modo prueba**: validación cliente con estados error/success como el original, SIN envío de email (éxito simulado)
-- [ ] Fila CTA + responsive y accesibilidad de `/kontaktua`
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar `/kontaktua`: HeaderNav, título kontaktua 53px (mailto), descripción, y componente Formulario (3 inputs + textarea + botón Bidali + mensaje éxito) — SSR/mediciones: título `NBSP kontaktua NBSP ` (ls 0.05em) 53px/1.5em blanco sobre #DD0018 en left 23 (310px) con margin-bottom 18 y enlace mailto:sutangrafik@gmail.com; descripción 622px en left 83 (margin-bottom -15): p1 29px (ls 0.1em, lh 1.15em → 33px) + p2 18px (21px) + NBSP 18px (21px, ls 0.35em) + NBSP 16px centrado bold (18px) = 93px, BigNoodle #DD0018; formulario 781px en left 83 (margin-bottom 25): grid [391px 386px] gap-x 3px con filas 43/43/43/50 (altura total 179px), email (pattern `^.+@.+\.[a-zA-Z]{2,63}$`, maxLength 250, autocomplete off) / nombre (maxLength 100) / asunto, textarea 386×124 (maxLength 500), botón Bidali 52×42 self-start justify-self-end (bg accent, sombra), mensaje éxito 686×16 "Eskerrik asko! Mezua ondo bidali da." (visible al enviar); inputs: bg rgba(255,255,255,0.3), sin borde, sombra 0 1px 4px rgba(0,0,0,0.6), 20px/1.4em BigNoodle #DD0018, placeholder negro, error borde #C71212 + texto #FF4040
+- [x] Handler de envío del formulario en **modo prueba**: validación cliente con estados error/success como el original, SIN envío de email (éxito simulado) — errores "Campo obligatorio" / "Correo electrónico no válido" (textos estándar: los strings exactos del bundle Wix no son recuperables)
+- [x] Fila CTA (ZER DA SUTAN GRAFIK? → /bio, EGINDAKO LANAK IKUSI → /grafik, mb 5px) + responsive y accesibilidad de `/kontaktua` — móvil: título 36px, descripción apilada, formulario en columna
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive — geometría verificada vs original con CDP: título 310×80 @156, desc @254 (33/21/21/18), formulario 179px @332, botón @461, CTA chips @536 (idéntico al original); junto con el fix de HeaderNav (chips top 90, nav 156px) y el refactor de CtaRow (contenedor h-32 + prop className) en el mismo commit
 
 ## Home cas `/cas`
 

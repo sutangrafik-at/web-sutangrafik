@@ -93,6 +93,7 @@ export default function BioPage() {
         </div>
       </div>
       <CtaRow
+        className="mb-[41px]"
         items={[
           { label: 'EGINDAKO LANAK IKUSI', href: '/grafik' },
           { label: 'aurrekontua eskatu', href: '/kontaktua' },

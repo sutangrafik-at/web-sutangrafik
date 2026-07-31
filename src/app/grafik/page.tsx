@@ -65,6 +65,7 @@ export default function GrafikPage() {
         <PortfolioGallery />
       </div>
       <CtaRow
+        className="mb-[46px]"
         items={[
           { label: 'ZER DA SUTAN GRAFIK?', href: '/bio' },
           { label: 'aurrekontua eskatu', href: '/kontaktua' },
