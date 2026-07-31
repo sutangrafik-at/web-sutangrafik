@@ -21,11 +21,12 @@ const EXTERNAL: Record<LinkBarItem['label'], boolean> = {
 
 type LinkBarProps = {
   items: LinkBarItem[];
+  className?: string;
 };
 
-export default function LinkBar({ items }: LinkBarProps) {
+export default function LinkBar({ items, className = '' }: LinkBarProps) {
   return (
-    <ul aria-label="Barra de redes sociales" className="flex w-fit items-center gap-[5px]">
+    <ul aria-label="Barra de redes sociales" className={`flex w-fit items-center gap-[5px] ${className}`}>
       {items.map((item) => (
         <li key={item.label}>
           <a

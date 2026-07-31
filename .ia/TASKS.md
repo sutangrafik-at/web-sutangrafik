@@ -28,9 +28,9 @@
 
 ## Home eu `/`
 
-- [ ] Implementar home eu: logo 354×266 centrado, EUS/CAS, 3 chips (GRAFIK/BIO/kontaktuA con `&nbsp;`), LinkBar 2 iconos (tel + mail)
-- [ ] Responsive y accesibilidad de la home eu
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar home eu: logo 354×266 centrado, EUS/CAS, 3 chips (GRAFIK/BIO/kontaktuA con `&nbsp;`), LinkBar 2 iconos (tel + mail) — posiciones SSR: logo left 313 top 71 (sin enlace), EUS/CAS left 830/856 top 71, chips left 370/451/503 top 10, LinkBar left 469 top 65; extraído componente Chip (usado también en HeaderNav y CtaRow)
+- [x] Responsive y accesibilidad de la home eu
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 
 ## Página `/grafik` (eu)
 

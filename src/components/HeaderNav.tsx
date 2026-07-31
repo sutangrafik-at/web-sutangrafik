@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import Chip from './Chip';
 
 export type NavKey = 'grafik' | 'bio' | 'kontaktua';
 
@@ -45,18 +46,14 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
           CAS
         </Link>
         {NAV_ITEMS.map((item) => (
-          <h1 key={item.key} className="absolute top-[139px] font-bignoodle text-[28px] leading-[1.1em] text-white" style={{ left: item.left }}>
-            <Link
-              href={item.href[lang]}
-              className="block"
-              style={{ backgroundColor: item.key === active ? '#A82020' : '#DD0018' }}
-            >
-              {'\u00A0'}
-              {item.label[lang]}
-              {'\u00A0'}
-              {' '}
-            </Link>
-          </h1>
+          <Chip
+            key={item.key}
+            label={item.label[lang]}
+            href={item.href[lang]}
+            active={item.key === active}
+            className="absolute top-[139px]"
+            style={{ left: item.left }}
+          />
         ))}
       </div>
       <div className="flex flex-col items-center gap-4 px-4 py-8 md:hidden">
@@ -65,18 +62,13 @@ export default function HeaderNav({ active, lang }: { active: NavKey; lang: Lang
         </Link>
         <div className="flex items-center justify-center gap-2">
           {NAV_ITEMS.map((item) => (
-            <h1 key={item.key} className="font-bignoodle text-[24px] leading-[1.1em] text-white">
-              <Link
-                href={item.href[lang]}
-                className="block"
-                style={{ backgroundColor: item.key === active ? '#A82020' : '#DD0018' }}
-              >
-                {'\u00A0'}
-                {item.label[lang]}
-                {'\u00A0'}
-                {' '}
-              </Link>
-            </h1>
+            <Chip
+              key={item.key}
+              label={item.label[lang]}
+              href={item.href[lang]}
+              active={item.key === active}
+              size="md"
+            />
           ))}
         </div>
         <div className="flex items-center gap-3">
