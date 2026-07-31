@@ -200,3 +200,39 @@ o
 - parecerte más a la web original
 
 elige siempre parecerte a la web original.
+
+# PERSISTENCIA DE LA SESIÓN
+
+El proyecto puede continuar en varias sesiones.
+
+Antes de finalizar cualquier sesión debes:
+
+- Actualizar TASKS.md.
+- Actualizar STATUS.md.
+- Verificar que ambos reflejan el estado real del proyecto.
+- Realizar un commit si se ha completado una tarea.
+
+Nunca finalices una sesión dejando información desactualizada.
+
+---
+
+# RECUPERACIÓN DE LA SESIÓN
+
+Cuando comience una nueva sesión debes:
+
+1. Leer AGENTS.md.
+2. Leer SPEC.md.
+3. Leer CONSTRAINTS.md.
+4. Leer TASKS.md.
+5. Leer STATUS.md.
+6. Revisar los últimos commits del repositorio.
+7. Comparar el estado del código con TASKS.md y STATUS.md.
+
+Si existe alguna discrepancia:
+
+- El código y el historial de Git serán la fuente de verdad.
+- Actualiza TASKS.md y STATUS.md antes de continuar.
+
+Nunca repitas trabajo ya realizado.
+
+Nunca elimines trabajo completado salvo que exista un error.

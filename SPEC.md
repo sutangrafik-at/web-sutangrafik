@@ -147,3 +147,7 @@ El proyecto solo estará finalizado cuando:
 - No existan errores ESLint.
 - La apariencia sea muy similar a la web original.
 - El proyecto esté listo para producción.
+
+## Continuidad
+
+El proyecto debe poder continuar en cualquier momento utilizando únicamente la documentación del repositorio y el historial de Git.

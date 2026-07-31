@@ -74,3 +74,11 @@ Antes de implementar una página:
 6. Solo entonces comienza la implementación.
 
 Nunca implementes una página mientras aún la estás descubriendo.
+
+# RESTRICCIONES DE CONTINUIDAD
+
+Nunca reinicies una implementación ya finalizada.
+
+Nunca vuelvas a analizar una sección ya documentada salvo que el usuario lo solicite.
+
+Nunca sobrescribas decisiones registradas en STATUS.md sin justificarlas.
