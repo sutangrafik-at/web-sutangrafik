@@ -16,7 +16,7 @@
 - [x] Descargar al proyecto los recursos oficiales de `static.wixstatic.com` (logo, fondo, 4 iconos, imágenes de bio) a `public/images`
 - [x] Añadir fuentes locales: BigNoodleTitling (woff2/woff/ttf) desde el historial Git y Third Rail (woff2/woff/ttf) desde wixstatic, a `public/fonts`
 - [x] Configurar `layout.tsx` global: fuentes, fondo común (imagen 40% fija + blanco), metadata base, skip-link
-- [ ] Validar: TypeScript, ESLint, build
+- [x] Validar: TypeScript, ESLint, build
 
 ## Componentes compartidos
 
