@@ -20,7 +20,7 @@
 
 ## Componentes compartidos
 
-- [ ] Componente HeaderNav (logo 119×90 + chips + selector EUS/CAS, estado activo por prop) con estilos exactos (chip 28px blanco sobre #DD0018, activo #A82020, selectores #DD0018/#8B0000)
+- [x] Componente HeaderNav (logo 119×90 + chips + selector EUS/CAS, estado activo por prop) con estilos exactos (chip 28px blanco sobre #DD0018, activo #A82020, selectores #DD0018/#8B0000; posiciones verificadas del SSR: chips top 139 left 745/826/878, EUS/CAS top 57 left 929/955)
 - [ ] Componentes Fila CTA y flechas SVG (47×160 decorativa y 9×32 en CTA, rotada 180°), colores #DD0018
 - [ ] Componente Columnas de servicios (título 34px + lista bold 16px worksans-extralight)
 - [ ] Componente LinkBar de iconos (PNG 18×18, 2 o 4 iconos según idioma)

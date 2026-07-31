@@ -83,6 +83,7 @@ Misma estructura que sus equivalentes euskera (textos en castellano). **Textos e
 |---|---|---|
 | Fondo de sitio | Blanco + imagen 4961×3508 en tile al 40%, fijo | Todas las páginas |
 | Logo | PNG original 2500×1330 (alt exacto) | Todas (119×90 internas; 354×266 home) |
+| HeaderNav | Logo 119×90 (top 50, left 0) + chips h1 28px (top 139, left 745/826/878; GRAFIK/BIO/kontaktuA) + EUS/CAS 16px (top 57, left 929/955, 26px c/u); fila nav 202px; enlaces de idioma apuntan a la misma página en el otro idioma | grafik, bio, kontaktua |
 | Chips de navegación | h1 28px blanco sobre `#DD0018`, activo `#A82020`, `&nbsp;` alrededor | Todas |
 | Selector EUS/CAS | 16px BigNoodle, activo `#8B0000` / inactivo `#DD0018` | Todas |
 | Título 53px sobre rojo | `&nbsp;texto&nbsp;` blanco sobre `#DD0018` | grafik, bio, kontaktua |

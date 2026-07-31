@@ -7,6 +7,8 @@
   --color-success: #67bd31;
   --color-error: #c71212;
   --color-error-text: #ff4040;
+  --font-bignoodle: "BigNoodleTitling", sans-serif;
+  --font-thirdrail: "Third Rail", sans-serif;
 }
 
 @font-face {
