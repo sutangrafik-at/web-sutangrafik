@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import Arrow from '@/components/Arrow';
+import CtaRow from '@/components/CtaRow';
 import HeaderNav from '@/components/HeaderNav';
+import PortfolioGallery from '@/components/PortfolioGallery';
 import ServicesColumns, { ServiceColumn } from '@/components/ServicesColumns';
 
 const SERVICES: [ServiceColumn, ServiceColumn] = [
@@ -59,6 +61,15 @@ export default function GrafikPage() {
           <ServicesColumns columns={SERVICES} />
         </div>
       </div>
+      <div className="mb-[30px] w-full px-4 md:ml-[205px] md:mb-[30px] md:w-[576px] md:px-0">
+        <PortfolioGallery />
+      </div>
+      <CtaRow
+        items={[
+          { label: 'ZER DA SUTAN GRAFIK?', href: '/bio' },
+          { label: 'aurrekontua eskatu', href: '/kontaktua' },
+        ]}
+      />
       <div className="flex flex-col items-center gap-6 px-4 py-8 md:hidden">
         <p className="text-center font-bignoodle text-[36px] leading-[1.5em] text-white">
           <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>{'\u00A0'}</span>
