@@ -8,14 +8,14 @@
 
 ## Última tarea completada
 
-- Componentes **Fila CTA y flechas SVG** (`src/components/Arrow.tsx`, `src/components/CtaRow.tsx`, commit `9ddd3f4`): flecha SVG con path exacto del SSR (viewBox `62.414 7.193 56.117 189.118`, rotada 180°, fill `#DD0018`) para los dos tamaños (47×160 decorativa, 9×32 CTA); fila CTA (flecha-enlace + chip h1 28px blanco sobre `#DD0018` con `&nbsp;` + flecha + chip) con posiciones verificadas en los SSR de `/grafik`, `/bio` y `/kontaktua` (flechas left 250/518 top 1, chips left 269/537, alto de fila 79px; enlaces de flecha y chip apuntan al mismo destino); variante móvil centrada. Validado (tsc, ESLint 0 warnings, build OK).
-- Anteriormente: componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- Componente **Columnas de servicios** (`src/components/ServicesColumns.tsx`, commit `d47eb73`): réplica exacta del SSR de `/grafik` — título BigNoodle 34px `0.35em` rojo `#DD0018` (es h2 en la réplica; en el original es `<p>`), espaciador 16px/`0.5em`, 4 líneas 16px worksans-extralight bold `#DD0018` con `letter-spacing:0`, 2 párrafos vacíos finales (wixGuard) como espaciado inferior; columnas 310px en left 140/631 dentro de fila de 237px; móvil: columnas apiladas centradas. Validado (tsc, ESLint 0 warnings, build OK).
+- Anteriormente: Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Siguiente: componente Columnas de servicios (título 34px + lista bold 16px worksans-extralight).
+Ninguna en progreso. Siguiente: componente LinkBar de iconos (PNG 18×18, 2 o 4 iconos según idioma).
 
 ---
 
@@ -29,6 +29,7 @@ Ninguna en progreso. Siguiente: componente Columnas de servicios (título 34px +
 
 ## Último commit
 
+- `d47eb73` — feat: replicate services columns component
 - `9ddd3f4` — feat: replicate CTA row and arrow SVG components
 - `745ec18` — feat: replicate header navigation component (HeaderNav + fuentes en @theme)
 
