@@ -8,14 +8,14 @@
 
 ## Última tarea completada
 
-- Componente `HeaderNav` (`src/components/HeaderNav.tsx`, commit `745ec18`): réplica del header de páginas internas — logo 119×90 enlace a home, chips h1 28px BigNoodleTitling blanco (activo `#A82020`, resto `#DD0018`, `&nbsp;` alrededor) con posiciones exactas del SSR (GRAFIK left 745, BIO 826, kontaktuA 878, top 139), selector EUS/CAS 16px (activo `#8B0000`, inactivo `#DD0018`; left 929/955, top 57) enlazando a la misma página en el otro idioma; fila nav 202px dentro de contenedor 980px centrado; variante móvil apilada centrada. Añadidos `--font-bignoodle` y `--font-thirdrail` al `@theme` de globals.css. Validado (tsc, ESLint 0 warnings, build OK).
-- Anteriormente: `layout.tsx` global con `@font-face` BigNoodleTitling + Third Rail y Work Sans 200; fondo común (blanco + `background.jpg` tile 40% fijo); metadata base exacta del SSR; skip-link; colores oficiales en `@theme`. Fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- Componentes **Fila CTA y flechas SVG** (`src/components/Arrow.tsx`, `src/components/CtaRow.tsx`, commit `9ddd3f4`): flecha SVG con path exacto del SSR (viewBox `62.414 7.193 56.117 189.118`, rotada 180°, fill `#DD0018`) para los dos tamaños (47×160 decorativa, 9×32 CTA); fila CTA (flecha-enlace + chip h1 28px blanco sobre `#DD0018` con `&nbsp;` + flecha + chip) con posiciones verificadas en los SSR de `/grafik`, `/bio` y `/kontaktua` (flechas left 250/518 top 1, chips left 269/537, alto de fila 79px; enlaces de flecha y chip apuntan al mismo destino); variante móvil centrada. Validado (tsc, ESLint 0 warnings, build OK).
+- Anteriormente: componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Siguiente: componentes Fila CTA y flechas SVG (47×160 decorativa y 9×32 en CTA, rotada 180°, `#DD0018`).
+Ninguna en progreso. Siguiente: componente Columnas de servicios (título 34px + lista bold 16px worksans-extralight).
 
 ---
 
@@ -29,6 +29,7 @@ Ninguna en progreso. Siguiente: componentes Fila CTA y flechas SVG (47×160 deco
 
 ## Último commit
 
+- `9ddd3f4` — feat: replicate CTA row and arrow SVG components
 - `745ec18` — feat: replicate header navigation component (HeaderNav + fuentes en @theme)
 
 ---
