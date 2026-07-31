@@ -59,11 +59,13 @@ Nota: el canonical de `/cas` apunta a `https://www.sutangrafik.com/cas` → el d
 
 ### `/bio`
 1. Logo + chips (BIO activo `#A82020`) + EUS/CAS
-2. Título `bio` 53px blanco sobre `#DD0018`
+2. Título `bio` 53px blanco sobre `#DD0018` (left -43, 310px, ls 0.05em uniforme)
 3. Encabezado `SUTAN GRAFIK`: "SUTAN" en **Third Rail** 30px (letter-spacing 0.2em) + "GRAFIK" en BigNoodle 29px (0.35em), rojo
 4. 3 párrafos + separador `ALEX TURRILLAS` 18px (0.35em) + 2 párrafos finales — todos 14px, justificados, bold, rojo, worksans-extralight (texto completo en §11)
-5. Columna derecha: logo pequeño `41×48` (fila 5) y dos imágenes: logo `204×153` + imagen `213×204`
+5. Logo pequeño `41×48` (fila 5, left 197 — **solapa el encabezado**; verificado en el original con elementFromPoint) y dos imágenes: logo `204×153` (left 738, fila 6) + imagen `213×204` (left 733, fila 7); filas 5-8 = 465px
 6. Fila CTA: flechas + `EGINDAKO LANAK IKUSI` + `aurrekontua eskatu`
+
+Nota: en todas las páginas el `#masterPage` del original empieza en y=50 — es la barra superior de Wix (chrome, se elimina en la réplica); las posiciones del diseño son relativas a la página.
 
 ### `/kontaktua`
 1. Logo + chips (kontaktuA activo `#A82020`) + EUS/CAS
