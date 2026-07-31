@@ -13,7 +13,7 @@
 ## Recursos y base
 
 - [x] Extraer las 35 JPGs de portfolio del historial Git (commit `7a03e51`, `images/Portfoliokoak/`) a `public/images/portfolio`
-- [ ] Descargar al proyecto los recursos oficiales de `static.wixstatic.com` (logo, fondo, 4 iconos, imágenes de bio) a `public/images`
+- [x] Descargar al proyecto los recursos oficiales de `static.wixstatic.com` (logo, fondo, 4 iconos, imágenes de bio) a `public/images`
 - [ ] Añadir fuentes locales: BigNoodleTitling (woff2/woff/ttf) y Third Rail desde el historial Git / wixstatic a `public/fonts`
 - [ ] Configurar `layout.tsx` global: fuentes, fondo común (imagen 40% fija + blanco), metadata base, skip-link
 - [ ] Validar: TypeScript, ESLint, build

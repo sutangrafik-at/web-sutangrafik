@@ -188,16 +188,16 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 ### Imágenes oficiales (static.wixstatic.com — descargar al proyecto)
 | Recurso | URL | Dimensiones |
 |---|---|---|
-| Logo | `ef03a3_1a9af5447b4c405382e501e2e45cdc4c~mv2.png` | 2500×1330 |
+| Logo | `ef03a3_1a9af5447b4c405382e501e2e45cdc4c~mv2.png` | 800×600 |
 | Fondo | `ef03a3_9ace2f32e9b348d0b9960e5e9b8100da~mv2_d_4961_3508_s_4_2.jpg` | 4961×3508 |
-| Icono tel | `ef03a3_0600f137c3ce4e968a738b82d8bd7a0a~mv2.png` | 18×18 (render) |
-| Icono email | `ef03a3_72e6e6d03f2c48549982dc1211332321~mv2.png` | 18×18 (render) |
-| Icono facebook | `ef03a3_d981e40aa3e645bb93ab7e03f786ce99~mv2.png` | 18×18 (render) |
-| Icono instagram | `ef03a3_addd325ddbcc4386a777604293cb61a6~mv2.png` | 18×18 (render) |
-| Logo pequeño bio | `ef03a3_5339b64893554542a77305e6db96cd94~mv2.png` | 41×48 (render) |
-| Imagen bio | `ef03a3_f8f0003ac84e4e0995bdb85e59ef6ea8~mv2.png` | 213×204 (render) |
+| Icono tel | `ef03a3_0600f137c3ce4e968a738b82d8bd7a0a~mv2.png` | 225×225 |
+| Icono email | `ef03a3_72e6e6d03f2c48549982dc1211332321~mv2.png` | 225×225 |
+| Icono facebook | `ef03a3_d981e40aa3e645bb93ab7e03f786ce99~mv2.png` | 225×225 |
+| Icono instagram | `ef03a3_addd325ddbcc4386a777604293cb61a6~mv2.png` | 225×225 |
+| Logo pequeño bio | `ef03a3_5339b64893554542a77305e6db96cd94~mv2.png` | 473×558 |
+| Imagen bio | `ef03a3_f8f0003ac84e4e0995bdb85e59ef6ea8~mv2.png` | 407×390 |
 
-(URLs base: `https://static.wixstatic.com/media/<hash>`)
+(URLs base: `https://static.wixstatic.com/media/<hash>`) — descargados a `public/images/` (iconos en `public/images/icons/`).
 
 ### Fuentes
 | Fuente | Origen | Uso |

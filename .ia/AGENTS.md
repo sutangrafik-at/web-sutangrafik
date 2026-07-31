@@ -315,3 +315,14 @@ Antes de comenzar cualquier tarea:
 No modifiques archivos inmediatamente después de recibir una instrucción.
 
 Dedica primero tiempo a analizar la mejor estrategia.
+
+# REVISIÓN VISUAL
+
+Al finalizar una tarea importante:
+
+- Comprueba que el proyecto compila.
+- Inicia el servidor de desarrollo si no está en ejecución.
+- Indica la URL local para revisión.
+- Espera la aprobación del usuario antes de continuar con la siguiente tarea.
+
+No implementes varias tareas importantes seguidas sin permitir una revisión visual.
