@@ -8,14 +8,14 @@
 
 ## Última tarea completada
 
-- Configurado `layout.tsx` global: `@font-face` BigNoodleTitling + Third Rail (woff2→woff→ttf) y Work Sans 200 (worksans-extralight) vía `next/font/google`; fondo común replicando el original (blanco + `background.jpg` repeat 4961×3508 centrado, opacidad 0.4, fijo); metadata base exacta del SSR (title, description multilínea oficial, og:site_name SUTAN GRAFIK, og:type website, og:image logo 800×600, twitter summary_large_image, metadataBase `https://www.sutangrafik.com`); skip-link estilo Wix (BqYkvS) y `<main id="main-content">`. Colores oficiales como `@theme` en globals.css (accent, accent-active, accent-hover, success, error).
-- Anteriormente: fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- Componente `HeaderNav` (`src/components/HeaderNav.tsx`, commit `745ec18`): réplica del header de páginas internas — logo 119×90 enlace a home, chips h1 28px BigNoodleTitling blanco (activo `#A82020`, resto `#DD0018`, `&nbsp;` alrededor) con posiciones exactas del SSR (GRAFIK left 745, BIO 826, kontaktuA 878, top 139), selector EUS/CAS 16px (activo `#8B0000`, inactivo `#DD0018`; left 929/955, top 57) enlazando a la misma página en el otro idioma; fila nav 202px dentro de contenedor 980px centrado; variante móvil apilada centrada. Añadidos `--font-bignoodle` y `--font-thirdrail` al `@theme` de globals.css. Validado (tsc, ESLint 0 warnings, build OK).
+- Anteriormente: `layout.tsx` global con `@font-face` BigNoodleTitling + Third Rail y Work Sans 200; fondo común (blanco + `background.jpg` tile 40% fijo); metadata base exacta del SSR; skip-link; colores oficiales en `@theme`. Fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Siguiente: componente HeaderNav (logo 119×90 + chips + selector EUS/CAS).
+Ninguna en progreso. Siguiente: componentes Fila CTA y flechas SVG (47×160 decorativa y 9×32 en CTA, rotada 180°, `#DD0018`).
 
 ---
 
@@ -29,7 +29,7 @@ Ninguna en progreso. Siguiente: componente HeaderNav (logo 119×90 + chips + sel
 
 ## Último commit
 
-Pendiente (se realizará tras el commit del layout global)
+- `745ec18` — feat: replicate header navigation component (HeaderNav + fuentes en @theme)
 
 ---
 
