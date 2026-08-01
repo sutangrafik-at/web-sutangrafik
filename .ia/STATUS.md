@@ -8,21 +8,25 @@
 
 ## Última tarea completada
 
-- **Corrección de las diferencias detectadas en la auditoría (01/08/2026)**: V1 centrado del grid (`md:mx-auto` en los 7 wrappers — el original usa `margin-left:calc((100% - 980px)/2)`; el `ml:130px` era artefacto del viewport de medición 1240; verificado por CDP a 1280/1920: x idéntico al original en chips/CTA/flechas), F1 bug del mensaje de éxito eu (`{text.success}` literal → "Eskerrik asko! Mezua ondo bidali da."), F2 maxLengths espurios eliminados (asunto y textarea; el original solo tiene email=250 y nombre=100), V2 Work Sans con peso 700 (negrita real, no faux-bold), V3 mensaje de éxito en Helvetica, V6 `lang="es"` en todas las páginas (como el original, verificado en los 7 SSR), favicon `.ico` regenerado del logo (16/32/48/256, PNG embebido, aspecto 4:3 con fondo transparente). Comprobaciones: tsc/lint/build OK (14 rutas).
+- **Refinamiento visual (01/08/2026)**: análisis y corrección de 3 diferencias vs original:
+  1. **Transiciones entre páginas**: el original usa la View Transitions API (`@view-transition{navigation:auto;types:CrossFade}`, keyframes slide-horizontal/out-in, `view-transition-name` en header/wix-ads/footer/background/page groups). NO implementado por decisión del usuario (01/08/2026) — queda documentado en TASKS.md.
+  2. **Fondo**: el original no sirve el JPG nítido 4961×3508 sino un tile del CDN reducido y desenfocado (`w_744,h_526,...,blur_1`) mostrado a `background-size:4961px 3508px` con `--fill-layer-image-opacity:0.4`, `--fill-layer-image-height:120%`, underlay blanco `--bg-overlay-color:color_11`, `--bg-position:fixed`. Sustituido `public/images/background.jpg` por el tile exacto descargado del CDN (744×526, 47KB); el CSS de `.site-background` no cambió (ya coincidía).
+  3. **Vertical home vs resto**: los 50px de diferencia son el banner freemium de Wix (`--wix-ads-height:50px` → `#site-root{top:var(--wix-ads-height)}`); con banner oculto (`--wix-ads-height:0`) el original renderiza home logo 71/chips 357 (== la local) e interiores 50px más arriba (bio 690, cas-grafik 3089). La local se había calibrado con banner activo en interiores (+50) y sin banner en la home → decisión del usuario de punto medio 25/25: home +25 (logo/EUS/CAS 96, chips 382/383, linkbar 437/446, contenedor 523px en `HomeContent.tsx`) e interiores -25 (`md:-mt-[25px]` en el wrapper de las 6 páginas: header nav 140→115, bio EGINDAKO LANAK 740→715, cas-grafik 3119→3094, kontaktua 586→561). Verificado por CDP en home/cas/bio/cas-grafik/kontaktua. Comprobaciones: tsc/lint/build OK (14 rutas).
+- Anteriormente: **Corrección de las diferencias detectadas en la auditoría (01/08/2026)**: V1 centrado del grid (`md:mx-auto` en los 7 wrappers — el original usa `margin-left:calc((100% - 980px)/2)`; el `ml:130px` era artefacto del viewport de medición 1240; verificado por CDP a 1280/1920: x idéntico al original en chips/CTA/flechas), F1 bug del mensaje de éxito eu (`{text.success}` literal → "Eskerrik asko! Mezua ondo bidali da."), F2 maxLengths espurios eliminados (asunto y textarea; el original solo tiene email=250 y nombre=100), V2 Work Sans con peso 700 (negrita real, no faux-bold), V3 mensaje de éxito en Helvetica, V6 `lang="es"` en todas las páginas (como el original, verificado en los 7 SSR), favicon `.ico` regenerado del logo (16/32/48/256, PNG embebido, aspecto 4:3 con fondo transparente). Comprobaciones: tsc/lint/build OK (14 rutas).
 - Anteriormente: Cierre SEO (canonical/OG/sitemap/robots, `0f37b1a`); `/cas-bio` y `/cas-contacto` (`e6ed3aa`+`7fbf00d`); `/cas-grafik` (`4aa065b`+`e6254b6`); `/kontaktua` (`b4bfd6b`); `/bio` (`1675c04`); `/grafik` completo (`f9c86ba`/`b31682e`/`a3ad3b6`); Home cas `/cas` (`559d4e9`); Home eu `/` (`6a150a7`); LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Las 8 páginas están implementadas y validadas (build/tsc/lint). Pendiente: revisión visual del usuario de la web completa en local y confirmación del favicon generado.
+Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual aplicados (build/tsc/lint OK). Pendiente: revisión visual del usuario en local de los cambios de refinamiento (fondo desenfocado y vertical 25/25).
 
 ---
 
 ## Próximo paso
 
-1. Revisión visual del usuario de las 8 páginas en local (http://localhost:3001) vs original.
-2. Confirmación del favicon generado a partir del logo.
+1. Revisión visual del usuario en local (http://localhost:3001) del fondo desenfocado y la vertical ajustada (home 25px más abajo, interiores 25px más arriba).
+2. Decisión pendiente del usuario sobre las transiciones CrossFade del original (documentadas, no implementadas).
 3. Actualizar STATUS.md y commit final.
 
 ---
@@ -52,7 +56,8 @@ Las 8 páginas están implementadas y validadas (build/tsc/lint). Pendiente: rev
 - URLs de la galería Masonry de `/grafik` inaccesibles (iframe santa-galleries protegido, AccessDenied) → resuelto con decisión de usar las 35 JPGs del historial Git.
 - Destino del envío del formulario: en modo prueba, sin email (decisión del usuario).
 - Mediciones headless del original: con parastorage bloqueado, bignoodle/worksans se caen a Arial → filas infladas por wraps (el "2.25em" era artefacto); la fuente de verdad son el CSS del SSR + las métricas reales de las fuentes locales. Las posiciones de anclas (títulos/imágenes/formulario/CTA) SÍ son fiables en headless (medidas en el mismo estado).
-- Favicon y CrossFade pendientes de confirmar (hay valor por defecto definido).
+- El banner freemium de Wix (`--wix-ads-height:50px`, `#site-root{top:var(--wix-ads-height)}`) desplaza todo el contenido del original 50px hacia abajo mientras está activo; es un anuncio (a eliminar) y su estado varía por sesión. La réplica usa el punto medio decidido (home -25 del render con banner, interiores +25) → siempre hay hasta 25px de diferencia según el estado del banner en el navegador del usuario.
+- Transiciones CrossFade entre páginas del original (View Transitions API): NO implementadas por decisión del usuario (01/08/2026) — pendiente de confirmar si se quieren replicar más adelante.
 - Documentos en `.ia/` (fuera de la raíz); actualizar referencias de AGENTS.md (RECUPERACIÓN DE LA SESIÓN) si se mantiene la ubicación.
 
 ---

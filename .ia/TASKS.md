@@ -91,6 +91,15 @@
 - [x] Favicon: `.ico` regenerado a partir de `public/images/logo.png` (4 tamaños 16/32/48/256, PNG embebido, fondo transparente, aspecto 4:3 conservado)
 - [x] Validar: TypeScript, ESLint, build, funcionamiento
 
+## Refinamiento visual (01/08/2026)
+
+- [x] **Fondo — textura/filtro**: el original sirve un tile del CDN reducido y desenfocado (`w_744,h_526,...,blur_1`) mostrado a `background-size:4961px 3508px`, opacity 0.4, repeat, center, fixed, sobre underlay blanco (`--bg-overlay-color:color_11`), layer `--fill-layer-image-height:120%`. Sustituido `public/images/background.jpg` por el tile exacto descargado del CDN (744×526, 47KB, URL del SSR home.html); CSS de `.site-background` sin cambios.
+- [x] **Vertical home vs resto**: causa = banner freemium Wix (`--wix-ads-height:50px` → `#site-root{top:var(--wix-ads-height)}`; verificado con CDP ocultando el banner: home logo 71/chips 357 == local; interiores 50px más altos: bio 690, cas-grafik 3089). Decisión del usuario: punto medio 25/25 →
+  - Home (+25): `HomeContent.tsx` logo/EUS/CAS top 96 (antes 71), chipsTop 382 (eu)/383 (es), linkbarTop 437 (eu)/446 (es), contenedor h-[523px].
+  - Interiores (-25): `md:-mt-[25px]` en el wrapper `w-full max-w-[980px] md:mx-auto` de las 6 páginas (grafik, bio, kontaktua, cas-grafik, cas-bio, cas-contacto) — header + contenido juntos (nav 140→115, bio EGINDAKO LANAK 740→715, cas-grafik 3119→3094, kontaktua 586→561). Verificado por CDP.
+- [x] **Transiciones entre páginas**: el original implementa View Transitions API (`@view-transition{navigation:auto;types:CrossFade}` + keyframes slide-horizontal-new/old (0.6s cubic-bezier(.83,0,.17,1)), slide-vertical, out-in-new/old (0.35s) + `view-transition-name`: header-group, wix-ads-group, footer-group, background-group, page-group). NO implementado — decisión del usuario (01/08/2026): no lo aplica por ahora. Si se decide replicar: reglas en `globals.css` + enlaces `next/link` (navegación SPA).
+- [x] Validar: TypeScript, ESLint, build, funcionamiento
+
 Formato esperado:
 
 - [ ] Tarea pendiente
