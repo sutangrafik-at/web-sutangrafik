@@ -16,6 +16,9 @@ export const metadata: Metadata = {
     title: 'BIO | SUTAN GRAFIK cas',
     description: DESCRIPTION,
   },
+  alternates: {
+    canonical: '/cas-bio',
+  },
 };
 
 const PARAGRAPH_CLASSES_13 =
@@ -50,7 +53,7 @@ export default function CasBioPage() {
               Tras varios años trabajando como Freelance y en agencias de diseño y publicidad, ha
               nacido Sutan Grafik.
             </p>
-            <p className={PARAGRAPH_CLASSES_13}>&nbsp;</p>
+            <p className={PARAGRAPH_CLASSES_13}>?</p>
             <p className={PARAGRAPH_CLASSES_13}>
               Se realizan trabajos de diseño para empresas, colectivos, bandas musicales,
               agrupaciones culturales y otras entidades, desde la perspectiva y la realidad de cada
@@ -63,7 +66,7 @@ export default function CasBioPage() {
               basado en nuestra experiencia. Es decir, nos encargaremos de todo hasta que los
               productos gráficos requeridos lleguen a tu casa.
             </p>
-            <p className={PARAGRAPH_CLASSES_14}>&nbsp;</p>
+            <p className={PARAGRAPH_CLASSES_14}>?</p>
             <p className="font-bignoodle text-[18px] leading-[1.14em] text-accent" style={{ letterSpacing: '0.35em' }}>
               ALEX TURRILLAS
             </p>
@@ -77,11 +80,11 @@ export default function CasBioPage() {
             </p>
             <p className={PARAGRAPH_CLASSES_13}>&nbsp;</p>
             <p className={PARAGRAPH_CLASSES_13}>Apasionado de la historia, de la música y de las artes en general.</p>
-            <p className={PARAGRAPH_CLASSES_14}>&nbsp;</p>
+            <p className={PARAGRAPH_CLASSES_14}>.</p>
             <p className="font-bignoodle text-[21px] leading-[1.14em] text-accent" style={{ letterSpacing: '0.35em' }}>
-              &nbsp;
+              ?
             </p>
-            <p className="text-center text-[16px] font-bold leading-[1.14em] text-accent">&nbsp;</p>
+            <p className="text-center text-[16px] font-bold leading-[1.14em] text-accent">?</p>
           </div>
           <Image
             src="/images/bio-logo.png"
