@@ -29,21 +29,27 @@ Nunca tomar decisiones de diseño basadas en preferencias personales.
 # TECNOLOGÍAS
 
 Framework:
+
 - Next.js 15
 
 Lenguaje:
+
 - TypeScript
 
 UI:
+
 - React
 
 Estilos:
+
 - Tailwind CSS
 
 Animaciones:
+
 - Framer Motion (solo cuando sea necesario para replicar el comportamiento original)
 
 Iconografía:
+
 - Lucide React únicamente cuando los iconos originales no puedan recuperarse.
 
 ---

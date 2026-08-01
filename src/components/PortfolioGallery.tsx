@@ -9,12 +9,20 @@ export default function PortfolioGallery() {
 
   const close = useCallback(() => setOpenIndex(null), []);
   const showPrevious = useCallback(
-    () => setOpenIndex((current) => (current === null ? null : (current + PORTFOLIO_IMAGES.length - 1) % PORTFOLIO_IMAGES.length)),
-    [],
+    () =>
+      setOpenIndex((current) =>
+        current === null
+          ? null
+          : (current + PORTFOLIO_IMAGES.length - 1) % PORTFOLIO_IMAGES.length
+      ),
+    []
   );
   const showNext = useCallback(
-    () => setOpenIndex((current) => (current === null ? null : (current + 1) % PORTFOLIO_IMAGES.length)),
-    [],
+    () =>
+      setOpenIndex((current) =>
+        current === null ? null : (current + 1) % PORTFOLIO_IMAGES.length
+      ),
+    []
   );
 
   useEffect(() => {
@@ -61,7 +69,7 @@ export default function PortfolioGallery() {
           <button
             type="button"
             onClick={close}
-            className="absolute right-4 top-4 text-[32px] leading-none text-white"
+            className="absolute top-4 right-4 text-[32px] leading-none text-white"
             aria-label="Itxi"
           >
             &times;
@@ -72,7 +80,7 @@ export default function PortfolioGallery() {
               event.stopPropagation();
               showPrevious();
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-[48px] leading-none text-white"
+            className="absolute top-1/2 left-4 -translate-y-1/2 text-[48px] leading-none text-white"
             aria-label="Aurrekoa"
           >
             &#8249;
@@ -92,7 +100,7 @@ export default function PortfolioGallery() {
               event.stopPropagation();
               showNext();
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-[48px] leading-none text-white"
+            className="absolute top-1/2 right-4 -translate-y-1/2 text-[48px] leading-none text-white"
             aria-label="Hurrengoa"
           >
             &#8250;

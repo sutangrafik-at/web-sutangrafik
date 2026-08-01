@@ -25,11 +25,14 @@ export default function Chip({
       } ${className}`}
       style={style}
     >
-      <Link href={href} className="block" style={{ backgroundColor: active ? '#A82020' : '#DD0018' }}>
+      <Link
+        href={href}
+        className="block"
+        style={{ backgroundColor: active ? '#A82020' : '#DD0018' }}
+      >
         {'\u00A0'}
         {label}
-        {'\u00A0'}
-        {' '}
+        {'\u00A0'}{' '}
       </Link>
     </h1>
   );

@@ -4,7 +4,11 @@ type ArrowProps = {
   className?: string;
 };
 
-export default function Arrow({ width = 47, height = 160, className = '' }: ArrowProps) {
+export default function Arrow({
+  width = 47,
+  height = 160,
+  className = '',
+}: ArrowProps) {
   return (
     <svg
       preserveAspectRatio="xMidYMid meet"

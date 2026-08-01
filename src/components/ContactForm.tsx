@@ -8,7 +8,16 @@ type FieldErrors = { email?: string; name?: string };
 
 type Lang = 'eu' | 'es';
 
-const TEXT: Record<Lang, { email: string; name: string; subject: string; message: string; success: string }> = {
+const TEXT: Record<
+  Lang,
+  {
+    email: string;
+    name: string;
+    subject: string;
+    message: string;
+    success: string;
+  }
+> = {
   eu: {
     email: 'HELBIDE ELEKTRONIKOA *',
     name: 'IZENA -  ABIZENA *',
@@ -75,7 +84,9 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
               className={`${INPUT_CLASSES} ${errors.email ? ERROR_INPUT_CLASSES : ''}`}
             />
             {errors.email && (
-              <p className="text-[13px] leading-[1.3em] text-error-text">{errors.email}</p>
+              <p className="text-error-text text-[13px] leading-[1.3em]">
+                {errors.email}
+              </p>
             )}
           </div>
           <div className="col-start-1 row-start-2">
@@ -91,7 +102,11 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
               onChange={(event) => setName(event.target.value)}
               className={`${INPUT_CLASSES} ${errors.name ? ERROR_INPUT_CLASSES : ''}`}
             />
-            {errors.name && <p className="text-[13px] leading-[1.3em] text-error-text">{errors.name}</p>}
+            {errors.name && (
+              <p className="text-error-text text-[13px] leading-[1.3em]">
+                {errors.name}
+              </p>
+            )}
           </div>
           <div className="col-start-1 row-start-3">
             <input
@@ -109,17 +124,17 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
             aria-label={text.message}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
-            className={`${TEXTAREA_CLASSES} col-start-2 row-start-1 row-span-3`}
+            className={`${TEXTAREA_CLASSES} col-start-2 row-span-3 row-start-1`}
           />
           <button
             type="submit"
-            className="col-start-2 row-start-4 h-[42px] w-[52px] self-start justify-self-end border-0 bg-accent text-center font-bignoodle text-[23px] leading-[1.4em] text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.6)]"
+            className="bg-accent font-bignoodle col-start-2 row-start-4 h-[42px] w-[52px] self-start justify-self-end border-0 text-center text-[23px] leading-[1.4em] text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.6)]"
           >
             Bidali
           </button>
           <p
             aria-live="polite"
-            className={`col-start-1 row-start-4 w-[686px] self-start text-[14px] leading-[1.15em] text-success ${
+            className={`text-success col-start-1 row-start-4 w-[686px] self-start text-[14px] leading-[1.15em] ${
               submitted ? 'visible' : 'invisible'
             }`}
             style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
@@ -141,7 +156,9 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
           onChange={(event) => setEmail(event.target.value)}
           className={`${INPUT_CLASSES} ${errors.email ? ERROR_INPUT_CLASSES : ''}`}
         />
-        {errors.email && <p className="-mt-4 text-[13px] text-error-text">{errors.email}</p>}
+        {errors.email && (
+          <p className="text-error-text -mt-4 text-[13px]">{errors.email}</p>
+        )}
         <input
           type="text"
           placeholder={text.name}
@@ -154,7 +171,9 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
           onChange={(event) => setName(event.target.value)}
           className={`${INPUT_CLASSES} ${errors.name ? ERROR_INPUT_CLASSES : ''}`}
         />
-        {errors.name && <p className="-mt-4 text-[13px] text-error-text">{errors.name}</p>}
+        {errors.name && (
+          <p className="text-error-text -mt-4 text-[13px]">{errors.name}</p>
+        )}
         <input
           type="text"
           placeholder={text.subject}
@@ -173,13 +192,13 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
         />
         <button
           type="submit"
-          className="h-[42px] w-[52px] self-start border-0 bg-accent text-center font-bignoodle text-[23px] leading-[1.4em] text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.6)]"
+          className="bg-accent font-bignoodle h-[42px] w-[52px] self-start border-0 text-center text-[23px] leading-[1.4em] text-white shadow-[0_1px_4px_0_rgba(0,0,0,0.6)]"
         >
           Bidali
         </button>
         <p
           aria-live="polite"
-          className={`text-[14px] text-success ${submitted ? 'visible' : 'invisible'}`}
+          className={`text-success text-[14px] ${submitted ? 'visible' : 'invisible'}`}
           style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
         >
           {text.success}

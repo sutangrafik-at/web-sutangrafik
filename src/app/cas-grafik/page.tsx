@@ -47,33 +47,51 @@ export default function CasGrafikPage() {
       <HeaderNav active="grafik" lang="es" />
       <div className="hidden md:block">
         <div className="mt-[33px] mb-[11px] ml-[17px] w-[310px]">
-          <p className="text-center font-bignoodle text-[53px] leading-[1.5em] text-white">
-            <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>{'\u00A0'}</span>
-            <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.25em' }}>GRAFIK</span>
+          <p className="font-bignoodle text-center text-[53px] leading-[1.5em] text-white">
+            <span
+              style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}
+            >
+              {'\u00A0'}
+            </span>
+            <span
+              style={{ backgroundColor: '#DD0018', letterSpacing: '0.25em' }}
+            >
+              GRAFIK
+            </span>
           </p>
-          <p className="text-center text-[16px] font-bold leading-[1.14em] text-accent">&nbsp;</p>
+          <p className="text-accent text-center text-[16px] leading-[1.14em] font-bold">
+            &nbsp;
+          </p>
         </div>
         <p
-          className="mb-[13px] text-center font-bignoodle text-[23px] leading-[0.5em] text-accent"
+          className="font-bignoodle text-accent mb-[13px] text-center text-[23px] leading-[0.5em]"
           style={{ letterSpacing: '0.45em' }}
         >
           SOLUCIONES GRÁFICAS ADAPTADAS A TUS NECESIDADES
         </p>
-        <div className="mb-[16px] h-[5px] w-[979px] border-t-[4px] border-accent" />
+        <div className="border-accent mb-[16px] h-[5px] w-[979px] border-t-[4px]" />
         <p
-          className="mt-[8px] mb-[40px] text-center font-bignoodle text-[15px] leading-[0.5em] text-accent"
+          className="font-bignoodle text-accent mt-[8px] mb-[40px] text-center text-[15px] leading-[0.5em]"
           style={{ letterSpacing: '0.2em' }}
         >
-          TE OFRECEMOS ASESORAMIENTO BASADO EN NUESTRA EXPERIENCIA, ENCARGÁNDONOS DEL PROCESO CREATIVO DE
-          PRINCIPIO A FIN
+          TE OFRECEMOS ASESORAMIENTO BASADO EN NUESTRA EXPERIENCIA,
+          ENCARGÁNDONOS DEL PROCESO CREATIVO DE PRINCIPIO A FIN
         </p>
-        <div className="relative mb-[44px] mt-[8px] h-[160px]">
-          <Arrow width={47} height={160} className="absolute left-[88px] top-[8px]" />
-          <Arrow width={47} height={160} className="absolute left-[589px] top-[8px]" />
+        <div className="relative mt-[8px] mb-[44px] h-[160px]">
+          <Arrow
+            width={47}
+            height={160}
+            className="absolute top-[8px] left-[88px]"
+          />
+          <Arrow
+            width={47}
+            height={160}
+            className="absolute top-[8px] left-[589px]"
+          />
           <ServicesColumns columns={SERVICES} />
         </div>
       </div>
-      <div className="mb-[30px] w-full px-4 md:ml-[201px] md:mb-[52px] md:w-[576px] md:px-0">
+      <div className="mb-[30px] w-full px-4 md:mb-[52px] md:ml-[201px] md:w-[576px] md:px-0">
         <PortfolioGallery />
       </div>
       <CtaRow
@@ -84,23 +102,27 @@ export default function CasGrafikPage() {
         ]}
       />
       <div className="flex flex-col items-center gap-6 px-4 py-8 md:hidden">
-        <p className="text-center font-bignoodle text-[36px] leading-[1.5em] text-white">
-          <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>{'\u00A0'}</span>
-          <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.25em' }}>GRAFIK</span>
+        <p className="font-bignoodle text-center text-[36px] leading-[1.5em] text-white">
+          <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.05em' }}>
+            {'\u00A0'}
+          </span>
+          <span style={{ backgroundColor: '#DD0018', letterSpacing: '0.25em' }}>
+            GRAFIK
+          </span>
         </p>
         <p
-          className="text-center font-bignoodle text-[20px] leading-[1.5em] text-accent"
+          className="font-bignoodle text-accent text-center text-[20px] leading-[1.5em]"
           style={{ letterSpacing: '0.45em' }}
         >
           SOLUCIONES GRÁFICAS ADAPTADAS A TUS NECESIDADES
         </p>
-        <div className="h-[4px] w-full border-t-[4px] border-accent" />
+        <div className="border-accent h-[4px] w-full border-t-[4px]" />
         <p
-          className="text-center font-bignoodle text-[15px] leading-[1.4em] text-accent"
+          className="font-bignoodle text-accent text-center text-[15px] leading-[1.4em]"
           style={{ letterSpacing: '0.2em' }}
         >
-          TE OFRECEMOS ASESORAMIENTO BASADO EN NUESTRA EXPERIENCIA, ENCARGÁNDONOS DEL PROCESO CREATIVO DE
-          PRINCIPIO A FIN
+          TE OFRECEMOS ASESORAMIENTO BASADO EN NUESTRA EXPERIENCIA,
+          ENCARGÁNDONOS DEL PROCESO CREATIVO DE PRINCIPIO A FIN
         </p>
         <ServicesColumns columns={SERVICES} />
       </div>

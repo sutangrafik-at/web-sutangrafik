@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Web Sutangrafik
 
-## Getting Started
+Sitio web corporativo de **Sutangrafik** — estudio de diseño gráfico y editorial (Bilbao). Réplica fiel de la web original (Wix) como aplicación Next.js, bilingüe **euskera / castellano** (rutas con prefijo `cas-`).
 
-First, run the development server:
+## Stack
+
+- **Next.js 15** (App Router, `turbopack`) + **React 19**
+- **TypeScript 5** (`strict`, `noUnusedLocals`, `noUnusedParameters`)
+- **Tailwind CSS 4** (PostCSS, `@theme` con tokens propios)
+- **ESLint 9** (`eslint-config-next`) + **Prettier** (`prettier-plugin-tailwindcss`)
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run dev        # servidor de desarrollo (turbopack)
+npm run build      # build de producción (14 rutas estáticas)
+npm run start      # servidor de producción
+npm run lint       # ESLint
+npm run format     # Prettier --write
+npm run format:check
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Estructura
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+src/
+├── app/                  # rutas (App Router)
+│   ├── page.tsx          # home (eu)
+│   ├── bio|grafik|kontaktua/        # páginas eu
+│   ├── cas|cas-bio|cas-grafik|cas-contacto/  # páginas es
+│   ├── layout.tsx        # layout raíz + metadata + ViewTransitions
+│   ├── robots.ts         # robots.txt
+│   └── sitemap.ts        # sitemap.xml
+├── components/           # componentes reutilizables
+│   ├── HeaderNav.tsx     # navegación con chips
+│   ├── HomeContent.tsx   # bloque principal del home (eu/es)
+│   ├── Chip.tsx / LinkBar.tsx / Arrow.tsx
+│   ├── ServicesColumns.tsx
+│   ├── PortfolioGallery.tsx   # galería masonry + lightbox
+│   ├── CtaRow.tsx / ContactForm.tsx
+│   └── ViewTransitions.tsx    # transición suave entre rutas (View Transitions API)
+└── data/portfolio.ts     # imágenes y títulos de la galería
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Notas de fidelidad (vs. original Wix)
 
-## Learn More
+- Fuentes auto-hospedadas: `worksans-extralight` (woff2 exactos descargados del original, 400/700) para los párrafos de Bio; Work Sans de Google para el resto.
+- Imagen de fondo nítida descargada del original (`public/images/background.jpg`), con `opacity 0.4`.
+- Transición entre páginas: fade-out 140 ms / fade-in 200 ms + 12 px, con `prefers-reduced-motion` respetado.
+- Galería: sombra `rgba(0,0,0,0.36) 1.03px 2.82px 3px 1px`, espaciado 13 px (idéntico al original).
+- Diseño verificado contra el original con CDP (Edge headless); el historial completo de decisiones y mediciones está en `.ia/`.
 
-To learn more about Next.js, take a look at the following resources:
+## Despliegue
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Build estándar de Next.js: todas las rutas se prerenderizan como contenido estático (14 rutas, sin funciones server).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npm run build
+npm run start   # servidor de producción, o desplegar en Vercel / cualquier host Node
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+No requiere variables de entorno ni backend.

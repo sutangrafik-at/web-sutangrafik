@@ -9,14 +9,18 @@ type ServicesColumnsProps = {
 
 function ServiceColumnBlock({ column }: { column: ServiceColumn }) {
   const guards = Array.from({ length: 6 - column.items.length }, (_, index) => (
-    <p key={`guard-${index}`} className="text-center text-[16px] leading-[1.14em] text-accent" aria-hidden="true">
+    <p
+      key={`guard-${index}`}
+      className="text-accent text-center text-[16px] leading-[1.14em]"
+      aria-hidden="true"
+    >
       &nbsp;
     </p>
   ));
   return (
     <>
       <h2
-        className="text-center font-bignoodle text-[34px] leading-[1.15em] text-accent"
+        className="font-bignoodle text-accent text-center text-[34px] leading-[1.15em]"
         style={{ letterSpacing: '0.35em' }}
       >
         {column.title}
@@ -25,7 +29,7 @@ function ServiceColumnBlock({ column }: { column: ServiceColumn }) {
       {column.items.map((item) => (
         <p
           key={item}
-          className="text-center font-[var(--font-worksans)] text-[16px] font-extralight leading-[1.14em] text-accent"
+          className="text-accent text-center text-[16px] leading-[1.14em] font-[var(--font-worksans)] font-extralight"
           style={{ letterSpacing: 0 }}
         >
           {item}

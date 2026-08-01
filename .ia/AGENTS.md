@@ -219,7 +219,6 @@ Después de cada commit:
 
 Nunca acumules varias tareas diferentes en un único commit.
 
-
 ---
 
 # REGLA MÁS IMPORTANTE

@@ -26,16 +26,26 @@ type LinkBarProps = {
   style?: CSSProperties;
 };
 
-export default function LinkBar({ items, className = '', style }: LinkBarProps) {
+export default function LinkBar({
+  items,
+  className = '',
+  style,
+}: LinkBarProps) {
   return (
-    <ul aria-label="Barra de redes sociales" className={`flex w-fit items-center gap-[5px] ${className}`} style={style}>
+    <ul
+      aria-label="Barra de redes sociales"
+      className={`flex w-fit items-center gap-[5px] ${className}`}
+      style={style}
+    >
       {items.map((item) => (
         <li key={item.label}>
           <a
             href={item.href}
             aria-label={item.label}
             className="block"
-            {...(EXTERNAL[item.label] ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+            {...(EXTERNAL[item.label]
+              ? { target: '_blank', rel: 'noopener noreferrer' }
+              : {})}
           >
             <Image
               src={ICONS[item.label]}

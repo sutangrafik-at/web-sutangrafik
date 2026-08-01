@@ -50,7 +50,10 @@ const HOME_DATA: Record<
       { label: 'Tel', href: 'tel:688840308' },
       { label: 'Email', href: 'mailto:sutangrafik@gmail.com' },
       { label: 'Facebook', href: 'https://www.facebook.com/sutan.grafik.3' },
-      { label: 'Instagram', href: 'https://www.instagram.com/sutangrafikdiseinua/' },
+      {
+        label: 'Instagram',
+        href: 'https://www.instagram.com/sutangrafikdiseinua/',
+      },
     ],
   },
 };
@@ -65,11 +68,11 @@ export default function HomeContent({ lang }: { lang: Lang }) {
           alt={LOGO_ALT}
           width={354}
           height={266}
-          className="absolute left-[313px] top-[96px] h-[266px] w-[354px]"
+          className="absolute top-[96px] left-[313px] h-[266px] w-[354px]"
         />
         <Link
           href={data.euHref}
-          className={`absolute left-[830px] top-[96px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.5em] ${
+          className={`font-bignoodle absolute top-[96px] left-[830px] w-[26px] text-center text-[16px] leading-[1.5em] ${
             lang === 'eu' ? 'text-accent-hover' : 'text-accent'
           }`}
         >
@@ -77,7 +80,7 @@ export default function HomeContent({ lang }: { lang: Lang }) {
         </Link>
         <Link
           href={data.esHref}
-          className={`absolute left-[856px] top-[96px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.5em] ${
+          className={`font-bignoodle absolute top-[96px] left-[856px] w-[26px] text-center text-[16px] leading-[1.5em] ${
             lang === 'es' ? 'text-accent-hover' : 'text-accent'
           }`}
         >
@@ -92,7 +95,11 @@ export default function HomeContent({ lang }: { lang: Lang }) {
             style={{ left: chip.left, top: data.chipsTop }}
           />
         ))}
-        <LinkBar items={data.icons} className="absolute" style={{ left: data.linkbarLeft, top: data.linkbarTop }} />
+        <LinkBar
+          items={data.icons}
+          className="absolute"
+          style={{ left: data.linkbarLeft, top: data.linkbarTop }}
+        />
       </div>
       <div className="flex flex-col items-center gap-6 px-4 py-6 md:hidden">
         <div className="flex w-full items-center justify-end gap-1">
@@ -109,7 +116,13 @@ export default function HomeContent({ lang }: { lang: Lang }) {
             CAS
           </Link>
         </div>
-        <Image src="/images/logo.png" alt={LOGO_ALT} width={240} height={180} className="h-[180px] w-[240px]" />
+        <Image
+          src="/images/logo.png"
+          alt={LOGO_ALT}
+          width={240}
+          height={180}
+          className="h-[180px] w-[240px]"
+        />
         <div className="flex items-center justify-center gap-[13px]">
           {data.chips.map((chip) => (
             <Chip key={chip.label} label={chip.label} href={chip.href} />

@@ -21,16 +21,16 @@ Fuente de verdad: web publicada (SSR capturado de `/`, `/grafik`, `/bio`, `/kont
 
 ## 2. Páginas detectadas (8)
 
-| Ruta | Id Wix | Título | Idioma |
-|---|---|---|---|
-| `/` | mainPage (HASIERA) | Sutan Grafik \| Diseinu grafikoa | eu |
-| `/grafik` | u6917 | GRAFIK \| Sutan Grafik \| Diseinu grafikoa | eu |
-| `/bio` | wcjh5 | BIO \| Sutan Grafik \| Diseinu grafikoa | eu |
-| `/kontaktua` | troww | KONTAKTUA \| Sutan Grafik | eu |
-| `/cas` | vodxh (INICIO) | Sutan Grafik \| Diseño gráfico | es |
-| `/cas-grafik` | x1j9u | — | es |
-| `/cas-bio` | uu60k | — | es |
-| `/cas-contacto` | lqv7l | — | es |
+| Ruta            | Id Wix             | Título                                     | Idioma |
+| --------------- | ------------------ | ------------------------------------------ | ------ |
+| `/`             | mainPage (HASIERA) | Sutan Grafik \| Diseinu grafikoa           | eu     |
+| `/grafik`       | u6917              | GRAFIK \| Sutan Grafik \| Diseinu grafikoa | eu     |
+| `/bio`          | wcjh5              | BIO \| Sutan Grafik \| Diseinu grafikoa    | eu     |
+| `/kontaktua`    | troww              | KONTAKTUA \| Sutan Grafik                  | eu     |
+| `/cas`          | vodxh (INICIO)     | Sutan Grafik \| Diseño gráfico             | es     |
+| `/cas-grafik`   | x1j9u              | —                                          | es     |
+| `/cas-bio`      | uu60k              | —                                          | es     |
+| `/cas-contacto` | lqv7l              | —                                          | es     |
 
 Nota: el canonical de `/cas` apunta a `https://www.sutangrafik.com/cas` → el dominio de producción de la réplica será `sutangrafik.com`.
 
@@ -39,6 +39,7 @@ Nota: el canonical de `/cas` apunta a `https://www.sutangrafik.com/cas` → el d
 ## 3. Orden real de las secciones (por página)
 
 ### Home `/` (y `/cas`, idéntica en estructura)
+
 1. Logo grande `354×266` centrado (margin-top 71px; alt: `Sutan Grafik Diseño Grafico Diseinu grafikoa`)
 2. Selector EUS/CAS arriba a la derecha (x=830/856, 16px, sin fondo) — el idioma activo en `#8B0000`, el otro en `#DD0018`
 3. Fila de 3 chips: `GRAFIK` / `BIO` / `kontaktuA` (cas: `ContaCtO`) — h1 28px blanco sobre `#DD0018` con `&nbsp;` alrededor
@@ -47,6 +48,7 @@ Nota: el canonical de `/cas` apunta a `https://www.sutangrafik.com/cas` → el d
    - Home cas: **4 iconos** (Tel, Email, **Facebook** → `https://www.facebook.com/sutan.grafik.3`, **Instagram** → `https://www.instagram.com/sutangrafikdiseinua/`)
 
 ### `/grafik`
+
 1. Logo `119×90` + chips de navegación (el activo con fondo `#A82020`, los demás `#DD0018`) + EUS/CAS arriba derecha
 2. Título `GRAFIK` 53px blanco sobre `#DD0018` (con `&nbsp;` alrededor, letter-spacing 0.05em)
 3. Eslogan `BEHARRIZANEN ARABERAKO SOLUZIO GRAFIKOAK` 26px, letter-spacing 0.45em, `#DD0018`
@@ -58,6 +60,7 @@ Nota: el canonical de `/cas` apunta a `https://www.sutangrafik.com/cas` → el d
 9. Fila CTA: flecha 9×32 + `ZER DA SUTAN GRAFIK?` + flecha + `aurrekontua eskatu` (h1 28px blancos sobre rojo, con `&nbsp;`)
 
 ### `/bio`
+
 1. Logo + chips (BIO activo `#A82020`) + EUS/CAS
 2. Título `bio` 53px blanco sobre `#DD0018` (left -43, 310px, ls 0.05em uniforme)
 3. Encabezado `SUTAN GRAFIK`: "SUTAN" en **Third Rail** 30px (letter-spacing 0.2em) + "GRAFIK" en BigNoodle 29px (0.35em), rojo
@@ -68,6 +71,7 @@ Nota: el canonical de `/cas` apunta a `https://www.sutangrafik.com/cas` → el d
 Nota: en todas las páginas el `#masterPage` del original empieza en y=50 — es la barra superior de Wix (chrome, se elimina en la réplica); las posiciones del diseño son relativas a la página.
 
 ### `/kontaktua`
+
 1. Logo + chips (kontaktuA activo `#A82020`) + EUS/CAS
 2. Título `kontaktua` 53px blanco sobre rojo — **enlace `mailto:sutangrafik@gmail.com`**
 3. Descripción: `ZURE PROIEKTUETARAKO AURREKONTU BAT BEHAR DUZU?` (29px, 0.1em) + `JARRI ZAITEZ GUREKIN HARREMANETAN ETA ZURE ZALANTZAK ARGITUKO DITUGU` (18px, 0.1em), rojo
@@ -75,38 +79,39 @@ Nota: en todas las páginas el `#masterPage` del original empieza en y=50 — es
 5. Fila CTA: flechas + `ZER DA SUTAN GRAFIK?` + `EGINDAKO LANAK IKUSI`
 
 ### `/cas-grafik`, `/cas-bio`, `/cas-contacto`
+
 Misma estructura que sus equivalentes euskera (textos en castellano). **Textos exactos aún por extraer de la web publicada** (tarea previa a su implementación).
 
 ---
 
 ## 4. Componentes reutilizables
 
-| Componente | Descripción | Uso |
-|---|---|---|
-| Fondo de sitio | Blanco + imagen 4961×3508 en tile al 40%, fijo | Todas las páginas |
-| Logo | PNG original 2500×1330 (alt exacto) | Todas (119×90 internas; 354×266 home) |
-| HeaderNav | Logo 119×90 (top 50, left 0) + chips h1 28px (top 139, left 745/826/878; GRAFIK/BIO/kontaktuA) + EUS/CAS 16px (top 57, left 929/955, 26px c/u); fila nav 202px; enlaces de idioma apuntan a la misma página en el otro idioma | grafik, bio, kontaktua |
-| Chips de navegación | h1 28px blanco sobre `#DD0018`, activo `#A82020`, `&nbsp;` alrededor | Todas |
-| Selector EUS/CAS | 16px BigNoodle, activo `#8B0000` / inactivo `#DD0018` | Todas |
-| Título 53px sobre rojo | `&nbsp;texto&nbsp;` blanco sobre `#DD0018` | grafik, bio, kontaktua |
-| Flecha SVG (VectorImage) | Path único, fill `#DD0018`; tamaños 47×160 (decorativa) y 9×32 (CTA, rotada 180°) | grafik, bio, kontaktua |
-| Fila CTA | Flecha 9×32 + chip-enlace + flecha + chip-enlace | grafik, bio, kontaktua |
-| Columnas de servicios | Título 34px (0.35em) + lista bold 16px | grafik |
-| LinkBar de iconos | Iconos PNG 18×18, gap 5px | home (2 o 4 iconos) |
-| Galería Masonry | Mosaico con lightbox (576px de ancho) | grafik |
-| Formulario de contacto | 3 inputs + textarea + botón + mensaje éxito | kontaktua |
+| Componente               | Descripción                                                                                                                                                                                                                   | Uso                                   |
+| ------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| Fondo de sitio           | Blanco + imagen 4961×3508 en tile al 40%, fijo                                                                                                                                                                                | Todas las páginas                     |
+| Logo                     | PNG original 2500×1330 (alt exacto)                                                                                                                                                                                           | Todas (119×90 internas; 354×266 home) |
+| HeaderNav                | Logo 119×90 (top 50, left 0) + chips h1 28px (top 139, left 745/826/878; GRAFIK/BIO/kontaktuA) + EUS/CAS 16px (top 57, left 929/955, 26px c/u); fila nav 202px; enlaces de idioma apuntan a la misma página en el otro idioma | grafik, bio, kontaktua                |
+| Chips de navegación      | h1 28px blanco sobre `#DD0018`, activo `#A82020`, `&nbsp;` alrededor                                                                                                                                                          | Todas                                 |
+| Selector EUS/CAS         | 16px BigNoodle, activo `#8B0000` / inactivo `#DD0018`                                                                                                                                                                         | Todas                                 |
+| Título 53px sobre rojo   | `&nbsp;texto&nbsp;` blanco sobre `#DD0018`                                                                                                                                                                                    | grafik, bio, kontaktua                |
+| Flecha SVG (VectorImage) | Path único, fill `#DD0018`; tamaños 47×160 (decorativa) y 9×32 (CTA, rotada 180°)                                                                                                                                             | grafik, bio, kontaktua                |
+| Fila CTA                 | Flecha 9×32 + chip-enlace + flecha + chip-enlace                                                                                                                                                                              | grafik, bio, kontaktua                |
+| Columnas de servicios    | Título 34px (0.35em) + lista bold 16px                                                                                                                                                                                        | grafik                                |
+| LinkBar de iconos        | Iconos PNG 18×18, gap 5px                                                                                                                                                                                                     | home (2 o 4 iconos)                   |
+| Galería Masonry          | Mosaico con lightbox (576px de ancho)                                                                                                                                                                                         | grafik                                |
+| Formulario de contacto   | 3 inputs + textarea + botón + mensaje éxito                                                                                                                                                                                   | kontaktua                             |
 
 ---
 
 ## 5. Componentes interactivos
 
-| Tipo | Dónde | Comportamiento original |
-|---|---|---|
-| Galería Masonry con lightbox | /grafik, /cas-grafik | Mosaico de imágenes; click abre lightbox (zoom) — librería TPA santa-galleries |
-| Formulario de contacto | /kontaktua, /cas-contacto | Validación cliente (email pattern `^.+@.+\.[a-zA-Z]{2,63}$`, maxLength 250/100), estado error (borde `#C71212`, texto `#FF4040`), mensaje éxito verde; envío al backend de Wix Forms (endpoint no expuesto en SSR) |
-| Enlaces EUS/CAS | Todas | Navegación entre versiones de idioma de la misma página |
-| Hover de enlaces | Todas | Color del texto/icono (estados hover de Wix; en la réplica: mantener apariencia base y estados accesibles) |
-| Transición CrossFade | Entre páginas | Fade entre páginas al navegar (view-transition) |
+| Tipo                         | Dónde                     | Comportamiento original                                                                                                                                                                                            |
+| ---------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Galería Masonry con lightbox | /grafik, /cas-grafik      | Mosaico de imágenes; click abre lightbox (zoom) — librería TPA santa-galleries                                                                                                                                     |
+| Formulario de contacto       | /kontaktua, /cas-contacto | Validación cliente (email pattern `^.+@.+\.[a-zA-Z]{2,63}$`, maxLength 250/100), estado error (borde `#C71212`, texto `#FF4040`), mensaje éxito verde; envío al backend de Wix Forms (endpoint no expuesto en SSR) |
+| Enlaces EUS/CAS              | Todas                     | Navegación entre versiones de idioma de la misma página                                                                                                                                                            |
+| Hover de enlaces             | Todas                     | Color del texto/icono (estados hover de Wix; en la réplica: mantener apariencia base y estados accesibles)                                                                                                         |
+| Transición CrossFade         | Entre páginas             | Fade entre páginas al navegar (view-transition)                                                                                                                                                                    |
 
 No existen: carruseles, sliders, tabs, acordeones, menús desplegables, hamburguesa, lightbox de video.
 
@@ -128,6 +133,7 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 ## 7. Formularios
 
 **Uno** (repetido en cas): en `/kontaktua`.
+
 - Campos: email (obligatorio, `HELBIDE ELEKTRONIKOA *`), nombre (`IZENA -  ABIZENA *`, obligatorio), asunto (`GAIA`, opcional), mensaje (`MEZUA`, textarea, opcional)
 - Sin labels visibles (solo placeholders en BigNoodle 20px `#DD0018`; placeholder negro; fondo blanco 30%; borde 0; focus con borde negro)
 - Botón `Bidali`: rojo `#DD0018`, blanco, BigNoodle 23px, sin radio, sombra `0 1px 4px rgba(0,0,0,0.6)`
@@ -189,30 +195,33 @@ Rutas objetivo en Next: `/`, `/grafik`, `/bio`, `/kontaktua`, `/cas`, `/cas-graf
 ## 13. Recursos multimedia
 
 ### Imágenes oficiales (static.wixstatic.com — descargar al proyecto)
-| Recurso | URL | Dimensiones |
-|---|---|---|
-| Logo | `ef03a3_1a9af5447b4c405382e501e2e45cdc4c~mv2.png` | 800×600 |
-| Fondo | `ef03a3_9ace2f32e9b348d0b9960e5e9b8100da~mv2_d_4961_3508_s_4_2.jpg` | 4961×3508 |
-| Icono tel | `ef03a3_0600f137c3ce4e968a738b82d8bd7a0a~mv2.png` | 225×225 |
-| Icono email | `ef03a3_72e6e6d03f2c48549982dc1211332321~mv2.png` | 225×225 |
-| Icono facebook | `ef03a3_d981e40aa3e645bb93ab7e03f786ce99~mv2.png` | 225×225 |
-| Icono instagram | `ef03a3_addd325ddbcc4386a777604293cb61a6~mv2.png` | 225×225 |
-| Logo pequeño bio | `ef03a3_5339b64893554542a77305e6db96cd94~mv2.png` | 473×558 |
-| Imagen bio | `ef03a3_f8f0003ac84e4e0995bdb85e59ef6ea8~mv2.png` | 407×390 |
+
+| Recurso          | URL                                                                 | Dimensiones |
+| ---------------- | ------------------------------------------------------------------- | ----------- |
+| Logo             | `ef03a3_1a9af5447b4c405382e501e2e45cdc4c~mv2.png`                   | 800×600     |
+| Fondo            | `ef03a3_9ace2f32e9b348d0b9960e5e9b8100da~mv2_d_4961_3508_s_4_2.jpg` | 4961×3508   |
+| Icono tel        | `ef03a3_0600f137c3ce4e968a738b82d8bd7a0a~mv2.png`                   | 225×225     |
+| Icono email      | `ef03a3_72e6e6d03f2c48549982dc1211332321~mv2.png`                   | 225×225     |
+| Icono facebook   | `ef03a3_d981e40aa3e645bb93ab7e03f786ce99~mv2.png`                   | 225×225     |
+| Icono instagram  | `ef03a3_addd325ddbcc4386a777604293cb61a6~mv2.png`                   | 225×225     |
+| Logo pequeño bio | `ef03a3_5339b64893554542a77305e6db96cd94~mv2.png`                   | 473×558     |
+| Imagen bio       | `ef03a3_f8f0003ac84e4e0995bdb85e59ef6ea8~mv2.png`                   | 407×390     |
 
 (URLs base: `https://static.wixstatic.com/media/<hash>`) — descargados a `public/images/` (iconos en `public/images/icons/`).
 
 ### Fuentes
-| Fuente | Origen | Uso |
-|---|---|---|
-| BigNoodleTitling | Local en historial Git (`fonts/bignoodletitling.{woff2,woff,ttf}`) o `static.wixstatic.com/ufonts/ef03a3_62897775b9794e5db3e6a6adde5d728f/` | Toda la tipografía de marca |
-| Third Rail | `static.wixstatic.com/ufonts/ef03a3_004476c206e5480fafac36a3a1851d13/` | Solo "SUTAN" en /bio |
-| worksans-extralight | Google Fonts (Work Sans ExtraLight 200) | Párrafos, listas de servicios |
-| helvetica-w01-roman | Sistema | Mensaje de éxito del formulario |
+
+| Fuente              | Origen                                                                                                                                      | Uso                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| BigNoodleTitling    | Local en historial Git (`fonts/bignoodletitling.{woff2,woff,ttf}`) o `static.wixstatic.com/ufonts/ef03a3_62897775b9794e5db3e6a6adde5d728f/` | Toda la tipografía de marca     |
+| Third Rail          | `static.wixstatic.com/ufonts/ef03a3_004476c206e5480fafac36a3a1851d13/`                                                                      | Solo "SUTAN" en /bio            |
+| worksans-extralight | Google Fonts (Work Sans ExtraLight 200)                                                                                                     | Párrafos, listas de servicios   |
+| helvetica-w01-roman | Sistema                                                                                                                                     | Mensaje de éxito del formulario |
 
 Nota (verificado 31/07/2026): en la web original, los ficheros `.woff2` de BigNoodleTitling y Third Rail son **bytes idénticos a los `.woff`** (el CDN de Wix sirve WOFF para ambas rutas). Conservados tal cual en `public/fonts/` (bignoodletitling.{woff2,woff,ttf}, thirdrail.{woff2,woff,ttf}). En el `@font-face` declarar woff2→woff→ttf para que el navegador haga fallback correctamente.
 
 ### Galería
+
 35 JPGs en `images/Portfoliokoak/` del historial Git — **DECIDIDO**: usar estas 35 imágenes (ver §9).
 
 ---
