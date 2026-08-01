@@ -6,13 +6,33 @@ const EMAIL_PATTERN = /^.+@.+\.[a-zA-Z]{2,63}$/;
 
 type FieldErrors = { email?: string; name?: string };
 
+type Lang = 'eu' | 'es';
+
+const TEXT: Record<Lang, { email: string; name: string; subject: string; message: string; success: string }> = {
+  eu: {
+    email: 'HELBIDE ELEKTRONIKOA *',
+    name: 'IZENA -  ABIZENA *',
+    subject: 'GAIA',
+    message: 'MEZUA',
+    success: '{text.success}',
+  },
+  es: {
+    email: 'CORREO ELECTRÓNICO *',
+    name: 'NOMBRE-APELLIDOS *',
+    subject: 'TEMA',
+    message: 'MENSAJE',
+    success: '¡Gracias! Mensaje enviado.',
+  },
+};
+
 const INPUT_CLASSES =
   'h-[38px] w-full border-0 bg-[rgba(255,255,255,0.3)] p-[3px] pl-[5px] font-bignoodle text-[20px] leading-[1.4em] text-accent shadow-[0_1px_4px_0_rgba(0,0,0,0.6)] outline-none placeholder:text-black focus:border focus:border-black';
 const TEXTAREA_CLASSES =
   'h-[124px] w-full resize-none border-0 bg-[rgba(255,255,255,0.3)] p-[3px] pl-[5px] font-bignoodle text-[20px] leading-[1.4em] text-accent shadow-[0_1px_4px_0_rgba(0,0,0,0.6)] outline-none placeholder:text-black focus:border focus:border-black';
 const ERROR_INPUT_CLASSES = 'border border-[#C71212]';
 
-export default function ContactForm() {
+export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
+  const text = TEXT[lang];
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [subject, setSubject] = useState('');
@@ -44,8 +64,8 @@ export default function ContactForm() {
           <div className="col-start-1 row-start-1">
             <input
               type="email"
-              placeholder="HELBIDE ELEKTRONIKOA *"
-              aria-label="HELBIDE ELEKTRONIKOA"
+              placeholder={text.email}
+              aria-label={text.email}
               aria-required="true"
               aria-invalid={errors.email ? 'true' : 'false'}
               maxLength={250}
@@ -61,8 +81,8 @@ export default function ContactForm() {
           <div className="col-start-1 row-start-2">
             <input
               type="text"
-              placeholder="IZENA -  ABIZENA *"
-              aria-label="IZENA - ABIZENA"
+              placeholder={text.name}
+              aria-label={text.name}
               aria-required="true"
               aria-invalid={errors.name ? 'true' : 'false'}
               maxLength={100}
@@ -76,8 +96,8 @@ export default function ContactForm() {
           <div className="col-start-1 row-start-3">
             <input
               type="text"
-              placeholder="GAIA"
-              aria-label="GAIA"
+              placeholder={text.subject}
+              aria-label={text.subject}
               maxLength={100}
               autoComplete="off"
               value={subject}
@@ -86,9 +106,9 @@ export default function ContactForm() {
             />
           </div>
           <textarea
-            placeholder="MEZUA"
-            aria-label="MEZUA"
-            maxLength={500}
+            placeholder={text.message}
+            aria-label={text.message}
+            maxLength={lang === 'eu' ? 500 : undefined}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
             className={`${TEXTAREA_CLASSES} col-start-2 row-start-1 row-span-3`}
@@ -105,15 +125,15 @@ export default function ContactForm() {
               submitted ? 'visible' : 'invisible'
             }`}
           >
-            Eskerrik asko! Mezua ondo bidali da.
+            {text.success}
           </p>
         </div>
       </div>
       <div className="flex w-full flex-col gap-5 md:hidden">
         <input
           type="email"
-          placeholder="HELBIDE ELEKTRONIKOA *"
-          aria-label="HELBIDE ELEKTRONIKOA"
+          placeholder={text.email}
+          aria-label={text.email}
           aria-required="true"
           aria-invalid={errors.email ? 'true' : 'false'}
           maxLength={250}
@@ -125,8 +145,8 @@ export default function ContactForm() {
         {errors.email && <p className="-mt-4 text-[13px] text-error-text">{errors.email}</p>}
         <input
           type="text"
-          placeholder="IZENA -  ABIZENA *"
-          aria-label="IZENA - ABIZENA"
+          placeholder={text.name}
+          aria-label={text.name}
           aria-required="true"
           aria-invalid={errors.name ? 'true' : 'false'}
           maxLength={100}
@@ -138,8 +158,8 @@ export default function ContactForm() {
         {errors.name && <p className="-mt-4 text-[13px] text-error-text">{errors.name}</p>}
         <input
           type="text"
-          placeholder="GAIA"
-          aria-label="GAIA"
+          placeholder={text.subject}
+          aria-label={text.subject}
           maxLength={100}
           autoComplete="off"
           value={subject}
@@ -147,9 +167,9 @@ export default function ContactForm() {
           className={INPUT_CLASSES}
         />
         <textarea
-          placeholder="MEZUA"
-          aria-label="MEZUA"
-          maxLength={500}
+          placeholder={text.message}
+          aria-label={text.message}
+          maxLength={lang === 'eu' ? 500 : undefined}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           className={TEXTAREA_CLASSES}
@@ -164,7 +184,7 @@ export default function ContactForm() {
           aria-live="polite"
           className={`text-[14px] text-success ${submitted ? 'visible' : 'invisible'}`}
         >
-          Eskerrik asko! Mezua ondo bidali da.
+          {text.success}
         </p>
       </div>
     </form>
