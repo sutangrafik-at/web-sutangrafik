@@ -46,7 +46,8 @@ Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual 
 
 ## Último commit
 
-- `89e576e` — feat: replace page transition with subtle fade-out and fade-in (este commit)
+- `afc8b1a` — fix: use original worksans-extralight weights in bio paragraphs (este commit)
+- `89e576e` — feat: replace page transition with subtle fade-out and fade-in
 - `46b421a` — docs: update status with 4-difference refinement
 - `71e4544` — feat: replicate page transitions, sharp background and gallery card shadow
 - fix: correct grid centering, form success message, maxlengths and lang
