@@ -110,6 +110,14 @@
 - [x] **Cursor pointer en la galería**: `cursor-pointer` añadido a cada tarjeta de `PortfolioGallery.tsx` (el original lo tiene en `.item` y en computed style).
 - [x] Validar: TypeScript, ESLint, build, funcionamiento
 
+## Refinamiento tipográfico — sección Bio (01/08/2026)
+
+- [x] **Peso tipográfico de los párrafos de Bio (eu y cas)**: el usuario detecta "todo el texto en bold". Verificado el original con CDP + SSR + comparación de fuentes renderizadas:
+  - El SSR declara `worksans-extralight` con 2 caras: `400` → `u_mYNr_qYP37m7vgvmIYZxUOjZSKWg4xBWp_C_qQx0o.woff2` (visualmente ≈ ExtraLight 200, casi invisible) y `700` → `FD_Udbezj8EHXbdsqLUplxUOjZSKWg4xBWp_C_qQx0o.woff2`. El CSS del contenido pone `font-weight:bold` en TODOS los párrafos (y espaciadores), pero el archivo que sirve la cara 700 es un **peso ligero (~300-350)** del set v3 de Google, NO el bold real.
+  - Prueba empírica con CDP (densidad de tinta del mismo texto a 14px, región idéntica): original w700 = 2.24%, Work Sans variable de Google (la que servía la app) a 700 = 15.07% (**6.7× más grueso**). La app usaba `weight:['200','700']` de next/font/google → el 700 real de Google no es lo que renderiza el original. **Corrige la decisión V2 previa** (que asumía que la cara 700 del original era el bold real).
+  - Fix por máxima fidelidad: descargados los woff2 EXACTOS del original (`static.parastorage.com/tag-bundler/.../worksans/v3/`) → `public/fonts/worksans-extralight-400.woff2` (27888B) y `worksans-extralight-700.woff2` (28664B); `@font-face` `worksans-extralight` (400/700) en `globals.css` + `--font-worksans-extralight` en `@theme`; los párrafos de `bio/page.tsx` y `cas-bio/page.tsx` pasan de `font-[var(--font-worksans)]` a `font-worksans-extralight` (mantienen `font-bold`, tamaños 14px/13px, justify, lh 1.14em, color).
+  - Verificado: tsc/lint/build OK; por CDP en local la fuente `worksans-extralight` w700 carga (loaded), la geometría de párrafos es idéntica (32/48/64/64/16) y la cadena vertical intacta (CTA 715); densidad de tinta del bloque de texto local = 1.45% (≈ original 2.24%, antes del fix era 6.7× superior). Solo Bio cambia: el resto de la web (chips, servicios, formulario) sigue con `--font-worksans` de Google.
+
 Formato esperado:
 
 - [ ] Tarea pendiente

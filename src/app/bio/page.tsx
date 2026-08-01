@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 const PARAGRAPH_CLASSES =
-  'text-justify font-[var(--font-worksans)] text-[14px] font-bold leading-[1.14em] text-accent';
+  'text-justify font-worksans-extralight text-[14px] font-bold leading-[1.14em] text-accent';
 
 export default function BioPage() {
   return (

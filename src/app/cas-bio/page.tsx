@@ -22,9 +22,9 @@ export const metadata: Metadata = {
 };
 
 const PARAGRAPH_CLASSES_13 =
-  'text-justify font-[var(--font-worksans)] text-[13px] font-bold leading-[1.14em] text-accent';
+  'text-justify font-worksans-extralight text-[13px] font-bold leading-[1.14em] text-accent';
 const PARAGRAPH_CLASSES_14 =
-  'text-justify font-[var(--font-worksans)] text-[14px] font-bold leading-[1.14em] text-accent';
+  'text-justify font-worksans-extralight text-[14px] font-bold leading-[1.14em] text-accent';
 
 export default function CasBioPage() {
   return (

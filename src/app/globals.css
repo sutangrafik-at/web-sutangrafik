@@ -9,6 +9,7 @@
   --color-error-text: #ff4040;
   --font-bignoodle: "BigNoodleTitling", sans-serif;
   --font-thirdrail: "Third Rail", sans-serif;
+  --font-worksans-extralight: "worksans-extralight", sans-serif;
 }
 
 @font-face {
@@ -29,6 +30,22 @@
     url("/fonts/thirdrail.woff") format("woff"),
     url("/fonts/thirdrail.ttf") format("truetype");
   font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "worksans-extralight";
+  src: url("/fonts/worksans-extralight-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "worksans-extralight";
+  src: url("/fonts/worksans-extralight-700.woff2") format("woff2");
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
