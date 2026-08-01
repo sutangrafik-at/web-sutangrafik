@@ -39,7 +39,7 @@ Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual 
 
 ## Último commit
 
-- docs: update status with audit corrections (este commit)
+- `71e4544` — feat: replicate page transitions, sharp background and gallery card shadow (este commit)
 - fix: correct grid centering, form success message, maxlengths and lang
 - `3543b71` — docs: update status with SEO closure
 - `0f37b1a` — feat: add SEO metadata, canonical, sitemap and robots
