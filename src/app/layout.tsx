@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 const workSans = Work_Sans({
-  weight: '200',
+  weight: ['200', '700'],
   subsets: ['latin'],
   variable: '--font-worksans',
   display: 'swap',
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="eu" className={workSans.variable}>
+    <html lang="es" className={workSans.variable}>
       <body>
         <a href="#main-content" className="skip-link">
           Skip to main content

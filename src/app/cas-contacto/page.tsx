@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function CasContactoPage() {
   return (
-    <div className="w-full max-w-[980px] md:ml-[130px]">
+    <div className="w-full max-w-[980px] md:mx-auto">
       <HeaderNav active="kontaktua" lang="es" />
       <div className="hidden md:block">
         <div className="mb-[18px] mt-[34px] ml-[12px] w-[310px]">

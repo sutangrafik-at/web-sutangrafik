@@ -14,7 +14,7 @@ const TEXT: Record<Lang, { email: string; name: string; subject: string; message
     name: 'IZENA -  ABIZENA *',
     subject: 'GAIA',
     message: 'MEZUA',
-    success: '{text.success}',
+    success: 'Eskerrik asko! Mezua ondo bidali da.',
   },
   es: {
     email: 'CORREO ELECTRÓNICO *',
@@ -98,7 +98,6 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
               type="text"
               placeholder={text.subject}
               aria-label={text.subject}
-              maxLength={100}
               autoComplete="off"
               value={subject}
               onChange={(event) => setSubject(event.target.value)}
@@ -108,7 +107,6 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
           <textarea
             placeholder={text.message}
             aria-label={text.message}
-            maxLength={lang === 'eu' ? 500 : undefined}
             value={message}
             onChange={(event) => setMessage(event.target.value)}
             className={`${TEXTAREA_CLASSES} col-start-2 row-start-1 row-span-3`}
@@ -124,6 +122,7 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
             className={`col-start-1 row-start-4 w-[686px] self-start text-[14px] leading-[1.15em] text-success ${
               submitted ? 'visible' : 'invisible'
             }`}
+            style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
           >
             {text.success}
           </p>
@@ -160,7 +159,6 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
           type="text"
           placeholder={text.subject}
           aria-label={text.subject}
-          maxLength={100}
           autoComplete="off"
           value={subject}
           onChange={(event) => setSubject(event.target.value)}
@@ -169,7 +167,6 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
         <textarea
           placeholder={text.message}
           aria-label={text.message}
-          maxLength={lang === 'eu' ? 500 : undefined}
           value={message}
           onChange={(event) => setMessage(event.target.value)}
           className={TEXTAREA_CLASSES}
@@ -183,6 +180,7 @@ export default function ContactForm({ lang = 'eu' }: { lang?: Lang }) {
         <p
           aria-live="polite"
           className={`text-[14px] text-success ${submitted ? 'visible' : 'invisible'}`}
+          style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}
         >
           {text.success}
         </p>

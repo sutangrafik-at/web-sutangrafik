@@ -28,7 +28,7 @@ const PARAGRAPH_CLASSES_14 =
 
 export default function CasBioPage() {
   return (
-    <div className="w-full max-w-[980px] md:ml-[130px]">
+    <div className="w-full max-w-[980px] md:mx-auto">
       <HeaderNav active="bio" lang="es" />
       <div className="hidden md:block">
         <div className="mb-[-6px] mt-[29px] ml-[-43px] w-[310px]">
