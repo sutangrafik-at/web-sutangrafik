@@ -7,7 +7,8 @@
 ## Confirmaciones previas a la implementación
 
 - [x] Confirmar con el usuario los puntos de ARCHITECTURE.md §16: galería (35 JPGs del historial Git), formulario (modo prueba, sin email), footer (NO añadir)
-- [ ] Pendiente de confirmar: favicon y CrossFade (por defecto: favicon del logo, navegación normal)
+- [x] Favicon: generar `.ico` a partir del logo (16/32/48/256, aspecto 4:3 con fondo transparente) — hecho 01/08/2026
+- [x] CrossFade: el usuario no lo conoce → NO aplicar (decisión 01/08/2026; navegación normal)
 - [x] Extraer textos exactos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (SSR + textos)
 
 ## Recursos y base
@@ -78,6 +79,17 @@
 - [x] SEO completo por página (metadata, OG oficial del SSR, canonical `sutangrafik.com`, sitemap, robots) — verificado en dev server: las 8 páginas con canonical + og:title del original (BIO/GRAFIK/KONTAKTUA ... eus, ... cas), sitemap.xml con 8 URLs, robots.txt con sitemap
 - [x] Validación final global: build (14 rutas estáticas), TypeScript, ESLint, responsive de las 8 páginas (validado en cada tarea) — revisión visual vs original pendiente de aprobación del usuario
 - [x] Actualizar STATUS.md y commit final
+
+## Correcciones de auditoría (01/08/2026)
+
+- [x] V1 — Centrado del grid: el original centra con `margin-left:calc((100% - 980px)/2)` (el "ml:130px" era un artefacto de medición a viewport 1240); corregido `md:ml-[130px]` → `md:mx-auto` en los 7 wrappers (HomeContent + bio, grafik, kontaktua, cas-bio, cas-grafik, cas-contacto). Verificado con CDP a 1280 y 1920: chips/CTA/flechas en x idéntico al original (ContaCtO 1352/1032, PEDIR 1000/680)
+- [x] F1 — Bug mensaje de éxito eu del formulario: `success` mostraba el literal `{text.success}`; corregido a `Eskerrik asko! Mezua ondo bidali da.`
+- [x] F2 — maxLength espurios: el original solo tiene maxlength en email (250) y nombre (100); eliminado `maxLength={100}` del asunto y `maxLength={500}` del textarea (ambos idiomas)
+- [x] V2 — Peso 700 de Work Sans: el original registra la cara bold de worksans-extralight (negrita real); cargado `weight: ['200','700']` en next/font (antes solo 200 → faux-bold)
+- [x] V3 — Mensaje de éxito en Helvetica (como el original helvetica-w01-roman): `fontFamily: 'Helvetica, Arial, sans-serif'` en el <p> de éxito (desktop + móvil)
+- [x] V6 — `lang`: el original usa `lang="es"` en TODAS las páginas (verificado en los 7 SSR); layout.tsx corregido `lang="eu"` → `lang="es"`
+- [x] Favicon: `.ico` regenerado a partir de `public/images/logo.png` (4 tamaños 16/32/48/256, PNG embebido, fondo transparente, aspecto 4:3 conservado)
+- [x] Validar: TypeScript, ESLint, build, funcionamiento
 
 Formato esperado:
 

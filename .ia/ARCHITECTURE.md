@@ -244,6 +244,8 @@ Nota (verificado 31/07/2026): en la web original, los ficheros `.woff2` de BigNo
 
 ### Pendientes
 
-4. **Favicon**: la web real no tiene; ¿usar el logo como favicon? (por defecto: sí, generar uno del logo)
-5. **CrossFade** entre páginas: ¿replicarlo (CSS view-transition) o navegación normal? (por defecto: navegación normal)
-6. **Textos de las 3 páginas cas internas** (`/cas-grafik`, `/cas-bio`, `/cas-contacto`): extraer de la web publicada antes de implementarlas.
+4. **Favicon** (RESUELTO 01/08/2026): `.ico` generado a partir del logo (`public/images/logo.png`), 4 tamaños 16/32/48/256, PNG embebido, fondo transparente, aspecto 4:3 conservado.
+5. **CrossFade** (RESUELTO 01/08/2026): el usuario indicó no aplicarlo (de momento) → navegación normal, sin view-transition.
+6. **Textos de las 3 páginas cas internas** (RESUELTO): extraídos del SSR e implementados.
+
+Nota (01/08/2026): el grid del original SÍ está centrado (`margin-left:calc((100% - 980px)/2)`); el valor "130px" medido en sesiones previas era el offset de centrado al viewport de medición (1240px). La réplica usa `md:mx-auto` en los wrappers de página (corrección V1).
