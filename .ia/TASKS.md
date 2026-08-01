@@ -75,9 +75,9 @@
 
 ## Cierre
 
-- [ ] SEO completo por página (metadata, OG, canonical `sutangrafik.com`, sitemap, robots)
-- [ ] Validación final global: build, TypeScript, ESLint, responsive de las 8 páginas, revisión visual vs original
-- [ ] Actualizar STATUS.md y commit final
+- [x] SEO completo por página (metadata, OG oficial del SSR, canonical `sutangrafik.com`, sitemap, robots) — verificado en dev server: las 8 páginas con canonical + og:title del original (BIO/GRAFIK/KONTAKTUA ... eus, ... cas), sitemap.xml con 8 URLs, robots.txt con sitemap
+- [x] Validación final global: build (14 rutas estáticas), TypeScript, ESLint, responsive de las 8 páginas (validado en cada tarea) — revisión visual vs original pendiente de aprobación del usuario
+- [x] Actualizar STATUS.md y commit final
 
 Formato esperado:
 

@@ -8,38 +8,33 @@
 
 ## Última tarea completada
 
-- **Página `/cas-bio` (es)** (`src/app/cas-bio/page.tsx`) y **`/cas-contacto` (es)** (`src/app/cas-contacto/page.tsx` + prop `lang` en `ContactForm`): textos extraídos del SSR de la web publicada. cas-bio: título `NBSP bio NBSP ` (left -43, mb -6), bloque 622px con SUTAN/GRAFIK 30/29px, párrafos 13px/14px worksans-bold justify, ALEX TURRILLAS 18px, espaciadores y guards, 3 imágenes (41×48 @0, 204×153 @48 mb 0, 213×204 @201 mb 42 — difieren del eu), CTA `TRABAJOS REALIZAdos` (texto literal con d minúscula) + PEDIR PRESUPUESTO (mb 44). cas-contacto: título `NBSP contacto NBSP ` (left 12, mb 18, mailto), descripción con `--min-height:105px` y mb -27 (p1 29px "¿necesitas un presupuesto para tus proyectos?" + p2 18px), formulario 781px (placeholders CORREO ELECTRÓNICO */NOMBRE-APELLIDOS */TEMA/MENSAJE, botón Bidali, éxito "¡Gracias! Mensaje enviado.", tema/textarea sin maxLength), CTA ¿QUÉ ES SUTAN GRAFIK? + TRABAJOS REALIZADOS (mb 5). Verificación CDP local vs original: cas-bio título 201/texto 286/imágenes 275/323/476/CTA 741 (orig 201/286/275/323/476/740); cas-contacto título 206/desc 304/form 382/inputs 382/425/468/botón 511/CTA 589 (orig idéntico, Δ ≤1px).
-- Anteriormente: `/cas-grafik` (`4aa065b`+`e6254b6`); `/kontaktua` (`b4bfd6b`); `/bio` (`1675c04`); `/grafik` completo (`f9c86ba`/`b31682e`/`a3ad3b6`); Home cas `/cas` (`559d4e9`); Home eu `/` (`6a150a7`); LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
+- **Cierre SEO**: metadata completa por página con los valores OG oficiales del SSR (BIO | SUTAN GRAFIK eus / GRAFIK | SUTAN GRAFIK eus / KONTAKTUA | SUTAN GRAFIK eus / SUTAN GRAFIK diseño gráfico / BIO | SUTAN GRAFIK cas / GRAFIK | SUTAN GRAFIK cas / CONTACTO | SUTAN GRAFIK cas), `canonical` en las 8 páginas, `sitemap.xml` (8 URLs, prioridad 1 home) y `robots.txt` (allow all + sitemap) — verificado en dev server y en build (14 rutas estáticas). Además, corrección de fidelidad en cas-bio: párrafos literales `?`/`.` del original (tras "Tras varios años...", tras "Ofrecemos...", "." tras "Apasionado...", y los dos finales 21px/16px) que estaban como `&nbsp;` (el eu `/bio` original no los tiene, verificado).
+- Anteriormente: `/cas-bio` y `/cas-contacto` (`e6ed3aa`+`7fbf00d`); `/cas-grafik` (`4aa065b`+`e6254b6`); `/kontaktua` (`b4bfd6b`); `/bio` (`1675c04`); `/grafik` completo (`f9c86ba`/`b31682e`/`a3ad3b6`); Home cas `/cas` (`559d4e9`); Home eu `/` (`6a150a7`); LinkBar (`46fc74d`); Columnas de servicios (`d47eb73`); Fila CTA y flechas SVG (`9ddd3f4`); componente `HeaderNav` (`745ec18`); `layout.tsx` global; fuentes locales; descarga de recursos oficiales; 35 JPGs de portfolio; análisis completo; decisiones del usuario; documentos en `.ia/`.
 
 ---
 
 ## Tarea actual
 
-Ninguna en progreso. Las 8 páginas están implementadas. Siguiente: cierre — SEO completo por página (sitemap, robots, canonical `sutangrafik.com`), validación final global y revisión visual.
+Las 8 páginas están implementadas y validadas (build/tsc/lint). Pendiente: revisión visual del usuario de la web completa en local y confirmación de los pendientes menores (favicon, CrossFade) antes de considerar el proyecto finalizado.
 
 ---
 
 ## Próximo paso
 
-1. SEO completo: metadata/OG por página (parcial: title/description/og ya en cada página), canonical `sutangrafik.com`, sitemap.xml y robots.txt.
-2. Validación final global: build, TypeScript, ESLint, responsive de las 8 páginas, revisión visual vs original.
-3. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
-4. Actualizar STATUS.md y commit final.
+1. Revisión visual del usuario de las 8 páginas en local (http://localhost:3001) vs original.
+2. Confirmar pendientes menores: favicon (por defecto: del logo) y CrossFade (por defecto: navegación normal).
+3. Actualizar STATUS.md y commit final.
 
 ---
 
 ## Último commit
 
+- docs: update status with SEO closure (este commit)
+- feat: add SEO metadata, canonical, sitemap and robots
+- fix: restore literal ? and . paragraphs in cas-bio
+- `7fbf00d` — docs: mark cas-bio and cas-contacto tasks as complete
+- `e6ed3aa` — feat: implement cas-bio and cas-contacto pages with extracted texts
 - `e6254b6` — feat: implement cas-grafik page with services, gallery and CTA
-- `4aa065b` — fix: align header and section metrics with original measurements
-- `8ee2dba` — docs: update status with kontaktua page completion
-- `b4bfd6b` — feat: implement kontaktua page with test-mode contact form
-- `f0518a6` — docs: update bio details and status after page implementation
-- `1675c04` — feat: replicate bio page with header, paragraphs and images
-- `f9c86ba` — chore: mark grafik page tasks as complete
-- `b31682e` — feat: add portfolio masonry gallery with lightbox and CTA row
-- `a3ad3b6` — feat: implement grafik page header, slogan, line, intro and services
-- `559d4e9` — feat: implement cas home page with shared home content
 
 ---
 
