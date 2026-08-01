@@ -100,6 +100,16 @@
 - [x] **Transiciones entre páginas**: el original implementa View Transitions API (`@view-transition{navigation:auto;types:CrossFade}` + keyframes slide-horizontal-new/old (0.6s cubic-bezier(.83,0,.17,1)), slide-vertical, out-in-new/old (0.35s) + `view-transition-name`: header-group, wix-ads-group, footer-group, background-group, page-group). NO implementado — decisión del usuario (01/08/2026): no lo aplica por ahora. Si se decide replicar: reglas en `globals.css` + enlaces `next/link` (navegación SPA).
 - [x] Validar: TypeScript, ESLint, build, funcionamiento
 
+## Refinamiento visual — 4 diferencias (01/08/2026, decisión invertida)
+
+- [x] **Transiciones entre páginas (ahora SÍ)**: instrucción del usuario de replicarlas sí o sí. Verificado el original en vivo con CDP: navegación cross-document real (sin SPA), `MutationObserver` no captura clases (la pseudo-clase `:root:active-view-transition` es del navegador, no un atributo), sin animaciones JS (`getAnimations()==[]`), CSS completo de `main.744ea815.min.css` extraído (3714 chars): el tipo `CrossFade` usa la animación por defecto del navegador (cross-fade) con `animation-duration:.6s` en el grupo `page-group` (header/wix-ads/footer/background con su propio `view-transition-name` para no fundirse), `cursor:wait` durante la transición y `@media (prefers-reduced-motion:reduce)` → sin animación. Implementado en la SPA local:
+  - `src/components/ViewTransitions.tsx` (client): listener de clic global que intercepta enlaces internos (`a[href^="/"]`, sin modificadores) y envuelve `router.push` en `document.startViewTransition()` (fallback a push normal si no soportado), montado en `layout.tsx`.
+  - `globals.css`: `#main-content{view-transition-name:page-group}` y `.site-background{view-transition-name:background-group}` (el fondo no se funde, como `background-group` del original), `::view-transition-{group,old,new}(page-group){animation-duration:.6s}` y bloque `prefers-reduced-motion:reduce` → `animation:none !important` (idéntico al original).
+- [x] **Imagen de fondo — sin blur**: el SSR del original sirve placeholder `w_744,h_526,q_85,blur_1`, pero verificado con CDP en vivo que el cliente lo reemplaza por la versión nítida `w_1920,h_1358,q_90,usm_0.66_1.00_0.01,enc_auto` (sin blur) con `opacity:0.4` (el JS `tb_stop_client_images`/tiled-image hace `onload` y aplica la URI completa). Descargada esa URL exacta (615KB) → `public/images/background.jpg` (sustituye al tile blur 47KB). CSS de `.site-background` sin cambios (opacity 0.4 ya coincidía).
+- [x] **Sombra/efecto de tarjeta de la galería**: medido en vivo por CDP dentro del iframe santa-galleries Masonry: cada `.item` lleva inline `box-shadow: rgba(0,0,0,0.36) 1.03px 2.82px 3px 1px` (el `style.min.css` no define sombra; la aplica `app.min.js`) y `cursor:pointer`. Aplicado en `PortfolioGallery.tsx`: `shadow-[1.03px_2.82px_3px_1px_rgba(0,0,0,0.36)]` en cada tarjeta (el espaciado mb-5/gap-5 NO se toca — ya acordado).
+- [x] **Cursor pointer en la galería**: `cursor-pointer` añadido a cada tarjeta de `PortfolioGallery.tsx` (el original lo tiene en `.item` y en computed style).
+- [x] Validar: TypeScript, ESLint, build, funcionamiento
+
 Formato esperado:
 
 - [ ] Tarea pendiente

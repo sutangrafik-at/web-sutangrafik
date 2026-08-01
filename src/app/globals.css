@@ -70,3 +70,31 @@ body {
   pointer-events: auto;
   border: 2px solid;
 }
+
+#main-content {
+  view-transition-name: page-group;
+}
+
+.site-background {
+  view-transition-name: background-group;
+}
+
+::view-transition-group(page-group) {
+  animation-duration: 0.6s;
+}
+
+::view-transition-old(page-group) {
+  animation-duration: 0.6s;
+}
+
+::view-transition-new(page-group) {
+  animation-duration: 0.6s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}

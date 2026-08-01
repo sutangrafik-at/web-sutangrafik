@@ -1,5 +1,6 @@
 import { Work_Sans } from 'next/font/google';
 import type { Metadata } from 'next';
+import ViewTransitions from '@/components/ViewTransitions';
 import './globals.css';
 
 const workSans = Work_Sans({
@@ -43,6 +44,7 @@ export default function RootLayout({
           Skip to main content
         </a>
         <div aria-hidden="true" className="site-background" />
+        <ViewTransitions />
         <main id="main-content">{children}</main>
       </body>
     </html>

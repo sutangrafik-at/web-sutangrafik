@@ -36,7 +36,7 @@ export default function PortfolioGallery() {
             key={image.src}
             type="button"
             onClick={() => setOpenIndex(index)}
-            className="mb-[5px] block w-full break-inside-avoid p-0"
+            className="mb-[5px] block w-full cursor-pointer break-inside-avoid p-0 shadow-[1.03px_2.82px_3px_1px_rgba(0,0,0,0.36)]"
             aria-label={`Portfolio ${index + 1}`}
           >
             <Image
