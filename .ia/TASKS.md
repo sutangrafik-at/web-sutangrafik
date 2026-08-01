@@ -8,7 +8,7 @@
 
 - [x] Confirmar con el usuario los puntos de ARCHITECTURE.md §16: galería (35 JPGs del historial Git), formulario (modo prueba, sin email), footer (NO añadir)
 - [ ] Pendiente de confirmar: favicon y CrossFade (por defecto: favicon del logo, navegación normal)
-- [x] Extraer textos exactos de la página `/cas-grafik` de la web publicada (SSR + textos; pendiente `/cas-bio` y `/cas-contacto`, los locales `es` de la copia anterior no son fuente de verdad)
+- [x] Extraer textos exactos de `/cas-grafik`, `/cas-bio` y `/cas-contacto` de la web publicada (SSR + textos)
 
 ## Recursos y base
 
@@ -65,13 +65,13 @@
 
 ## Página `/cas-bio` (es)
 
-- [ ] Implementar `/cas-bio` con los textos extraídos de la web publicada
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar `/cas-bio` con los textos extraídos de la web publicada — SSR/mediciones CDP del original: título `NBSP bio NBSP ` (left -43, mb -6), bloque texto 622px left 78 (mt 11): SUTAN 30px Third Rail + GRAFIK 29px, párrafos 13px (2º bloque y 2 párrafos finales) y 14px (bloque central) worksans-bold justify, ALEX TURRILLAS 18px, espaciadores 16px/0.5em, guards, 21px/16px finales; imágenes: logo 41×48 left 197 (top-0), 204×153 left 738 (top-48, mb 0), 213×204 left 734 (top-201, mb 42 — difiere del eu: 207/54); CTA TRABAJOS REALIZAdos (lowercase d, texto literal del original) → /cas-grafik + PEDIR PRESUPUESTO → /cas-contacto (mb 44); cadena local == orig medida con CDP: título 201, texto 286, imágenes 275/323/476, CTA 741 (orig: 201/286/275/323/476/740)
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 
 ## Página `/cas-contacto` (es)
 
-- [ ] Implementar `/cas-contacto` con los textos extraídos de la web publicada (incluye formulario)
-- [ ] Validar: TypeScript, ESLint, build, funcionamiento, responsive
+- [x] Implementar `/cas-contacto` con los textos extraídos de la web publicada (incluye formulario) — SSR/mediciones CDP del original: título `NBSP contacto NBSP ` (left 12, mb 18, mailto), descripción 622px left 83 con `--min-height:105px` y mb -27: p1 29px ls 0.1em "¿necesitas un presupuesto para tus proyectos?" + p2 18px "ponte en contacto con nosotros y aclararemos dudas" + guards; formulario 781px left 83 mb 27 con `ContactForm lang="es"`: placeholders CORREO ELECTRÓNICO * / NOMBRE-APELLIDOS * / TEMA / MENSAJE (tema y textarea sin maxLength en el original cas), botón Bidali, éxito "¡Gracias! Mensaje enviado."; CTA ¿QUÉ ES SUTAN GRAFIK? → /cas-bio + TRABAJOS REALIZADOS → /cas-grafik (mb 5); cadena local == orig medida con CDP: título 206, desc 304, form 382, inputs 382/425/468, botón/success 511, CTA 589 (orig: 206/304/382/382/425/468/511/588)
+- [x] Validar: TypeScript, ESLint, build, funcionamiento, responsive
 
 ## Cierre
 
