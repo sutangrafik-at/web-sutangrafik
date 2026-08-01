@@ -8,7 +8,13 @@
 
 ## Última tarea completada
 
-- **Refinamiento visual — 4 diferencias (01/08/2026)**: implementadas por instrucción del usuario (invierte la decisión previa de no aplicar CrossFade):
+- **Transición suave entre páginas (01/08/2026)**: modo mejora controlada — la implementación se considera finalizada; único cambio: la transición entre rutas pasa de crossfade 0.6s (réplica del original) a una transición sutil por instrucción del usuario:
+  - **Fade-out** de la página actual: 140 ms `ease-in` (opacidad 1→0).
+  - **Fade-in** de la nueva página: 200 ms `ease-out` con `translateY(12px → 0)` (desplazamiento vertical sutil, posición final exacta porque el snapshot se captura en su posición real).
+  - Fondo estático (`background-group` con `animation:none`, patrón del Wix original), `html{view-transition-name:none}` (no se captura el root), `prefers-reduced-motion` → sin animación.
+  - Implementación: SOLO `src/app/globals.css` (reglas `view-transition` reemplazadas por keyframes `page-fade-out`/`page-fade-in`). El mecanismo previo (`src/components/ViewTransitions.tsx` con `document.startViewTransition()`, montado en `layout.tsx`) se reutiliza intacto; cero componentes/layouts/espaciados/colores modificados; Framer Motion descartado (duplicaría el mecanismo y añadiría riesgo — SPEC lo limita a réplica del original, innecesario aquí).
+  Comprobaciones: tsc/lint/build OK (14 rutas).
+- Anteriormente: **Refinamiento visual — 4 diferencias (01/08/2026)**: implementadas por instrucción del usuario (invierte la decisión previa de no aplicar CrossFade):
   1. **Transiciones entre páginas**: verificado en vivo con CDP que el original hace navegación cross-document con View Transitions API (`@view-transition{navigation:auto;types:CrossFade}`, `page-group` con `animation-duration:.6s` usando la animación por defecto del navegador; header/ads/footer/background con `view-transition-name` propio; `cursor:wait`; `prefers-reduced-motion:reduce` → sin animación; el `MutationObserver` no detecta nada porque `:root:active-view-transition` es pseudo-clase, no atributo, y `getAnimations()==[]`). Replicado en la SPA: nuevo `src/components/ViewTransitions.tsx` (client, intercepta clics de enlaces internos y envuelve `router.push` en `document.startViewTransition()`, montado en `layout.tsx`) + `globals.css` (`#main-content`→page-group, `.site-background`→background-group, `animation-duration:.6s` en el grupo, bloque `prefers-reduced-motion`). CSS de referencia extraído completo de `main.744ea815.min.css` (3714 chars).
   2. **Imagen de fondo**: el original sirve placeholder blur en el SSR pero el cliente lo reemplaza por la nítida `w_1920,h_1358,q_90,usm_0.66_1.00_0.01,enc_auto` con `opacity:0.4` (verificado por CDP). Descargada esa URL exacta (615KB) → `public/images/background.jpg` (sustituye al tile blur 744×526 de 47KB). CSS sin cambios.
   3. **Sombra de tarjeta de la galería**: medida en vivo dentro del iframe Masonry (`box-shadow: rgba(0,0,0,0.36) 1.03px 2.82px 3px 1px` inline por `app.min.js`) → aplicada con Tailwind arbitrary en cada tarjeta de `PortfolioGallery.tsx` (espaciado intacto).
@@ -25,15 +31,15 @@
 
 ## Tarea actual
 
-Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual (3 diferencias previas + 4 diferencias actuales) aplicados (build/tsc/lint OK). Pendiente: revisión visual del usuario en local de los 4 cambios nuevos (transiciones CrossFade, fondo nítido, sombra de tarjeta y cursor de la galería).
+Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual (3 diferencias previas + 4 diferencias actuales) + transición suave entre páginas (fade-out 140ms / fade-in 200ms + 12px) aplicados (build/tsc/lint OK). Pendiente: revisión visual del usuario en local de la nueva transición suave.
 
 ---
 
 ## Próximo paso
 
-1. Revisión visual del usuario en local (http://localhost:3001) de las transiciones CrossFade, el fondo nítido y la galería (sombra + cursor).
-2. Ajustar cualquier desviación que detecte el usuario.
-3. Actualizar STATUS.md y commit final si hay ajustes.
+1. Revisión visual del usuario en local (http://localhost:3001) de la nueva transición suave entre páginas (fade-out 140ms + fade-in 200ms con 12px).
+2. Ajustar los tiempos/desplazamiento si el usuario lo considera necesario (rango permitido: fade-out 120-150ms, fade-in 180-220ms, desplazamiento 8-16px).
+3. Commit final si hay ajustes.
 
 ---
 
@@ -63,7 +69,7 @@ Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual 
 - Destino del envío del formulario: en modo prueba, sin email (decisión del usuario).
 - Mediciones headless del original: con parastorage bloqueado, bignoodle/worksans se caen a Arial → filas infladas por wraps (el "2.25em" era artefacto); la fuente de verdad son el CSS del SSR + las métricas reales de las fuentes locales. Las posiciones de anclas (títulos/imágenes/formulario/CTA) SÍ son fiables en headless (medidas en el mismo estado).
 - El banner freemium de Wix (`--wix-ads-height:50px`, `#site-root{top:var(--wix-ads-height)}`) desplaza todo el contenido del original 50px hacia abajo mientras está activo; es un anuncio (a eliminar) y su estado varía por sesión. La réplica usa el punto medio decidido (home -25 del render con banner, interiores +25) → siempre hay hasta 25px de diferencia según el estado del banner en el navegador del usuario.
-- Transiciones CrossFade entre páginas del original (View Transitions API): replicadas con `document.startViewTransition()` en la SPA (componente `ViewTransitions.tsx` + reglas en `globals.css`, duración 0.6s, `prefers-reduced-motion` respetado). Diferencia esperada: el original navega cross-document (recarga real de documento) y la réplica es SPA — visualmente el cross-fade es el mismo.
+- Transiciones CrossFade entre páginas del original (View Transitions API): replicadas con `document.startViewTransition()` en la SPA (componente `ViewTransitions.tsx` + reglas en `globals.css`, `prefers-reduced-motion` respetado). El 01/08/2026 el usuario pidió sustituir el crossfade 0.6s por una transición más sutil (fade-out 140ms + fade-in 200ms con 12px, ajustable). Diferencia esperada: el original navega cross-document (recarga real de documento) y la réplica es SPA — visualmente el cross-fade es el mismo.
 - Documentos en `.ia/` (fuera de la raíz); actualizar referencias de AGENTS.md (RECUPERACIÓN DE LA SESIÓN) si se mantiene la ubicación.
 
 ---

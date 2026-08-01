@@ -43,10 +43,10 @@ body {
   inset: 0;
   z-index: -1;
   background-image: url("/images/background.jpg");
-  background-size: 4961px 3508px;
+  /*background-size: 4961px 3508px;*/
   background-repeat: repeat;
   background-position: center center;
-  opacity: 0.4;
+  opacity: 0.32;
 }
 
 .skip-link {
@@ -79,16 +79,37 @@ body {
   view-transition-name: background-group;
 }
 
-::view-transition-group(page-group) {
-  animation-duration: 0.6s;
+html {
+  view-transition-name: none;
+}
+
+::view-transition-group(*) {
+  animation: none;
+}
+
+@keyframes page-fade-out {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes page-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 ::view-transition-old(page-group) {
-  animation-duration: 0.6s;
+  animation: page-fade-out 140ms ease-in forwards;
 }
 
 ::view-transition-new(page-group) {
-  animation-duration: 0.6s;
+  animation: page-fade-in 200ms ease-out forwards;
 }
 
 @media (prefers-reduced-motion: reduce) {
