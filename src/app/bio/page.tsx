@@ -18,7 +18,7 @@ const PARAGRAPH_CLASSES =
 
 export default function BioPage() {
   return (
-    <div className="w-full max-w-[980px] md:mx-auto">
+    <div className="w-full max-w-[980px] md:mx-auto md:-mt-[25px]">
       <HeaderNav active="bio" lang="eu" />
       <div className="hidden md:block">
         <div className="mb-[-6px] mt-[29px] ml-[-43px] w-[310px]">

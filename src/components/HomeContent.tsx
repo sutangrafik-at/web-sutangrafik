@@ -27,9 +27,9 @@ const HOME_DATA: Record<
       { label: 'BIO', href: '/bio', left: 451 },
       { label: 'kontaktuA', href: '/kontaktua', left: 503 },
     ],
-    chipsTop: 357,
+    chipsTop: 382,
     linkbarLeft: 469,
-    linkbarTop: 412,
+    linkbarTop: 437,
     icons: [
       { label: 'Tel', href: 'tel:688840308' },
       { label: 'Email', href: 'mailto:sutangrafik@gmail.com' },
@@ -43,9 +43,9 @@ const HOME_DATA: Record<
       { label: 'BIO', href: '/cas-bio', left: 458 },
       { label: 'ContaCtO', href: '/cas-contacto', left: 510 },
     ],
-    chipsTop: 358,
+    chipsTop: 383,
     linkbarLeft: 446,
-    linkbarTop: 421,
+    linkbarTop: 446,
     icons: [
       { label: 'Tel', href: 'tel:688840308' },
       { label: 'Email', href: 'mailto:sutangrafik@gmail.com' },
@@ -59,17 +59,17 @@ export default function HomeContent({ lang }: { lang: Lang }) {
   const data = HOME_DATA[lang];
   return (
     <div className="w-full max-w-[980px] md:mx-auto">
-      <div className="relative hidden h-[498px] md:block">
+      <div className="relative hidden h-[523px] md:block">
         <Image
           src="/images/logo.png"
           alt={LOGO_ALT}
           width={354}
           height={266}
-          className="absolute left-[313px] top-[71px] h-[266px] w-[354px]"
+          className="absolute left-[313px] top-[96px] h-[266px] w-[354px]"
         />
         <Link
           href={data.euHref}
-          className={`absolute left-[830px] top-[71px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.5em] ${
+          className={`absolute left-[830px] top-[96px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.5em] ${
             lang === 'eu' ? 'text-accent-hover' : 'text-accent'
           }`}
         >
@@ -77,7 +77,7 @@ export default function HomeContent({ lang }: { lang: Lang }) {
         </Link>
         <Link
           href={data.esHref}
-          className={`absolute left-[856px] top-[71px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.5em] ${
+          className={`absolute left-[856px] top-[96px] w-[26px] text-center font-bignoodle text-[16px] leading-[1.5em] ${
             lang === 'es' ? 'text-accent-hover' : 'text-accent'
           }`}
         >

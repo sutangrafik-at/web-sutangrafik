@@ -38,7 +38,7 @@ export const metadata: Metadata = {
 
 export default function GrafikPage() {
   return (
-    <div className="w-full max-w-[980px] md:mx-auto">
+    <div className="w-full max-w-[980px] md:mx-auto md:-mt-[25px]">
       <HeaderNav active="grafik" lang="eu" />
       <div className="hidden md:block">
         <div className="mt-[33px] mb-[11px] ml-[17px] w-[310px]">
