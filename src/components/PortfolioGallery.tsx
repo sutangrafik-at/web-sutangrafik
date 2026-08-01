@@ -30,13 +30,13 @@ export default function PortfolioGallery() {
 
   return (
     <>
-      <div className="columns-2 gap-[5px] md:columns-3">
+      <div className="columns-2 gap-[13px] md:columns-3">
         {PORTFOLIO_IMAGES.map((image, index) => (
           <button
             key={image.src}
             type="button"
             onClick={() => setOpenIndex(index)}
-            className="mb-[5px] block w-full cursor-pointer break-inside-avoid p-0 shadow-[1.03px_2.82px_3px_1px_rgba(0,0,0,0.36)]"
+            className="mb-[13px] block w-full cursor-pointer break-inside-avoid p-0 shadow-[1.03px_2.82px_3px_1px_rgba(0,0,0,0.36)]"
             aria-label={`Portfolio ${index + 1}`}
           >
             <Image

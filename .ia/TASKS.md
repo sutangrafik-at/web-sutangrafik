@@ -118,6 +118,10 @@
   - Fix por máxima fidelidad: descargados los woff2 EXACTOS del original (`static.parastorage.com/tag-bundler/.../worksans/v3/`) → `public/fonts/worksans-extralight-400.woff2` (27888B) y `worksans-extralight-700.woff2` (28664B); `@font-face` `worksans-extralight` (400/700) en `globals.css` + `--font-worksans-extralight` en `@theme`; los párrafos de `bio/page.tsx` y `cas-bio/page.tsx` pasan de `font-[var(--font-worksans)]` a `font-worksans-extralight` (mantienen `font-bold`, tamaños 14px/13px, justify, lh 1.14em, color).
   - Verificado: tsc/lint/build OK; por CDP en local la fuente `worksans-extralight` w700 carga (loaded), la geometría de párrafos es idéntica (32/48/64/64/16) y la cadena vertical intacta (CTA 715); densidad de tinta del bloque de texto local = 1.45% (≈ original 2.24%, antes del fix era 6.7× superior). Solo Bio cambia: el resto de la web (chips, servicios, formulario) sigue con `--font-worksans` de Google.
 
+## Refinamiento visual — espaciado de la galería (01/08/2026)
+
+- [x] **Gap/margen entre tarjetas de la galería**: el usuario detecta menor separación entre imágenes que el original. Medido en vivo por CDP dentro del iframe santa-galleries Masonry del original (35 items): cada `.item` lleva inline `margin-bottom:13px` y las columnas avanzan 181+13px (left 3 → 197 → 391 en contenedor 576px) → **13px vertical y 13px horizontal**; la local usaba `gap-[5px]` + `mb-[5px]`. Ajustado `PortfolioGallery.tsx`: `gap-[5px]` → `gap-[13px]` y `mb-[5px]` → `mb-[13px]` (sin tocar tamaños de imagen, columnas 2/3, responsive, sombra ni lightbox). Verificado por CDP en local: `column-count:3`, `column-gap:13px`, paso vertical 163+13px entre tarjetas — coincide con el original. tsc/lint/build OK.
+
 Formato esperado:
 
 - [ ] Tarea pendiente
