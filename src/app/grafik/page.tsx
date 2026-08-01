@@ -28,6 +28,12 @@ const SERVICES: [ServiceColumn, ServiceColumn] = [
 
 export const metadata: Metadata = {
   title: 'GRAFIK | Sutan Grafik | Diseinu grafikoa',
+  openGraph: {
+    title: 'GRAFIK | SUTAN GRAFIK eus',
+  },
+  alternates: {
+    canonical: '/grafik',
+  },
 };
 
 export default function GrafikPage() {

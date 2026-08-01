@@ -5,6 +5,12 @@ import HeaderNav from '@/components/HeaderNav';
 
 export const metadata: Metadata = {
   title: 'KONTAKTUA | Sutan Grafik',
+  openGraph: {
+    title: 'KONTAKTUA | SUTAN GRAFIK eus',
+  },
+  alternates: {
+    canonical: '/kontaktua',
+  },
 };
 
 export default function KontaktuaPage() {

@@ -26,8 +26,19 @@ const SERVICES: [ServiceColumn, ServiceColumn] = [
   },
 ];
 
+const CAS_DESCRIPTION =
+  'DISEÑO GRÁFICO - IMAGEN - MAQUETACIÓN - MERCHANDISING\n\nSoluciones gráficas adaptadas a tus necesidades\n\nLogotipos / Imagen corporativa / Carteles / Flyers / Merchandising / Camisetas / Discos / Editorial / Ilustración digital / Fotomontaje';
+
 export const metadata: Metadata = {
   title: 'GRAFIK | Sutan Grafik',
+  description: CAS_DESCRIPTION,
+  openGraph: {
+    title: 'GRAFIK | SUTAN GRAFIK cas',
+    description: CAS_DESCRIPTION,
+  },
+  alternates: {
+    canonical: '/cas-grafik',
+  },
 };
 
 export default function CasGrafikPage() {

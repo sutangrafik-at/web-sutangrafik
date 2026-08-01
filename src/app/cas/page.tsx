@@ -11,6 +11,9 @@ export const metadata: Metadata = {
     title: 'SUTAN GRAFIK diseño gráfico',
     description: CAS_DESCRIPTION,
   },
+  alternates: {
+    canonical: '/cas',
+  },
 };
 
 export default function CasHome() {

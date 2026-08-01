@@ -5,6 +5,12 @@ import HeaderNav from '@/components/HeaderNav';
 
 export const metadata: Metadata = {
   title: 'BIO | Sutan Grafik | Diseinu grafikoa',
+  openGraph: {
+    title: 'BIO | SUTAN GRAFIK eus',
+  },
+  alternates: {
+    canonical: '/bio',
+  },
 };
 
 const PARAGRAPH_CLASSES =

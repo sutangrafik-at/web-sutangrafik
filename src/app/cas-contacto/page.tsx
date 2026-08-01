@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CONTACTO | SUTAN GRAFIK cas',
   },
+  alternates: {
+    canonical: '/cas-contacto',
+  },
 };
 
 export default function CasContactoPage() {
