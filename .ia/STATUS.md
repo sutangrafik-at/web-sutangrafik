@@ -45,7 +45,9 @@ Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual 
 
 ## Último commit
 
-- `71e4544` — feat: replicate page transitions, sharp background and gallery card shadow (este commit)
+- `89e576e` — feat: replace page transition with subtle fade-out and fade-in (este commit)
+- `46b421a` — docs: update status with 4-difference refinement
+- `71e4544` — feat: replicate page transitions, sharp background and gallery card shadow
 - fix: correct grid centering, form success message, maxlengths and lang
 - `3543b71` — docs: update status with SEO closure
 - `0f37b1a` — feat: add SEO metadata, canonical, sitemap and robots
