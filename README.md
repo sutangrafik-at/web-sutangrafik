@@ -47,7 +47,7 @@ src/
 - Imagen de fondo nítida descargada del original (`public/images/background.jpg`), con `opacity 0.4`.
 - Transición entre páginas: fade-out 140 ms / fade-in 200 ms + 12 px, con `prefers-reduced-motion` respetado.
 - Galería: sombra `rgba(0,0,0,0.36) 1.03px 2.82px 3px 1px`, espaciado 13 px (idéntico al original).
-- Diseño verificado contra el original con CDP (Edge headless); el historial completo de decisiones y mediciones está en `.ia/`.
+- Diseño verificado contra el original con CDP (Edge headless).
 
 ## Despliegue
 
