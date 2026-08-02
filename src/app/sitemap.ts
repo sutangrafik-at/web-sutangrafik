@@ -1,5 +1,7 @@
 import type { MetadataRoute } from 'next';
 
+export const dynamic = 'force-static';
+
 const ROUTES: { path: string; priority: number }[] = [
   { path: '', priority: 1 },
   { path: '/bio', priority: 0.8 },

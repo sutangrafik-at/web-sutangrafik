@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import Image from 'next/image';
+import { asset } from '@/lib/assets';
 
 export type LinkBarItem = {
   label: 'Tel' | 'Email' | 'Facebook' | 'Instagram';
@@ -7,10 +8,10 @@ export type LinkBarItem = {
 };
 
 const ICONS: Record<LinkBarItem['label'], string> = {
-  Tel: '/images/icons/phone.png',
-  Email: '/images/icons/email.png',
-  Facebook: '/images/icons/facebook.png',
-  Instagram: '/images/icons/instagram.png',
+  Tel: asset('/images/icons/phone.png'),
+  Email: asset('/images/icons/email.png'),
+  Facebook: asset('/images/icons/facebook.png'),
+  Instagram: asset('/images/icons/instagram.png'),
 };
 
 const EXTERNAL: Record<LinkBarItem['label'], boolean> = {

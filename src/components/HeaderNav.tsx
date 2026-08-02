@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import Chip from './Chip';
+import { asset } from '@/lib/assets';
 
 export type NavKey = 'grafik' | 'bio' | 'kontaktua';
 
@@ -49,7 +50,7 @@ export default function HeaderNav({
       <div className="relative hidden h-[172px] md:block">
         <Link href={homeHref} className="absolute top-[100px] left-0 block">
           <Image
-            src="/images/logo.png"
+            src={asset('/images/logo.png')}
             alt={LOGO_ALT}
             width={119}
             height={90}
@@ -86,7 +87,7 @@ export default function HeaderNav({
       <div className="flex flex-col items-center gap-4 px-4 py-8 md:hidden">
         <Link href={homeHref}>
           <Image
-            src="/images/logo.png"
+            src={asset('/images/logo.png')}
             alt={LOGO_ALT}
             width={89}
             height={67}

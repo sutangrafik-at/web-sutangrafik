@@ -1,5 +1,11 @@
 @import 'tailwindcss';
 
+@theme inline {
+  --font-bignoodle: var(--font-bignoodle-family);
+  --font-thirdrail: var(--font-thirdrail-family);
+  --font-worksans-extralight: var(--font-worksans-extralight-family);
+}
+
 @theme {
   --color-accent: #dd0018;
   --color-accent-active: #a82020;
@@ -7,47 +13,7 @@
   --color-success: #67bd31;
   --color-error: #c71212;
   --color-error-text: #ff4040;
-  --font-bignoodle: 'BigNoodleTitling', sans-serif;
-  --font-thirdrail: 'Third Rail', sans-serif;
-  --font-worksans-extralight: 'worksans-extralight', sans-serif;
-}
-
-@font-face {
-  font-family: 'BigNoodleTitling';
-  src:
-    url('/fonts/bignoodletitling.woff2') format('woff2'),
-    url('/fonts/bignoodletitling.woff') format('woff'),
-    url('/fonts/bignoodletitling.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Third Rail';
-  src:
-    url('/fonts/thirdrail.woff2') format('woff2'),
-    url('/fonts/thirdrail.woff') format('woff'),
-    url('/fonts/thirdrail.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'worksans-extralight';
-  src: url('/fonts/worksans-extralight-400.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'worksans-extralight';
-  src: url('/fonts/worksans-extralight-700.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  --font-worksans: 'Work Sans', sans-serif;
 }
 
 body {
@@ -59,8 +25,6 @@ body {
   position: fixed;
   inset: 0;
   z-index: -1;
-  background-image: url('/images/background.jpg');
-  /*background-size: 4961px 3508px;*/
   background-repeat: repeat;
   background-position: center center;
   opacity: 0.32;

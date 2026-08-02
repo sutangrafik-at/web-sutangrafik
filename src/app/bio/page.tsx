@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import CtaRow from '@/components/CtaRow';
 import HeaderNav from '@/components/HeaderNav';
+import { asset } from '@/lib/assets';
 
 export const metadata: Metadata = {
   title: 'BIO | Sutan Grafik | Diseinu grafikoa',
@@ -100,21 +101,21 @@ export default function BioPage() {
             </p>
           </div>
           <Image
-            src="/images/bio-logo.png"
+            src={asset('/images/bio-logo.png')}
             alt="Logotipo pequeño de Sutan Grafik"
             width={41}
             height={48}
             className="absolute top-0 left-[119px] h-[48px] w-[41px]"
           />
           <Image
-            src="/images/logo.png"
+            src={asset('/images/logo.png')}
             alt="Sutan Grafik logo"
             width={204}
             height={153}
             className="absolute top-[48px] left-[660px] h-[153px] w-[204px]"
           />
           <Image
-            src="/images/bio-image.png"
+            src={asset('/images/bio-image.png')}
             alt="Ilustración de Sutan Grafik"
             width={213}
             height={204}
@@ -182,21 +183,21 @@ export default function BioPage() {
           Historian, musikan eta arteetan zaletua.
         </p>
         <Image
-          src="/images/bio-logo.png"
+          src={asset('/images/bio-logo.png')}
           alt="Logotipo pequeño de Sutan Grafik"
           width={41}
           height={48}
           className="h-[48px] w-[41px]"
         />
         <Image
-          src="/images/logo.png"
+          src={asset('/images/logo.png')}
           alt="Sutan Grafik logo"
           width={204}
           height={153}
           className="h-auto w-full max-w-[310px]"
         />
         <Image
-          src="/images/bio-image.png"
+          src={asset('/images/bio-image.png')}
           alt="Ilustración de Sutan Grafik"
           width={213}
           height={204}

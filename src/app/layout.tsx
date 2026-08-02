@@ -1,4 +1,5 @@
 import { Work_Sans } from 'next/font/google';
+import localFont from 'next/font/local';
 import type { Metadata } from 'next';
 import ViewTransitions from '@/components/ViewTransitions';
 import './globals.css';
@@ -9,6 +10,69 @@ const workSans = Work_Sans({
   variable: '--font-worksans',
   display: 'swap',
 });
+
+const bignoodle = localFont({
+  src: [
+    {
+      path: '../../public/fonts/bignoodletitling.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/bignoodletitling.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/bignoodletitling.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-bignoodle-family',
+  display: 'swap',
+});
+
+const thirdRail = localFont({
+  src: [
+    {
+      path: '../../public/fonts/thirdrail.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/thirdrail.woff',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/thirdrail.ttf',
+      weight: '400',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-thirdrail-family',
+  display: 'swap',
+});
+
+const worksansExtralight = localFont({
+  src: [
+    {
+      path: '../../public/fonts/worksans-extralight-400.woff2',
+      weight: '400',
+      style: 'normal',
+    },
+    {
+      path: '../../public/fonts/worksans-extralight-700.woff2',
+      weight: '700',
+      style: 'normal',
+    },
+  ],
+  variable: '--font-worksans-extralight-family',
+  display: 'swap',
+});
+
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.sutangrafik.com'),
@@ -38,12 +102,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={workSans.variable}>
+    <html
+      lang="es"
+      className={`${workSans.variable} ${bignoodle.variable} ${thirdRail.variable} ${worksansExtralight.variable}`}
+    >
       <body>
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>
-        <div aria-hidden="true" className="site-background" />
+        <div
+          aria-hidden="true"
+          className="site-background"
+          style={{ backgroundImage: `url(${basePath}/images/background.jpg)` }}
+        />
         <ViewTransitions />
         <main id="main-content">{children}</main>
       </body>

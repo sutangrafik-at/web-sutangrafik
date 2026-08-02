@@ -2,13 +2,14 @@
 
 ## Fecha
 
-01/08/2026
+02/08/2026
 
 ---
 
 ## Última tarea completada
 
-- **Espaciado de la galería (01/08/2026)**: el usuario detecta menor separación entre las imágenes que en el original. Medido en vivo por CDP dentro del iframe santa-galleries Masonry del original (35 items): cada `.item` lleva inline `margin-bottom:13px` y el paso entre columnas es 181+13px → **13px vertical y 13px horizontal**. La local usaba `gap-[5px]` + `mb-[5px]`. Ajustado `PortfolioGallery.tsx` a `gap-[13px]` + `mb-[13px]` (único cambio: 2 clases; sin tocar tamaños, columnas 2/3, responsive, sombra ni lightbox). Verificado por CDP en local: `column-count:3`, `column-gap:13px`, paso vertical 163+13px — coincide con el original. tsc/lint/build OK (14 rutas).
+- **Preparación para GitHub Pages (02/08/2026)**: despliegue automático en GitHub Pages bajo `/web-sutangrafik` (project site de `sutangrafik-at/web-sutangrafik`). Configuración: `next.config.ts` → `output:'export'` + `images.unoptimized` + `trailingSlash` + `basePath`/`assetPrefix` desde `NEXT_PUBLIC_BASE_PATH` (solo CI); workflow `.github/workflows/deploy.yml` (push a `main` → lint/tsc/build con prefijo → `upload-pages-artifact` + `deploy-pages`; requiere Settings → Pages → Source: GitHub Actions); `robots.ts`/`sitemap.ts` con `dynamic:'force-static'`. **Ajuste clave por el basePath**: Next no prefija `next/image` ni `url()` de CSS en export → nuevo helper `src/lib/assets.ts` (`asset()`) en todos los `<Image>` (HeaderNav, HomeContent, LinkBar, bio, cas-bio, 35 srcs de `data/portfolio.ts`), fondo en inline style en `layout.tsx`, y fuentes migradas de `@font-face` en `globals.css` a `next/font/local` en `layout.tsx` (mismos archivos; `@theme` → `@theme inline` con `--font-*-family`). Script `start` eliminado (export estático). Verificado: tsc/lint/build OK con y sin `NEXT_PUBLIC_BASE_PATH`; con prefijo 0 imágenes/fuentes/urls sin prefijar en el export; local sin prefijo idéntico a antes; dev 200 OK; README actualizado (local, deploy, despliegue automático, requisitos).
+- Anteriormente: **Espaciado de la galería (01/08/2026)**: el usuario detecta menor separación entre las imágenes que en el original. Medido en vivo por CDP dentro del iframe santa-galleries Masonry del original (35 items): cada `.item` lleva inline `margin-bottom:13px` y el paso entre columnas es 181+13px → **13px vertical y 13px horizontal**. La local usaba `gap-[5px]` + `mb-[5px]`. Ajustado `PortfolioGallery.tsx` a `gap-[13px]` + `mb-[13px]` (único cambio: 2 clases; sin tocar tamaños, columnas 2/3, responsive, sombra ni lightbox). Verificado por CDP en local: `column-count:3`, `column-gap:13px`, paso vertical 163+13px — coincide con el original. tsc/lint/build OK (14 rutas).
 - Anteriormente: **Refinamiento tipográfico — sección Bio (01/08/2026)**: el usuario detecta que "todo el texto se ve en bold" en Bio. Verificado contra el original (SSR + CDP + comparación de fuentes renderizadas): el SSR declara `worksans-extralight` con caras 400 (`u_mYNr...woff2`, visualmente ExtraLight 200) y 700 (`FD_Udbez...woff2`, visualmente un peso ligero ~300-350 del set v3 de Google — NO el bold real). El contenido marca `font-weight:bold`, pero el archivo de la cara 700 es fino. Prueba empírica por densidad de tinta: original = 2.24%; la app (Work Sans variable de Google a 700) = 15.07% (**6.7× más grueso**). Fix por máxima fidelidad: descargados los woff2 EXACTOS del original → `public/fonts/worksans-extralight-{400,700}.woff2`, `@font-face` `worksans-extralight` + `--font-worksans-extralight` en `globals.css`, y los párrafos de `/bio` y `/cas-bio` usan `font-worksans-extralight` (mantienen `font-bold`, 14/13px, justify, lh 1.14em, color — sin tocar contenido ni geometría). Verificado: tsc/lint/build OK; por CDP la fuente w700 carga, la geometría de párrafos y la cadena vertical no cambian (CTA 715), densidad del texto local 1.45% ≈ original. Corrige la decisión V2 previa (asumía que la cara 700 era el bold real). Solo Bio se modifica; el resto de la web conserva `--font-worksans` de Google.
 - Anteriormente: **Transición suave entre páginas (01/08/2026)**: modo mejora controlada — la implementación se considera finalizada; único cambio: la transición entre rutas pasa de crossfade 0.6s (réplica del original) a una transición sutil por instrucción del usuario:
   - **Fade-out** de la página actual: 140 ms `ease-in` (opacidad 1→0).
@@ -33,15 +34,15 @@
 
 ## Tarea actual
 
-Las 8 páginas implementadas + correcciones de auditoría + refinamiento visual (3 diferencias previas + 4 diferencias actuales) + transición suave entre páginas + refinamiento tipográfico de la sección Bio (fuente `worksans-extralight` exacta del original en /bio y /cas-bio) aplicados (build/tsc/lint OK). Pendiente: revisión visual del usuario en local del peso tipográfico corregido en la sección Bio.
+Preparación para GitHub Pages completada: export estático + workflow de despliegue automático en push a `main` (`.github/workflows/deploy.yml`). El diseño y la funcionalidad no se han modificado (solo infraestructura de rutas/assets para el prefijo `/web-sutangrafik`). Verificado: tsc/lint/build con y sin prefijo, export sin URLs rotas, dev 200 OK.
 
 ---
 
 ## Próximo paso
 
-1. Revisión visual del usuario en local (http://localhost:3001/bio y /cas-bio) del texto de la sección Bio con el peso corregido (fuente `worksans-extralight` exacta del original en lugar del bold real de Google).
-2. Si el usuario percibe algún resto de desviación tipográfica en Bio (peso/líneas), ajustarlo en la misma sección.
-3. Commit final si hay ajustes.
+1. Activar en GitHub: **Settings → Pages → Source: GitHub Actions** (requisito único para el despliegue automático).
+2. Push a `main` → el workflow publica el sitio en https://sutangrafik-at.github.io/web-sutangrafik/.
+3. Comprobar el resultado del workflow y la web publicada.
 
 ---
 

@@ -122,6 +122,19 @@
 
 - [x] **Gap/margen entre tarjetas de la galería**: el usuario detecta menor separación entre imágenes que el original. Medido en vivo por CDP dentro del iframe santa-galleries Masonry del original (35 items): cada `.item` lleva inline `margin-bottom:13px` y las columnas avanzan 181+13px (left 3 → 197 → 391 en contenedor 576px) → **13px vertical y 13px horizontal**; la local usaba `gap-[5px]` + `mb-[5px]`. Ajustado `PortfolioGallery.tsx`: `gap-[5px]` → `gap-[13px]` y `mb-[5px]` → `mb-[13px]` (sin tocar tamaños de imagen, columnas 2/3, responsive, sombra ni lightbox). Verificado por CDP en local: `column-count:3`, `column-gap:13px`, paso vertical 163+13px entre tarjetas — coincide con el original. tsc/lint/build OK.
 
+## Preparación para GitHub Pages (02/08/2026)
+
+- [x] **Export estático + despliegue automático**: el proyecto se publica en GitHub Pages bajo la subruta `/web-sutangrafik` (project site de `sutangrafik-at/web-sutangrafik`).
+  - `next.config.ts`: `output:'export'`, `images.unoptimized:true`, `trailingSlash:true`, `basePath`/`assetPrefix` desde `NEXT_PUBLIC_BASE_PATH` (solo CI; local sin prefijo, idéntico a antes). Con Turbopack el export genera `pagina/index.html` → GitHub Pages resuelve las URLs con `/`.
+  - `.github/workflows/deploy.yml`: push a `main` → `npm ci` → lint → tsc → build con `NEXT_PUBLIC_BASE_PATH=/web-sutangrafik` → `actions/upload-pages-artifact` (path `./out`) + `actions/deploy-pages`. Permisos `pages:write` + `id-token:write`. Requiere activar en el repo: Settings → Pages → Source: GitHub Actions.
+  - **Problema detectado**: con `output:'export'` + `basePath`, Next NO prefija `next/image` (unoptimized) ni `url()` del CSS → en subruta las imágenes/fuentes daban 404. Solución:
+    - `src/lib/assets.ts` (nuevo helper `asset(path)` = basePath + path) aplicado a todos los `<Image>`: `HeaderNav`, `HomeContent`, `LinkBar`, `bio`, `cas-bio` y los 35 srcs de `src/data/portfolio.ts`.
+    - Fondo: `background-image` inline en `layout.tsx` con el prefijo (el CSS `url()` se eliminó de `.site-background` en `globals.css`; mismas propiedades, mismo diseño).
+    - Fuentes: los 3 `@font-face` de `globals.css` (bignoodle, thirdrail, worksans-extralight) migrados a `next/font/local` en `layout.tsx` (mismos woff2/woff/ttf) → Next genera las URLs con prefijo automáticamente. `@theme` → `@theme inline` con `--font-*-family` (patrón oficial Tailwind v4 + next/font); `--font-worksans` (Google) intacta.
+    - `robots.ts`/`sitemap.ts`: `export const dynamic = 'force-static'` (requerido por `output:'export'`).
+  - `package.json`: script `start` eliminado (`next start` no aplica con export estático); el build genera `out/`.
+  - Verificado: tsc/lint/build OK en los dos modos (con `NEXT_PUBLIC_BASE_PATH=/web-sutangrafik` y sin él). Con prefijo: 0 srcs de imagen sin prefijar en los 9 HTML, fuentes en `_next/static/media` con rutas relativas `../media/...` (resuelven bajo la subruta), `font-bignoodle`/`font-thirdrail`/`font-worksans-extralight` generadas, background inline prefijado, enlaces internos `/web-sutangrafik/*/`. Sin prefijo (local): enlaces `/grafik`, srcs `/images/...` — comportamiento original intacto. Dev server 200 OK. README actualizado (local, deploy manual, despliegue automático, requisitos, basePath).
+
 Formato esperado:
 
 - [ ] Tarea pendiente

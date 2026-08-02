@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Chip from '@/components/Chip';
 import LinkBar, { LinkBarItem } from '@/components/LinkBar';
+import { asset } from '@/lib/assets';
 
 type Lang = 'eu' | 'es';
 
@@ -64,7 +65,7 @@ export default function HomeContent({ lang }: { lang: Lang }) {
     <div className="w-full max-w-[980px] md:mx-auto">
       <div className="relative hidden h-[523px] md:block">
         <Image
-          src="/images/logo.png"
+          src={asset('/images/logo.png')}
           alt={LOGO_ALT}
           width={354}
           height={266}
@@ -117,7 +118,7 @@ export default function HomeContent({ lang }: { lang: Lang }) {
           </Link>
         </div>
         <Image
-          src="/images/logo.png"
+          src={asset('/images/logo.png')}
           alt={LOGO_ALT}
           width={240}
           height={180}

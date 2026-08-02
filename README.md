@@ -13,8 +13,7 @@ Sitio web corporativo de **Sutangrafik** — estudio de diseño gráfico y edito
 
 ```bash
 npm run dev        # servidor de desarrollo (turbopack)
-npm run build      # build de producción (14 rutas estáticas)
-npm run start      # servidor de producción
+npm run build      # export estático de producción → carpeta out/
 npm run lint       # ESLint
 npm run format     # Prettier --write
 npm run format:check
@@ -52,11 +51,51 @@ src/
 
 ## Despliegue
 
-Build estándar de Next.js: todas las rutas se prerenderizan como contenido estático (14 rutas, sin funciones server).
+El proyecto se publica como **sitio estático** (`output: 'export'` en `next.config.ts`): las 14 rutas se prerenderizan en la carpeta `out/` durante el build. No requiere variables de entorno ni backend.
+
+### En local
 
 ```bash
-npm run build
-npm run start   # servidor de producción, o desplegar en Vercel / cualquier host Node
+npm install
+npm run dev        # http://localhost:3000
 ```
 
-No requiere variables de entorno ni backend.
+Build de producción (export estático):
+
+```bash
+npm run build      # genera ./out
+npx serve out      # sirve el export en http://localhost:3000
+```
+
+Para probar el build **exactamente como se publicará en GitHub Pages** (con prefijo de ruta):
+
+```bash
+# Windows PowerShell
+$env:NEXT_PUBLIC_BASE_PATH = '/web-sutangrafik'
+npm run build
+```
+
+### Despliegue automático (GitHub Pages)
+
+Cada push a la rama `main` dispara el workflow `.github/workflows/deploy.yml`:
+
+1. Instala dependencias (`npm ci`).
+2. Ejecuta ESLint y TypeScript.
+3. Genera el export estático con `NEXT_PUBLIC_BASE_PATH=/web-sutangrafik`.
+4. Publica la carpeta `out/` con las acciones oficiales `actions/upload-pages-artifact` + `actions/deploy-pages`.
+
+Resultado: https://sutangrafik-at.github.io/web-sutangrafik/
+
+### Requisitos (una sola vez)
+
+- Activar en el repositorio: **Settings → Pages → Source: _GitHub Actions_**.
+- El workflow usa `permissions: pages: write` e `id-token: write`, ya declaradas en el propio workflow.
+- Despliegue manual opcional: botón _Run workflow_ en la pestaña Actions.
+
+### Cómo funciona el prefijo de ruta (basePath)
+
+GitHub Pages sirve este repositorio bajo `/web-sutangrafik`, por lo que el build añade `basePath` y `assetPrefix` desde la variable `NEXT_PUBLIC_BASE_PATH` (solo definida en CI):
+
+- Los enlaces internos (`next/link`) se prefijan automáticamente.
+- Imágenes, fondo y fuentes se prefijan vía `src/lib/assets.ts` (`asset()`) y `next/font/local`.
+- En local (sin la variable) todo funciona sin prefijo, igual que siempre.
