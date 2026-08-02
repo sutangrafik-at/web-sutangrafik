@@ -48,7 +48,10 @@ Preparación para GitHub Pages completada: export estático + workflow de despli
 
 ## Último commit
 
-- `afc8b1a` — fix: use original worksans-extralight weights in bio paragraphs (este commit)
+- `a042c4a` — feat: add GitHub Pages static export and deploy workflow (este commit)
+- `aa92440` — chore: prepare project for production release
+- `2cd6621` — feat: increase gallery spacing to match original 13px gaps
+- `afc8b1a` — fix: use original worksans-extralight weights in bio paragraphs
 - `89e576e` — feat: replace page transition with subtle fade-out and fade-in
 - `46b421a` — docs: update status with 4-difference refinement
 - `71e4544` — feat: replicate page transitions, sharp background and gallery card shadow
